@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxh0pfwuagmd8"]
 
 [ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="1_oul6g"]
-[ext_resource type="Script" uid="uid://coj1643u2kjr7" path="res://player/character_body_2d.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://coj1643u2kjr7" path="res://player/player.gd" id="1_rkbax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5n2w"]
 radius = 601.25

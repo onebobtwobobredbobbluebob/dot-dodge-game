@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dxh0pfwuagmd8" path="res://player/player.tscn" id="1_6xmxd"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://world/camera_2d.gd" id="1_tcf2h"]
+[ext_resource type="PackedScene" uid="uid://bjiycc2ry3noy" path="res://enemies/rocket.tscn" id="3_4717r"]
 
 [node name="World" type="Node2D" unique_id=556920693]
 
@@ -9,3 +10,5 @@
 script = ExtResource("1_tcf2h")
 
 [node name="Player" parent="." unique_id=759726213 instance=ExtResource("1_6xmxd")]
+
+[node name="Rocket" parent="." unique_id=98249588 instance=ExtResource("3_4717r")]

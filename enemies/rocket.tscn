@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bjiycc2ry3noy"]
+
+[ext_resource type="Script" uid="uid://fxq05kkohn0k" path="res://enemies/rocket.gd" id="1_1vlv1"]
+[ext_resource type="Texture2D" uid="uid://bech0kr5hwn01" path="res://assets/costume3.svg" id="1_41qqi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20you"]
+size = Vector2(100, 242)
+
+[node name="Rocket" type="CharacterBody2D" unique_id=98249588]
+script = ExtResource("1_1vlv1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1788852838]
+rotation = 1.5707964
+texture = ExtResource("1_41qqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1689828646]
+position = Vector2(-22, 0)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_20you")
