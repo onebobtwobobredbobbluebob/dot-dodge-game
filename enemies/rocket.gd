@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 class_name Rocket
 
@@ -7,7 +7,12 @@ var speed: float = 3
 var mode: float = 0
 var angular_vel: float = 0
 var old_rotation: float = 0
+var vel: Vector2 = Vector2(0, 0)
 
+func _ready() -> void:
+	position = Vector2(randf_range(-GameState.CENTER.x, GameState.CENTER.x), -GameState.CENTER.y - 80)
+	var target_rotation = position.direction_to(GameState.player.position).normalized().angle()
+	rotation = target_rotation
 
 func _physics_process(delta: float) -> void:
 	mode += 1
@@ -15,18 +20,21 @@ func _physics_process(delta: float) -> void:
 		var target_rotation = position.direction_to(GameState.player.position).normalized().angle()
 		rotation = lerp_angle(rotation, target_rotation, 0.2)
 		angular_vel = rotation - old_rotation
-		velocity = transform.x * speed
+		vel = transform.x * speed
 		old_rotation = rotation
 	else:
-		velocity = transform.x * speed * acceleration
+		vel = transform.x * speed * acceleration
 		acceleration *= 1.02
 		rotation += angular_vel
 		angular_vel *= 0
-	position += velocity
-	if abs(position.x) > (GameState.CENTER.x + 50):
+	position += vel
+	if abs(position.x) > (GameState.CENTER.x + 100):
 		#print("dedx")
 		queue_free()
-	if abs(position.y) > (GameState.CENTER.y + 50):
+	if abs(position.y) > (GameState.CENTER.y + 100):
 		#print("dedy")
 		queue_free()
 	#print(position.y - -GameState.CENTER.y)
+	if get_overlapping_bodies().has(GameState.player):
+		print("nji4hufbwejh4e")
+		queue_free()
