@@ -18,3 +18,6 @@ func _process(delta: float) -> void:
 		position.x = -GameState.CENTER.x
 	if position.x > GameState.CENTER.x:
 		position.x = GameState.CENTER.x
+
+func get_hit(damage: float):
+	pass

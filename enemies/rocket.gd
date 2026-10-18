@@ -36,5 +36,6 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 	#print(position.y - -GameState.CENTER.y)
 	if get_overlapping_bodies().has(GameState.player):
-		print("nji4hufbwejh4e")
+		#print("nji4hufbwejh4e")
+		GameState.player.get_hit(10)
 		queue_free()
