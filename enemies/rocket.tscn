@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjiycc2ry3noy"]
 
 [ext_resource type="Script" uid="uid://fxq05kkohn0k" path="res://enemies/rocket.gd" id="1_1vlv1"]
-[ext_resource type="Texture2D" uid="uid://bech0kr5hwn01" path="res://assets/costume3.svg" id="1_41qqi"]
+[ext_resource type="Texture2D" uid="uid://cur2dmuk78ssy" path="res://assets/rocket.png" id="2_1vlv1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20you"]
 radius = 20.0
@@ -10,11 +10,10 @@ height = 142.0
 [node name="Rocket" type="Area2D" unique_id=866823053]
 script = ExtResource("1_1vlv1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1788852838]
-position = Vector2(18.705734, -5.3739825e-07)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=647776671]
 rotation = 1.5707964
-scale = Vector2(0.51392907, 0.54745126)
-texture = ExtResource("1_41qqi")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_1vlv1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1021559217]
 position = Vector2(14, 0)
