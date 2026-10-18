@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+var speed: float = 0
+var old_pos: Vector2 = position
+
 func _ready() -> void:
 	GameState.player = self
 
@@ -18,6 +21,9 @@ func _process(delta: float) -> void:
 		position.x = -GameState.CENTER.x
 	if position.x > GameState.CENTER.x:
 		position.x = GameState.CENTER.x
-
+	speed = (old_pos - position).length()
+	if speed > 40:
+		speed = 40
+	old_pos = position
 func get_hit(damage: float):
 	pass

@@ -2,12 +2,42 @@
 
 [ext_resource type="Script" uid="uid://coj1643u2kjr7" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="2_rkbax"]
+[ext_resource type="Texture2D" uid="uid://f6vcvrybpkr2" path="res://assets/particle_1.png" id="3_g1dw6"]
+
+[sub_resource type="Gradient" id="Gradient_yw30f"]
+offsets = PackedFloat32Array(0, 0.0882353, 0.3137255)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.28937727, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_qjkh3"]
+offsets = PackedFloat32Array(0, 0.043956045, 0.113553114, 0.41391942, 0.5555556, 1)
+colors = PackedColorArray(0, 0.078431375, 0.20392157, 1, 0.05490196, 0.21176471, 0.4745098, 1, 0.14622404, 0.86732674, 0.9115511, 1, 0.16470589, 1, 1, 1, 0.09019608, 0.5921569, 0.7058824, 1, 0.05490196, 0.4627451, 0.5019608, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5n2w"]
 radius = 601.25
 
 [node name="Player" type="CharacterBody2D" unique_id=1011571958]
 script = ExtResource("1_rkbax")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=763621770]
+amount = 100
+texture = ExtResource("3_g1dw6")
+explosiveness = 0.09
+emission_shape = 1
+emission_sphere_radius = 40.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 100.0
+angular_velocity_max = 50.0
+linear_accel_min = -5.0
+linear_accel_max = -1.0
+angle_min = -100.0
+angle_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 10.0
+color = Color(1, 1, 1, 0.15686275)
+color_ramp = SubResource("Gradient_yw30f")
+color_initial_ramp = SubResource("Gradient_qjkh3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1571529856]
 scale = Vector2(0.5, 0.5)
