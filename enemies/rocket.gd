@@ -23,4 +23,10 @@ func _physics_process(delta: float) -> void:
 		rotation += angular_vel
 		angular_vel *= 0
 	position += velocity
-	print(mode)
+	if abs(position.x) > (GameState.CENTER.x + 50):
+		#print("dedx")
+		queue_free()
+	if abs(position.y) > (GameState.CENTER.y + 50):
+		#print("dedy")
+		queue_free()
+	#print(position.y - -GameState.CENTER.y)
