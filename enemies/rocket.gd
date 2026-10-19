@@ -1,6 +1,7 @@
 extends Area2D
 
 class_name Rocket
+const EXPLOSION = preload("uid://dykqlw6vlw81a")
 
 var acceleration: float = 4
 var speed: float = 3
@@ -38,4 +39,9 @@ func _physics_process(delta: float) -> void:
 	if get_overlapping_bodies().has(GameState.player):
 		#print("nji4hufbwejh4e")
 		GameState.player.get_hit(10)
+		var explosion = EXPLOSION.instantiate()
+		explosion.position = position
+		explosion.position += transform.x * 30
+		GameState.camera.shake += 30
+		add_sibling(explosion)
 		queue_free()
