@@ -1,7 +1,38 @@
 [gd_scene format=3 uid="uid://cij2bqbypbds4"]
 
-[ext_resource type="PackedScene" uid="uid://dxh0pfwuagmd8" path="res://player/player.tscn" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://sfeyq4kvvhu7" path="res://main/main.gd" id="1_pjrb6"]
+[ext_resource type="Texture2D" uid="uid://cctawv3j0qiu" path="res://assets/bob.png" id="2_c651c"]
+[ext_resource type="PackedScene" uid="uid://b3ow5ef8lcb2r" path="res://world/world.tscn" id="2_xwkvk"]
+[ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 
 [node name="Main" type="Node2D" unique_id=1763812037]
+script = ExtResource("1_pjrb6")
 
-[node name="Player" parent="." unique_id=759726213 instance=ExtResource("1_53q0u")]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=280914421]
+position = Vector2(270, -31)
+texture = ExtResource("2_c651c")
+
+[node name="Label2" type="Label" parent="." unique_id=2054072532]
+offset_left = -527.0
+offset_top = 146.0
+offset_right = 473.0
+offset_bottom = 437.0
+theme_override_font_sizes/font_size = 28
+text = "also btw you got a score of "
+script = ExtResource("3_c651c")
+
+[node name="Label" type="Label" parent="." unique_id=681835781]
+offset_left = -526.0
+offset_top = -185.0
+offset_right = 474.0
+offset_bottom = 106.0
+theme_override_font_sizes/font_size = 28
+text = "oh welp you ded
+
+i forgot to add reset option so ig death is perma now
+
+gotta reload to restart hehe
+
+anyways ill work on this game a lot more next week so itll be better i hope"
+
+[node name="World" parent="." unique_id=556920693 instance=ExtResource("2_xwkvk")]

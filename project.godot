@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="dot-dodge-game"
-run/main_scene="uid://b3ow5ef8lcb2r"
+run/main_scene="uid://cij2bqbypbds4"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
