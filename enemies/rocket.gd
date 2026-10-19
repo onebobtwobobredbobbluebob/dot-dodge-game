@@ -43,5 +43,6 @@ func _physics_process(delta: float) -> void:
 		explosion.position = position
 		explosion.position += transform.x * 30
 		GameState.camera.shake += 30
+		#GameState.camera.zoom = Vector2(0.9, 0.9)
 		add_sibling(explosion)
 		queue_free()

@@ -3,11 +3,37 @@
 [ext_resource type="PackedScene" uid="uid://dxh0pfwuagmd8" path="res://player/player.tscn" id="1_6xmxd"]
 [ext_resource type="Script" uid="uid://0r6pccma8j73" path="res://world/world.gd" id="1_h5o24"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://world/camera_2d.gd" id="1_tcf2h"]
+[ext_resource type="Texture2D" uid="uid://dla2crxxa16ku" path="res://assets/background.png" id="2_h5o24"]
+[ext_resource type="Script" uid="uid://h538l07d675r" path="res://world/node_2d.gd" id="5_fn3g3"]
+[ext_resource type="PackedScene" uid="uid://dqyugskh0mrhc" path="res://ui/health.tscn" id="5_mmdvd"]
+[ext_resource type="Script" uid="uid://djmmxotl1bcvn" path="res://world/label.gd" id="7_sc4t8"]
 
 [node name="World" type="Node2D" unique_id=556920693]
 script = ExtResource("1_h5o24")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1960123608]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_h5o24")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1027449500]
 script = ExtResource("1_tcf2h")
 
 [node name="Player" parent="." unique_id=759726213 instance=ExtResource("1_6xmxd")]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=824657431]
+script = ExtResource("5_fn3g3")
+
+[node name="Health" parent="Node2D" unique_id=1775163025 instance=ExtResource("5_mmdvd")]
+position = Vector2(0, -58.999992)
+scale = Vector2(0.48, 0.48)
+
+[node name="Label" type="Label" parent="." unique_id=1276136382]
+modulate = Color(0, 0.078431375, 0.20392157, 1)
+offset_left = -621.0
+offset_top = -344.0
+offset_right = -181.0
+offset_bottom = -163.0
+theme_override_colors/font_shadow_color = Color(0.16470589, 0.79607844, 0.8, 1)
+theme_override_font_sizes/font_size = 37
+text = "Score: 0"
+script = ExtResource("7_sc4t8")

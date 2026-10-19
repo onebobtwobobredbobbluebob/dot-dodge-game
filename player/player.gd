@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var speed: float = 0
 var old_pos: Vector2 = position
+var max_health: float = 5
+var health: float = 5
 
 func _ready() -> void:
 	GameState.player = self
@@ -26,4 +28,4 @@ func _process(delta: float) -> void:
 		speed = 40
 	old_pos = position
 func get_hit(damage: float):
-	pass
+	health -= 1

@@ -8,3 +8,4 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position = Vector2(randf_range(-shake, shake), randf_range(-shake, shake))
 	shake *= 0.92
+	zoom += (Vector2(1, 1) - zoom) * 0.1
