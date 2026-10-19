@@ -1,7 +1,7 @@
 extends Area2D
 
 class_name Saw
-const EXPLOSION = preload("uid://dykqlw6vlw81a")
+const EXPLOSION = preload("uid://brk38ev5nd2cg")
 var mode: bool = randf_range(0, 2) > 1
 var speed: float = 3
 var angular_vel: float = 0

@@ -17,5 +17,4 @@ func _process(delta: float) -> void:
 			GameState.camera.shake = 50
 		else:
 			timer = 0
-	print(timer)
 		
