@@ -1,13 +1,16 @@
 extends Node2D
 
 const ROCKET = preload("uid://bjiycc2ry3noy")
+const SAW = preload("uid://hvx68dliwpai")
 var timer: float = 0
 var goal: float = 2
 
 func _process(delta: float) -> void:
 	if(timer > goal):
 		var rocket = ROCKET.instantiate()
+		var saw = SAW.instantiate()
 		add_child(rocket)
+		add_child(saw)
 		if $Label.timer > 10:
 			if randf_range(0, 1) > 0.4:
 				var rocket2 = ROCKET.instantiate()

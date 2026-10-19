@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://hvx68dliwpai"]
+
+[ext_resource type="Script" uid="uid://d4bp1haii237v" path="res://enemies/saw.gd" id="1_u376h"]
+[ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="2_vssgt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5n2w"]
+radius = 61.008198
+
+[node name="Saw" type="Area2D" unique_id=776619708]
+script = ExtResource("1_u376h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1962454380]
+texture = ExtResource("2_vssgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951337750]
+shape = SubResource("CircleShape2D_d5n2w")

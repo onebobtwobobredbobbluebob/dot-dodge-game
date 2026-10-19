@@ -34,6 +34,6 @@ offset_top = -344.0
 offset_right = -181.0
 offset_bottom = -163.0
 theme_override_colors/font_shadow_color = Color(0.16470589, 0.79607844, 0.8, 1)
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 39
 text = "Score: 0"
 script = ExtResource("7_sc4t8")
