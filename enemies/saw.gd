@@ -12,10 +12,13 @@ func _ready() -> void:
 		position = Vector2(-(GameState.CENTER.x + 80), randf_range(-GameState.CENTER.y, GameState.CENTER.y))
 
 func _physics_process(delta: float) -> void:
+	var actual_speed = speed * (1 + (GameState.timer / 40))
+	if actual_speed > 15:
+		actual_speed = 15
 	if mode:
-		position.x -=10
+		position.x -= speed 
 	else:
-		position.x += 10
+		position.x += speed
 	
 	if get_overlapping_bodies().has(GameState.player):
 		#print("nji4hufbwejh4e")

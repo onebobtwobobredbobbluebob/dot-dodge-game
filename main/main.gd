@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	else:
 		if timer > 1.5:
 			GameState.alive = false
-			$Label2.set_score(int(round($World/Label.timer)))
+			$Label2.set_score(int(round(GameState.timer)))
 		if GameState.player.health <= 0:
 			timer += delta
 			GameState.camera.shake = 50
