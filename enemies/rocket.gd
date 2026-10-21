@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	#print(position.y - -GameState.CENTER.y)
 	if get_overlapping_bodies().has(GameState.player):
 		#print("nji4hufbwejh4e")
-		GameState.player.get_hit(10)
+		GameState.player.get_hit(10, 2)
 		delete()
 	for item in get_overlapping_areas():
 		#print(item)
@@ -53,10 +53,10 @@ func delete():
 	var dist: float = (position - GameState.player.position).length()
 	if dist < 100:
 		dist = 100
-	print()
-	print(dist)
+	#print()
+	#print(dist)
 	var shake: float = 7000 / dist
-	print(shake)
+	#print(shake)
 	GameState.camera.shake += shake
 	#GameState.camera.zoom = Vector2(0.9, 0.9)
 	add_sibling(explosion)

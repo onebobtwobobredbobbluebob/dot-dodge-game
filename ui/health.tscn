@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://gtkcs5ldyft1" path="res://assets/health_bar_empty.png" id="2_u6yb3"]
 [ext_resource type="Texture2D" uid="uid://c2ig8m2tjn6q0" path="res://assets/health_bar_fillings.png" id="3_2lrnv"]
 [ext_resource type="Texture2D" uid="uid://ciiil77tcqjsm" path="res://assets/health_bar_shadows.png" id="4_nmrkx"]
+[ext_resource type="Script" uid="uid://dxqvra3haydqf" path="res://ui/health_flash_effect.gd" id="4_u6yb3"]
 [ext_resource type="Texture2D" uid="uid://bv1vucs5joabv" path="res://assets/health_bar_outline.png" id="5_du5ao"]
 
 [node name="Health" type="Node2D" unique_id=1775163025]
@@ -13,8 +14,13 @@ script = ExtResource("1_lpdhr")
 clip_children = 2
 texture = ExtResource("2_u6yb3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D3" unique_id=1032637442]
-position = Vector2(-3, 0)
+[node name="HealthFlashEffect" type="Sprite2D" parent="Sprite2D3" unique_id=1135834547]
+position = Vector2(-50, 0)
+texture = ExtResource("3_2lrnv")
+script = ExtResource("4_u6yb3")
+
+[node name="HealthInsides" type="Sprite2D" parent="Sprite2D3" unique_id=1032637442]
+position = Vector2(-91, 0)
 texture = ExtResource("3_2lrnv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D3" unique_id=611524799]

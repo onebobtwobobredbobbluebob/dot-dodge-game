@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 var speed: float = 0
 var old_pos: Vector2 = position
-var max_health: float = 5
-var health: float = 5
+var max_health: float = 100
+var health: float = 100
+var flash_timer: float = 0
+var flash: float = 1
 
 func _ready() -> void:
 	GameState.player = self
@@ -27,5 +29,10 @@ func _process(delta: float) -> void:
 	if speed > 40:
 		speed = 40
 	old_pos = position
-func get_hit(damage: float):
-	health -= 1
+	
+	flash = lerp(flash, 0.0, 1 - pow(0.0005, delta))
+	$Sprite2D/WhiteOverlay.modulate.a = flash
+
+func get_hit(damage: float, flash_time: float):
+	flash = flash_time
+	health -= damage
