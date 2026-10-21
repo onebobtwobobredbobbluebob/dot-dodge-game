@@ -12,5 +12,5 @@ func _physics_process(delta: float) -> void:
 	else:
 		x = (GameState.player.health / GameState.player.max_health) * 230 + -233
 	$Sprite2D3/HealthInsides.position.x += (x - $Sprite2D3/HealthInsides.position.x) * 0.05
-	if abs(x - $Sprite2D3/HealthInsides.position.x) < 0.6:
+	if abs(x - $Sprite2D3/HealthInsides.position.x) < 0.8:
 		$Sprite2D3/HealthFlashEffect.position.x += ($Sprite2D3/HealthInsides.position.x - $Sprite2D3/HealthFlashEffect.position.x) * 0.1

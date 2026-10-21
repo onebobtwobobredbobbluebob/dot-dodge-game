@@ -4,7 +4,7 @@ class_name Saw
 const EXPLOSION = preload("uid://brk38ev5nd2cg")
 var mode: bool = randf_range(0, 2) > 1
 var speed: float = 3
-var angular_vel: float = 0
+var angular_vel: float = 3
 var damage_cooldown: float = 0
 func _ready() -> void:
 	if mode:
@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 			GameState.camera.shake += 3
 			damage_cooldown = 0.1
 	damage_cooldown -= delta
+	rotation_degrees += angular_vel
 
 func delete():
 	var explosion = EXPLOSION.instantiate()
