@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjiycc2ry3noy"]
 
 [ext_resource type="Script" uid="uid://fxq05kkohn0k" path="res://enemies/rocket.gd" id="1_1vlv1"]
-[ext_resource type="Texture2D" uid="uid://cur2dmuk78ssy" path="res://assets/rocket.png" id="2_1vlv1"]
+[ext_resource type="Texture2D" uid="uid://cvol6m8pwnceh" path="res://assets/rocket_2.png" id="2_1vlv1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20you"]
 radius = 24.0

@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 	for item in get_overlapping_areas():
 		#print(item)
 		if item is Saw:
+			item.flash = 1.5
 			delete()
 		
 		

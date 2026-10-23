@@ -6,6 +6,7 @@ var mode: bool = randf_range(0, 2) > 1
 var speed: float = 3
 var angular_vel: float = 3
 var damage_cooldown: float = 0
+var flash: float = 0
 func _ready() -> void:
 	if mode:
 		position = Vector2(GameState.CENTER.x + 80, randf_range(-GameState.CENTER.y, GameState.CENTER.y))
@@ -35,8 +36,12 @@ func _physics_process(delta: float) -> void:
 			#delete()
 			GameState.camera.shake += 3
 			damage_cooldown = 0.1
+			flash = 0.3
 	damage_cooldown -= delta
 	rotation_degrees += angular_vel
+	
+	flash = lerp(flash, 0.0, 1 - pow(0.000005, delta))
+	$Sprite2D/Sprite2D.modulate.a = flash
 
 func delete():
 	var explosion = EXPLOSION.instantiate()

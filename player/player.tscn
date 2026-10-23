@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="2_rkbax"]
 [ext_resource type="Texture2D" uid="uid://f6vcvrybpkr2" path="res://assets/particle_1.png" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="4_yw30f"]
+[ext_resource type="Texture2D" uid="uid://dc331s1mykoa" path="res://assets/saw.png" id="5_qjkh3"]
 
 [sub_resource type="Gradient" id="Gradient_yw30f"]
 offsets = PackedFloat32Array(0, 0.0882353, 0.3137255)
@@ -15,6 +16,10 @@ colors = PackedColorArray(0, 0.078431375, 0.20392157, 1, 0.05490196, 0.21176471,
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5n2w"]
 radius = 633.9583
+
+[sub_resource type="Gradient" id="Gradient_20you"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1011571958]
 script = ExtResource("1_rkbax")
@@ -52,3 +57,21 @@ texture = ExtResource("2_rkbax")
 [node name="WhiteOverlay" type="Sprite2D" parent="Sprite2D" unique_id=629727572]
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("4_yw30f")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1689439065]
+visible = false
+modulate = Color(18.892157, 18.892157, 18.892157, 0.25490198)
+position = Vector2(-30.000002, 20.000002)
+rotation = 0.7853982
+amount = 10
+texture = ExtResource("5_qjkh3")
+lifetime = 8.4
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+direction = Vector2(1, 1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color_initial_ramp = SubResource("Gradient_20you")
