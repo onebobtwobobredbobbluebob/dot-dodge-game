@@ -11,8 +11,8 @@ var goal2: float = 5
 
 func _process(delta: float) -> void:
 	if timer > goal:
-		add_item(ROCKET, 1)
-		add_item(SAW, 1)
+		add_item(ROCKET, round(randf_range(1, 1 + (GameState.timer / 20))))
+		add_item(SAW, min(round(randf_range(1, 1 + (GameState.timer / 50))), 4))
 		goal = randf_range(2 / (1 + (GameState.timer / 20)), 5 / (1 + (GameState.timer / 40)))
 		timer = 0
 
