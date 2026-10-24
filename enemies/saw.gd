@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees += angular_vel
 	
 	flash = lerp(flash, 0.0, 1 - pow(0.000005, delta))
-	$Sprite2D/Sprite2D.modulate.a = flash
+	$Sprite2D/WhiteOverlay.modulate.a = flash
 
 func delete():
 	var explosion = EXPLOSION.instantiate()

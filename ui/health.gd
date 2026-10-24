@@ -22,3 +22,5 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D3/HealthFlashEffect.position.x += ($Sprite2D3/HealthInsides.position.x - $Sprite2D3/HealthFlashEffect.position.x) * 0.1
 	if x - $Sprite2D3/HealthInsides.position.x > 7:
 		$HealParticles.emitting = true
+	if GameState.player.health > 0:
+		GameState.player.health += (GameState.player.max_health / 100) * delta
