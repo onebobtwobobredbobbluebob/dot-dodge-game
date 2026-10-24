@@ -19,4 +19,7 @@ func _process(delta: float) -> void:
 				GameState.camera.shake = 50
 		else:
 			timer = 0
+			if GameState.camera.shake > 60:
+				#print(GameState.camera.shake)
+				GameState.camera.shake = 60
 		

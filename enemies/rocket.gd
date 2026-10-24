@@ -56,7 +56,7 @@ func delete():
 		dist = 100
 	#print()
 	#print(dist)
-	var shake: float = 7000 / dist
+	var shake: float = 5000 / dist
 	#print(shake)
 	GameState.camera.shake += shake
 	#GameState.camera.zoom = Vector2(0.9, 0.9)

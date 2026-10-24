@@ -34,7 +34,8 @@ func _physics_process(delta: float) -> void:
 		if damage_cooldown < 0:
 			GameState.player.get_hit(1, 0.7)
 			#delete()
-			GameState.camera.shake += 3
+			if GameState.camera.shake < 30:
+				GameState.camera.shake += 3
 			damage_cooldown = 0.1
 			flash = 0.3
 	damage_cooldown -= delta
