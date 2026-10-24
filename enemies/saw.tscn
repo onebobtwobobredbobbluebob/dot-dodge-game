@@ -15,7 +15,7 @@ clip_children = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_u376h")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=2099814254]
+[node name="WhiteOverlay" type="Sprite2D" parent="Sprite2D" unique_id=2099814254]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(3.3888888, 3.0666666)
 texture = ExtResource("3_vssgt")

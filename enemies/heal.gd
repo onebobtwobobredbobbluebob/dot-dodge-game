@@ -53,8 +53,8 @@ func _physics_process(delta: float) -> void:
 		flash = lerp(flash, 0.0, 1 - pow(0.000005, delta))
 		$Sprite2D/Sprite2D.modulate.a = flash
 	else:
-		$Sprite2D.self_modulate.a -= delta * 5
-		$Sprite2D.scale += Vector2(1, 1) * delta
+		modulate.a -= delta * 5
+		scale += Vector2(1, 1) * delta
 		if $Sprite2D.self_modulate.a <= 0:
 			queue_free()
 

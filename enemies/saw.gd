@@ -9,8 +9,10 @@ var damage_cooldown: float = 0
 var flash: float = 0
 func _ready() -> void:
 	var y = randf_range(-GameState.CENTER.y, GameState.CENTER.y)
-	if randf_range(0, 1) < 1:
+	if randf_range(0, 1) < 0.6:
 		y = randf_range(0, GameState.CENTER.y)
+		if randf_range(0, 1) < 0.2:
+			y = randf_range(GameState.CENTER.y * 0.5, GameState.CENTER.y)
 	if mode:
 		position = Vector2(GameState.CENTER.x + 80, y)
 	else:
