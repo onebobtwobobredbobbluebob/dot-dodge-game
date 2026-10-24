@@ -6,6 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://bcj5bqyk7t3h7" path="res://assets/health_bar_fillings_white.png" id="3_u6yb3"]
 [ext_resource type="Texture2D" uid="uid://ciiil77tcqjsm" path="res://assets/health_bar_shadows.png" id="4_nmrkx"]
 [ext_resource type="Texture2D" uid="uid://bv1vucs5joabv" path="res://assets/health_bar_outline.png" id="5_du5ao"]
+[ext_resource type="Texture2D" uid="uid://bdxxjm2jryhwr" path="res://assets/particle_health.png" id="7_2lrnv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_20you"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 3
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_1vldf"]
+offsets = PackedFloat32Array(0, 0.41621622, 0.5297297, 0.6216216, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.47959182, 1, 1, 1, 1, 1, 1, 1, 0.67816097, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_6ituw"]
+colors = PackedColorArray(0.79, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="Health" type="Node2D" unique_id=1775163025]
 script = ExtResource("1_lpdhr")
@@ -15,8 +29,13 @@ clip_children = 2
 texture = ExtResource("2_u6yb3")
 
 [node name="HealthFlashEffect" type="Sprite2D" parent="Sprite2D3" unique_id=1135834547]
-modulate = Color(0.65999997, 0.915, 1, 0.93333334)
+modulate = Color(0.65999997, 0.73366666, 1, 0.93333334)
 position = Vector2(-236, 0)
+texture = ExtResource("3_u6yb3")
+
+[node name="HealthHealEffect" type="Sprite2D" parent="Sprite2D3" unique_id=2008830620]
+modulate = Color(0.65999997, 1, 0.7166666, 0.93333334)
+position = Vector2(-3, 0)
 texture = ExtResource("3_u6yb3")
 
 [node name="HealthInsides" type="Sprite2D" parent="Sprite2D3" unique_id=1032637442]
@@ -28,3 +47,28 @@ texture = ExtResource("4_nmrkx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=770644008]
 texture = ExtResource("5_du5ao")
+
+[node name="HealParticles" type="CPUParticles2D" parent="." unique_id=1091411681]
+light_mask = 257
+material = SubResource("CanvasItemMaterial_20you")
+position = Vector2(0, 6)
+emitting = false
+amount = 10
+texture = ExtResource("7_2lrnv")
+one_shot = true
+explosiveness = 0.5
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(108, 20)
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, -50)
+initial_velocity_max = 10.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+linear_accel_min = 20.0
+linear_accel_max = 50.0
+color = Color(1, 1, 1, 0.6431373)
+color_ramp = SubResource("Gradient_1vldf")
+color_initial_ramp = SubResource("Gradient_6ituw")
+anim_offset_max = 1.0

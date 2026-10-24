@@ -6,6 +6,7 @@ var max_health: float = 100
 var health: float = 100
 var flash_timer: float = 0
 var flash: float = 1
+var flash_green: float = 1
 
 func _ready() -> void:
 	GameState.player = self
@@ -32,9 +33,16 @@ func _process(delta: float) -> void:
 	
 	flash = lerp(flash, 0.0, 1 - pow(0.0005, delta))
 	$Sprite2D/WhiteOverlay.modulate.a = flash
+	
+	flash_green = lerp(flash_green, 0.0, 1 - pow(0.05, delta))
+	$Sprite2D/GreenOverlay.modulate.a = flash_green
+	
 	if health > max_health:
 		health = max_health
 
 func get_hit(damage: float, flash_time: float):
 	flash = flash_time
 	health -= damage
+	if damage < 0:
+		flash_green = 0.8
+		$HealParticles.emitting = true

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://f6vcvrybpkr2" path="res://assets/particle_1.png" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="4_yw30f"]
 [ext_resource type="Texture2D" uid="uid://dc331s1mykoa" path="res://assets/saw.png" id="5_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://bdxxjm2jryhwr" path="res://assets/particle_health.png" id="6_g6k8r"]
 
 [sub_resource type="Gradient" id="Gradient_yw30f"]
 offsets = PackedFloat32Array(0, 0.0882353, 0.3137255)
@@ -20,6 +21,19 @@ radius = 633.9583
 [sub_resource type="Gradient" id="Gradient_20you"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_20you"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 3
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_1vldf"]
+offsets = PackedFloat32Array(0, 0.41621622, 0.5297297, 0.6216216, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.47959182, 1, 1, 1, 1, 1, 1, 1, 0.67816097, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_6ituw"]
+colors = PackedColorArray(0.79, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1011571958]
 script = ExtResource("1_rkbax")
@@ -58,6 +72,10 @@ texture = ExtResource("2_rkbax")
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("4_yw30f")
 
+[node name="GreenOverlay" type="Sprite2D" parent="Sprite2D" unique_id=552554198]
+modulate = Color(0.29000002, 1, 0.34916663, 0)
+texture = ExtResource("4_yw30f")
+
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1689439065]
 visible = false
 modulate = Color(18.892157, 18.892157, 18.892157, 0.25490198)
@@ -75,3 +93,29 @@ initial_velocity_max = 10.0
 scale_amount_min = 0.01
 scale_amount_max = 0.02
 color_initial_ramp = SubResource("Gradient_20you")
+
+[node name="HealParticles" type="CPUParticles2D" parent="." unique_id=1091411681]
+visible = false
+light_mask = 257
+material = SubResource("CanvasItemMaterial_20you")
+position = Vector2(-1, 5)
+emitting = false
+amount = 10
+texture = ExtResource("6_g6k8r")
+one_shot = true
+explosiveness = 0.5
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 35.43
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, -50)
+initial_velocity_max = 10.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+linear_accel_min = 20.0
+linear_accel_max = 50.0
+color = Color(1, 1, 1, 0.6431373)
+color_ramp = SubResource("Gradient_1vldf")
+color_initial_ramp = SubResource("Gradient_6ituw")
+anim_offset_max = 1.0
