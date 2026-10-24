@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bb25hrqjtx7yw"]
+
+[ext_resource type="Script" uid="uid://b58rlqt3q3nrx" path="res://enemies/heal.gd" id="1_f3jf0"]
+[ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="2_4aalh"]
+[ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="3_3kt5j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5n2w"]
+radius = 34.234486
+
+[node name="Heal" type="Area2D" unique_id=776619708]
+script = ExtResource("1_f3jf0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1962454380]
+clip_children = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4aalh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=2099814254]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(3.3888888, 3.0666666)
+texture = ExtResource("3_3kt5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951337750]
+shape = SubResource("CircleShape2D_d5n2w")

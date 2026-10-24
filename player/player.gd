@@ -32,6 +32,8 @@ func _process(delta: float) -> void:
 	
 	flash = lerp(flash, 0.0, 1 - pow(0.0005, delta))
 	$Sprite2D/WhiteOverlay.modulate.a = flash
+	if health > max_health:
+		health = max_health
 
 func get_hit(damage: float, flash_time: float):
 	flash = flash_time
