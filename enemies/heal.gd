@@ -42,9 +42,9 @@ func _physics_process(delta: float) -> void:
 		
 		if get_overlapping_bodies().has(GameState.player):
 			#print("nji4hufbwejh4e")
-			GameState.player.get_hit(-10, 0.7)
+			GameState.player.get_hit(-20, 3)
 			delete()
-			#GameState.camera.shake += 3
+			#GameState.camera.shake += 3		
 			#damage_cooldown = 0.1
 			#flash = 0.3
 		#damage_cooldown -= delta
@@ -64,6 +64,6 @@ func delete():
 	var explosion = EXPLOSION.instantiate()
 	explosion.position = position
 	explosion.position += transform.x * 30
-	#GameState.camera.shake += 30
+	GameState.camera.shake += 2
 	#GameState.camera.zoom = Vector2(0.9, 0.9)
 	add_sibling(explosion)
