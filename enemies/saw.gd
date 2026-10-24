@@ -8,10 +8,13 @@ var angular_vel: float = 3
 var damage_cooldown: float = 0
 var flash: float = 0
 func _ready() -> void:
+	var y = randf_range(-GameState.CENTER.y, GameState.CENTER.y)
+	if randf_range(0, 1) < 1:
+		y = randf_range(0, GameState.CENTER.y)
 	if mode:
-		position = Vector2(GameState.CENTER.x + 80, randf_range(-GameState.CENTER.y, GameState.CENTER.y))
+		position = Vector2(GameState.CENTER.x + 80, y)
 	else:
-		position = Vector2(-(GameState.CENTER.x + 80), randf_range(-GameState.CENTER.y, GameState.CENTER.y))
+		position = Vector2(-(GameState.CENTER.x + 80), y)
 
 func _physics_process(delta: float) -> void:
 	var actual_speed = speed * (1 + (GameState.timer / 40))
