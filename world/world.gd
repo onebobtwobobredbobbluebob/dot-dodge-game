@@ -11,10 +11,8 @@ var goal2: float = 5
 
 func _process(delta: float) -> void:
 	if timer > goal:
-		var rocket = ROCKET.instantiate()
-		var saw = SAW.instantiate()
-		$Enemies.add_child(rocket)
-		$Enemies.add_child(saw)
+		add_item(ROCKET, 1)
+		add_item(SAW, 1)
 		goal = randf_range(2 / (1 + (GameState.timer / 20)), 5 / (1 + (GameState.timer / 40)))
 		timer = 0
 
@@ -26,3 +24,8 @@ func _process(delta: float) -> void:
 
 	timer += delta
 	timer2 += delta
+
+func add_item(ITEM: PackedScene, amount: int):
+	for i in range(amount):
+		var item = ITEM.instantiate()
+		$Enemies.add_child(item)
