@@ -21,8 +21,8 @@ func _process(delta: float) -> void:
 	if timer2 > goal2:
 		var heal = HEAL.instantiate()
 		$Enemies.add_child(heal)
-		goal2 = randf_range(10, 40)
-		timer2 = 0
+		#goal2 = randf_range(10, 40)
+		#timer2 = 0
 
 	timer += delta
 	timer2 += delta

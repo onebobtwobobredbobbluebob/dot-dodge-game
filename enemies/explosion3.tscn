@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dgi5ytttdu1km"]
+
+[ext_resource type="Script" uid="uid://blc0uhalrxn1r" path="res://enemies/explosion.gd" id="1_jre5e"]
+[ext_resource type="Texture2D" uid="uid://f6vcvrybpkr2" path="res://assets/particle_1.png" id="2_286rs"]
+
+[sub_resource type="Gradient" id="Gradient_ovo5l"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_1vlv1"]
+offsets = PackedFloat32Array(0, 0.12972973, 1)
+colors = PackedColorArray(0.3685, 0.5076501, 0.55, 1, 0.39, 0.39, 0.39, 1, 1, 1, 1, 1)
+
+[node name="Explosion2" type="Node2D" unique_id=1987168652]
+script = ExtResource("1_jre5e")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1812128018]
+emitting = false
+amount = 20
+texture = ExtResource("2_286rs")
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 180.0
+initial_velocity_max = 270.0
+linear_accel_min = 4.0
+linear_accel_max = 5.0
+damping_min = 170.0
+damping_max = 170.0
+scale_amount_max = 1.5
+color = Color(0, 1, 0.51666665, 1)
+color_ramp = SubResource("Gradient_ovo5l")
+color_initial_ramp = SubResource("Gradient_1vlv1")
