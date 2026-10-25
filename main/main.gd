@@ -4,9 +4,9 @@ var timer: float = 0
 var leaderboard: bool = false
 
 func _ready() -> void:
-	CheddaBoards.set_api_key("cb_dot-dodge_7d2a118c7376213e8ee98b5ed9e2f688")
-	CheddaBoards.set_game_id("dot-dodge")
-	CheddaBoards.scoreboard_loaded.connect(_on_scoreboard)
+	CheddaBoards.set_api_key("cb_dot-dodge-2_c0f4373ea37958099d97e7823b098e6b")
+	CheddaBoards.set_game_id("dot-dodge-2")
+	CheddaBoards.scoreboard_loaded.connect(_on_leaderboard)
 	await CheddaBoards.wait_until_ready()
 	CheddaBoards.login_anonymous()
 	GameState.alive = true
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		
 		if leaderboard:
 			if $Ded.visible or CheddaBoards._nickname_just_changed:
-				CheddaBoards.get_scoreboard("all_time", 10)
+				CheddaBoards.get_scoreboard("high-scores", 100)
 				$LeaderBoard/Label.text = "loading..."
 			if $LeaderBoard/LineEdit.submitted:
 				CheddaBoards.change_nickname($LeaderBoard/LineEdit.submitted_string)
@@ -40,8 +40,8 @@ func _process(delta: float) -> void:
 		if timer > 1.5:
 			GameState.alive = false
 			$Ded/Label2.set_score(int(round(GameState.timer)))
-			CheddaBoards.submit_score(int(round(GameState.timer)))
-			print(int(round(GameState.timer)))
+			CheddaBoards.submit_score_to_board("high-scores", int(round(GameState.timer)))
+			#print(int(round(GameState.timer)))
 		if GameState.player.health <= 0:
 			timer += delta
 			GameState.camera.shake += delta * 5
@@ -53,7 +53,9 @@ func _process(delta: float) -> void:
 				#print(GameState.camera.shake)
 				GameState.camera.shake = 60
 		
-func _on_scoreboard(id: String, config: Dictionary, entries: Array):
+func _on_leaderboard(id: String, config: Dictionary, entries: Array):
 	$LeaderBoard/Label.text = "Global Leaderboard"
+	print(id + ": " + "entires: " + str(entries.size()))
+	print("playerid: " + CheddaBoards.get_player_id())
 	for i in entries:
 		$LeaderBoard/Label.text += "\n" + (str(int(round(i.rank))) + ": " + str(i.nickname) + " - " + str(int(round(i.score))))
