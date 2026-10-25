@@ -3,6 +3,8 @@ extends Node2D
 const ROCKET = preload("uid://bjiycc2ry3noy")
 const SAW = preload("uid://hvx68dliwpai")
 const HEAL = preload("uid://bb25hrqjtx7yw")
+const LASER = preload("uid://d1ulw7nutlcgd")
+
 
 var timer: float = 0
 var timer2: float = 0
@@ -14,6 +16,7 @@ var goal3: float = 22
 func _process(delta: float) -> void:
 	if timer > goal:
 		add_item(ROCKET, round(randf_range(1, 1 + (GameState.timer / 40))))
+		add_item(LASER, round(randf_range(1, 1 + (GameState.timer / 40))))
 		goal = randf_range(2 / (1 + (GameState.timer / 20)), 7 / (1 + (GameState.timer / 40)))
 		timer = 0
 	

@@ -19,6 +19,8 @@ texture = ExtResource("2_h5o24")
 
 [node name="Enemies" type="Node2D" parent="." unique_id=565335497]
 
+[node name="Enemies2" type="Node2D" parent="." unique_id=18314902]
+
 [node name="Player" parent="." unique_id=759726213 instance=ExtResource("1_6xmxd")]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=824657431]
@@ -45,7 +47,7 @@ offset = Vector2(640, 360)
 transform = Transform2D(1, 0, 0, 1, 640, 360)
 
 [node name="Vignette" type="Sprite2D" parent="CanvasLayer" unique_id=81844700]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0)
 texture = ExtResource("8_ai45w")
 script = ExtResource("8_4papg")
 

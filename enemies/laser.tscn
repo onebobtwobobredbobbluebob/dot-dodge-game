@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d1ulw7nutlcgd"]
+
+[ext_resource type="Script" uid="uid://bfms3xgovmeok" path="res://enemies/laser.gd" id="1_tjo3h"]
+[ext_resource type="Texture2D" uid="uid://d1581nyv7y1qq" path="res://assets/laser_big.png" id="2_5wnsh"]
+[ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="3_nado5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5n2w"]
+size = Vector2(3000, 30)
+
+[node name="Saw" type="Area2D" unique_id=776619708]
+script = ExtResource("1_tjo3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1962454380]
+clip_children = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5wnsh")
+vframes = 3
+frame = 2
+
+[node name="WhiteOverlay" type="Sprite2D" parent="Sprite2D" unique_id=2099814254]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(3.3888888, 3.0666666)
+texture = ExtResource("3_nado5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951337750]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_d5n2w")
