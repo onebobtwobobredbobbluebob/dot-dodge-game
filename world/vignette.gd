@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		target_a = 1.0 + (-GameState.player.health / (GameState.player.max_health / 3))
 	else:
 		target_a = 0
-	modulate.a = lerp(modulate.a, target_a, 1 - pow(0.05, delta))
+	modulate.a = lerp(modulate.a, target_a, 1 - pow(0.2, delta))
 	
 	if not GameState.alive:
 		visible = false
