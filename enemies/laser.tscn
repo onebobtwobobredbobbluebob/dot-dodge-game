@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="3_nado5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5n2w"]
-size = Vector2(3000, 30)
+size = Vector2(3000, 10)
 
 [node name="Laser" type="Area2D" unique_id=776619708]
 script = ExtResource("1_tjo3h")
@@ -15,13 +15,13 @@ clip_children = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_5wnsh")
 vframes = 3
-frame = 2
 
 [node name="WhiteOverlay" type="Sprite2D" parent="Sprite2D" unique_id=2099814254]
 modulate = Color(1, 1, 1, 0)
-scale = Vector2(3.3888888, 3.0666666)
+scale = Vector2(37.300003, 3.0666666)
 texture = ExtResource("3_nado5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951337750]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_d5n2w")
+disabled = true

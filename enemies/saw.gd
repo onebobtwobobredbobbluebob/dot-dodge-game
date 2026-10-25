@@ -43,6 +43,10 @@ func _physics_process(delta: float) -> void:
 				GameState.camera.shake += 3
 			damage_cooldown = 0.1
 			flash = 0.3
+	for item in get_overlapping_areas():
+		if item is Laser:
+			item.flash = 0.1
+			delete()
 	damage_cooldown -= delta
 	rotation_degrees += angular_vel
 	
@@ -53,7 +57,11 @@ func delete():
 	var explosion = EXPLOSION.instantiate()
 	explosion.position = position
 	explosion.position += transform.x * 30
-	GameState.camera.shake += 30
+	var dist: float = (position - GameState.player.position).length()
+	if dist < 100:
+		dist = 100
+	var shake: float = 2000 / dist
+	GameState.camera.shake += shake
 	#GameState.camera.zoom = Vector2(0.9, 0.9)
 	add_sibling(explosion)
 	queue_free()

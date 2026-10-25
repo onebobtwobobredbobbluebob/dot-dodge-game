@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 		timer3 = 0
 		
 	if timer4 > goal4:
-		add_item(LASER, min(round(randf_range(1, 1 + (GameState.timer / 60))), 3))
+		add_item(LASER, min(round(randf_range(1, 1 + ((GameState.timer - 60) / 60))), 3))
 		goal4 = randf_range(max(25 / (1 + (GameState.timer / 60)), 6), max(30 / (1 + (GameState.timer / 80)), 10))
 		timer4 = 0
 

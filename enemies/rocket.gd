@@ -45,6 +45,9 @@ func _physics_process(delta: float) -> void:
 		if item is Saw:
 			item.flash = 1.5
 			delete()
+		if item is Laser:
+			item.flash = 0.1
+			delete()
 		
 		
 func delete():

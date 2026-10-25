@@ -12,6 +12,7 @@ func _ready() -> void:
 	rotation_degrees = randf_range(0, 360)
 	scale.y = 4
 	modulate.a = 0
+	$CollisionShape2D.disabled = true
 
 func _physics_process(delta: float) -> void:
 	if abs(position.x) > (GameState.CENTER.x + 100):
@@ -27,8 +28,10 @@ func _physics_process(delta: float) -> void:
 		target_height = 1
 	elif timer < 5:
 		if $Sprite2D.frame == 2:
-			GameState.camera.shake += 10
+			if GameState.camera.shake < 30:
+				GameState.camera.shake += 12
 			scale.y = 1.5
+		$CollisionShape2D.disabled = false
 		$Sprite2D.frame = 0
 		modulate.a = 1
 		if get_overlapping_bodies().has(GameState.player):
@@ -37,11 +40,13 @@ func _physics_process(delta: float) -> void:
 				if GameState.camera.shake < 30:
 					GameState.camera.shake += 3
 				damage_cooldown = 0.07
-				flash = 0.3
+				flash = 0.4
 		damage_cooldown -= delta
 	else:
 		if $Sprite2D.frame == 0:
-			GameState.camera.shake += 7
+			if GameState.camera.shake < 30:
+				GameState.camera.shake += 10
+		$CollisionShape2D.disabled = true
 		scale.y = 1.2
 		$Sprite2D.frame = 1
 		if timer > 5.5:
