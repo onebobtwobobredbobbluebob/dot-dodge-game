@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5n2w"]
 size = Vector2(3000, 30)
 
-[node name="Saw" type="Area2D" unique_id=776619708]
+[node name="Laser" type="Area2D" unique_id=776619708]
 script = ExtResource("1_tjo3h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1962454380]

@@ -29,7 +29,7 @@ clip_children = 2
 texture = ExtResource("2_u6yb3")
 
 [node name="HealthFlashEffect" type="Sprite2D" parent="Sprite2D3" unique_id=1135834547]
-modulate = Color(0.65999997, 0.73366666, 1, 0.93333334)
+modulate = Color(0.76, 0.81200004, 1, 0.93333334)
 position = Vector2(-236, 0)
 texture = ExtResource("3_u6yb3")
 

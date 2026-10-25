@@ -1,20 +1,19 @@
 [gd_scene format=3 uid="uid://hvx68dliwpai"]
 
-[ext_resource type="Script" uid="uid://bfms3xgovmeok" path="res://enemies/laser.gd" id="1_vssgt"]
-[ext_resource type="Texture2D" uid="uid://d1581nyv7y1qq" path="res://assets/laser_big.png" id="2_nhm2y"]
+[ext_resource type="Script" uid="uid://d4bp1haii237v" path="res://enemies/saw.gd" id="1_u376h"]
+[ext_resource type="Texture2D" uid="uid://dc331s1mykoa" path="res://assets/saw.png" id="2_u376h"]
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="3_vssgt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce06v"]
-size = Vector2(3000, 30)
+[sub_resource type="CircleShape2D" id="CircleShape2D_20you"]
+radius = 88.005684
 
-[node name="Laser" type="Area2D" unique_id=776619708]
-script = ExtResource("1_vssgt")
+[node name="Saw" type="Area2D" unique_id=776619708]
+script = ExtResource("1_u376h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1962454380]
 clip_children = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_nhm2y")
-vframes = 3
+texture = ExtResource("2_u376h")
 
 [node name="WhiteOverlay" type="Sprite2D" parent="Sprite2D" unique_id=2099814254]
 modulate = Color(1, 1, 1, 0)
@@ -23,4 +22,4 @@ texture = ExtResource("3_vssgt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951337750]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_ce06v")
+shape = SubResource("CircleShape2D_20you")
