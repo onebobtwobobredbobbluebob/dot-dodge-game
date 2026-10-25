@@ -45,7 +45,6 @@ anyways ill work on this game a lot more next week so itll be better i hope
                                                                                                    press L for leaderboard"
 
 [node name="LeaderBoard" type="Node2D" parent="." unique_id=1615649707]
-visible = false
 
 [node name="Label" type="Label" parent="LeaderBoard" unique_id=1424694320]
 offset_left = -549.0
@@ -55,14 +54,24 @@ offset_bottom = 69.0
 theme_override_font_sizes/font_size = 40
 text = "loading..."
 
+[node name="Label" type="Label" parent="LeaderBoard/Label" unique_id=1283410986]
+layout_mode = 0
+offset_left = 820.0
+offset_top = 44.0
+offset_right = 1075.0
+offset_bottom = 67.0
+text = "must be between 3-16 chars long"
+
 [node name="LineEdit" type="LineEdit" parent="LeaderBoard" unique_id=1642108296]
 offset_left = 300.0
 offset_top = -260.0
 offset_right = 500.0
 offset_bottom = -226.0
 placeholder_text = "enter new nickname..."
+max_length = 16
 context_menu_enabled = false
 emoji_menu_enabled = false
 script = ExtResource("4_3wy1v")
 
 [node name="World" parent="." unique_id=556920693 instance=ExtResource("2_xwkvk")]
+visible = false
