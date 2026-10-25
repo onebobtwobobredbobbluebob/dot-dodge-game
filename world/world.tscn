@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://h538l07d675r" path="res://world/node_2d.gd" id="5_fn3g3"]
 [ext_resource type="PackedScene" uid="uid://dqyugskh0mrhc" path="res://ui/health.tscn" id="5_mmdvd"]
 [ext_resource type="Script" uid="uid://djmmxotl1bcvn" path="res://world/label.gd" id="7_sc4t8"]
+[ext_resource type="Script" uid="uid://c75se40jknbvx" path="res://world/vignette.gd" id="8_4papg"]
+[ext_resource type="Texture2D" uid="uid://bnnyefriok2i6" path="res://assets/vignette_white.png" id="8_ai45w"]
 
 [node name="World" type="Node2D" unique_id=556920693]
 script = ExtResource("1_h5o24")
@@ -14,9 +16,6 @@ script = ExtResource("1_h5o24")
 [node name="Background" type="Sprite2D" parent="." unique_id=1960123608]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_h5o24")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1027449500]
-script = ExtResource("1_tcf2h")
 
 [node name="Enemies" type="Node2D" parent="." unique_id=565335497]
 
@@ -40,3 +39,15 @@ theme_override_colors/font_shadow_color = Color(0.16470589, 0.79607844, 0.8, 1)
 theme_override_font_sizes/font_size = 39
 text = "Score: 0"
 script = ExtResource("7_sc4t8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2086182324]
+offset = Vector2(640, 360)
+transform = Transform2D(1, 0, 0, 1, 640, 360)
+
+[node name="Vignette" type="Sprite2D" parent="CanvasLayer" unique_id=81844700]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("8_ai45w")
+script = ExtResource("8_4papg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1027449500]
+script = ExtResource("1_tcf2h")
