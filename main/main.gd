@@ -6,26 +6,27 @@ var leaderboard: bool = false
 func _ready() -> void:
 	CheddaBoards.set_api_key("cb_dot-dodge_7d2a118c7376213e8ee98b5ed9e2f688")
 	CheddaBoards.set_game_id("dot-dodge")
-	CheddaBoards.leaderboard_loaded.connect(_on_leaderboard)
+	CheddaBoards.scoreboard_loaded.connect(_on_scoreboard)
 	await CheddaBoards.wait_until_ready()
 	CheddaBoards.login_anonymous()
 	GameState.alive = true
 
 func _process(delta: float) -> void:
 	if GameState.alive == false:
-		if $World.visible:
-			CheddaBoards.submit_score(int(round(GameState.timer)))
 		$World.visible = false
 		
 		if leaderboard:
-			if $Ded.visible or CheddaBoards.nickname_changed:
-				CheddaBoards.get_leaderboard("score", 100)
+			if $Ded.visible or CheddaBoards._nickname_just_changed:
+				CheddaBoards.get_scoreboard("all_time", 10)
 				$LeaderBoard/Label.text = "loading..."
-			if $LeaderBoard/LineEdit.text_submitted:
-				CheddaBoards.change_nickname($LeaderBoard/LineEdit.text)
+			if $LeaderBoard/LineEdit.submitted:
+				CheddaBoards.change_nickname($LeaderBoard/LineEdit.submitted_string)
+				$LeaderBoard/Label.text = "changing nickname..."
+				$LeaderBoard/LineEdit.submitted = false
+				#print("dwaefawef")
 			$Ded.visible = false
 			$LeaderBoard.visible = true
-			if Input.is_action_just_pressed("toggle_leaderboard"):
+			if Input.is_action_just_pressed("toggle_leaderboard") and not $LeaderBoard/LineEdit.has_focus():
 				leaderboard = false
 			
 		else:
@@ -39,6 +40,8 @@ func _process(delta: float) -> void:
 		if timer > 1.5:
 			GameState.alive = false
 			$Ded/Label2.set_score(int(round(GameState.timer)))
+			CheddaBoards.submit_score(int(round(GameState.timer)))
+			print(int(round(GameState.timer)))
 		if GameState.player.health <= 0:
 			timer += delta
 			GameState.camera.shake += delta * 5
@@ -50,7 +53,7 @@ func _process(delta: float) -> void:
 				#print(GameState.camera.shake)
 				GameState.camera.shake = 60
 		
-func _on_leaderboard(entries: Array):
+func _on_scoreboard(id: String, config: Dictionary, entries: Array):
 	$LeaderBoard/Label.text = "Global Leaderboard"
 	for i in entries:
-		$LeaderBoard/Label.text += "\n" + (str(int(i.rank)) + ": " + str(i.nickname) + " - " + str(int(i.score)))
+		$LeaderBoard/Label.text += "\n" + (str(int(round(i.rank))) + ": " + str(i.nickname) + " - " + str(int(round(i.score))))
