@@ -8,20 +8,24 @@
 [node name="Main" type="Node2D" unique_id=1763812037]
 script = ExtResource("1_pjrb6")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=280914421]
+[node name="Ded" type="Node2D" parent="." unique_id=2026882504]
+visible = false
+position = Vector2(0, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ded" unique_id=280914421]
 position = Vector2(270, -31)
 texture = ExtResource("2_c651c")
 
-[node name="Label2" type="Label" parent="." unique_id=2054072532]
+[node name="Label2" type="Label" parent="Ded" unique_id=2054072532]
 offset_left = -527.0
-offset_top = 146.0
+offset_top = 154.0
 offset_right = 473.0
-offset_bottom = 437.0
+offset_bottom = 445.0
 theme_override_font_sizes/font_size = 28
 text = "also btw you got a score of "
 script = ExtResource("3_c651c")
 
-[node name="Label" type="Label" parent="." unique_id=681835781]
+[node name="Label" type="Label" parent="Ded" unique_id=681835781]
 offset_left = -526.0
 offset_top = -185.0
 offset_right = 474.0
@@ -33,6 +37,30 @@ i forgot to add reset option so ig death is perma now
 
 gotta reload to restart hehe
 
-anyways ill work on this game a lot more next week so itll be better i hope"
+anyways ill work on this game a lot more next week so itll be better i hope
+
+
+
+                                                                                                   press L for leaderboard"
+
+[node name="LeaderBoard" type="Node2D" parent="." unique_id=1615649707]
+visible = false
+
+[node name="Label" type="Label" parent="LeaderBoard" unique_id=1424694320]
+offset_left = -549.0
+offset_top = -268.0
+offset_right = 493.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 40
+text = "loading..."
+
+[node name="LineEdit" type="LineEdit" parent="LeaderBoard" unique_id=1642108296]
+offset_left = 300.0
+offset_top = -260.0
+offset_right = 500.0
+offset_bottom = -226.0
+placeholder_text = "enter new nickname..."
+context_menu_enabled = false
+emoji_menu_enabled = false
 
 [node name="World" parent="." unique_id=556920693 instance=ExtResource("2_xwkvk")]
