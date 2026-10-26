@@ -7,6 +7,8 @@ Good Luck!
 Play Here: [https://bob123123123.itch.io/dot-dodge-game-demo](url)  
 
 <img width="1260" height="660" alt="Screenshot 2026-10-18 232149" src="https://github.com/user-attachments/assets/8af532d1-b55c-4625-8235-67f046259d96" />  
+<img width="630" height="330" alt="Screenshot 2026-10-25 205915" src="https://github.com/user-attachments/assets/fdcd6741-218d-4bec-8bb0-1f1b0ce3e65b" />
+<img width="630" height="330" alt="Screenshot 2026-10-25 210128" src="https://github.com/user-attachments/assets/b75f7b66-e405-4fea-880e-89c7886c2aa3" />
 
 Art made by me using Krita  
 Game made by me in Godot Engine  
