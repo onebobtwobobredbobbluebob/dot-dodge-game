@@ -6,6 +6,7 @@ var mode: int = randi_range(1, 4)
 var speed: float = 3
 var angular_vel: float = 3
 var damage_cooldown: float = 0
+var timer: float = 0
 var flash: float = 0
 var target_position: Vector2
 var starting_position: Vector2
@@ -32,6 +33,10 @@ func find_spawn():
 
 func _physics_process(delta: float) -> void:
 	if alive:
+		timer += delta
+		if timer > 360:
+			timer = fmod(timer, 360)
+		scale = Vector2(1, 1) * (1 + cos(timer * 8) * 0.03)
 		position = lerp(position, target_position, 1 - pow(0.00005, delta))
 		if abs(position.x) > (GameState.CENTER.x + 100):
 			#print("dedx")

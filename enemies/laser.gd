@@ -36,10 +36,10 @@ func _physics_process(delta: float) -> void:
 		modulate.a = 1
 		if get_overlapping_bodies().has(GameState.player):
 			if damage_cooldown < 0:
-				GameState.player.get_hit(2, 0.7)
+				GameState.player.get_hit(3, 0.7)
 				if GameState.camera.shake < 30:
 					GameState.camera.shake += 3
-				damage_cooldown = 0.07
+				damage_cooldown = 0.014
 				flash = 0.4
 		damage_cooldown -= delta
 	else:
