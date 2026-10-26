@@ -11,3 +11,5 @@ Play Here: [https://bob123123123.itch.io/dot-dodge-game-demo](url)
 Art made by me using Krita  
 Game made by me in Godot Engine  
 Also I'm decently new to using Godot, so if you see that my code is badly written, please tell me!
+
+Also I used a plugin for back-end of the leaderboard, so credit for that goes to the plugin's owner!
