@@ -10,7 +10,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 offsets = PackedFloat32Array(0, 0.12972973, 1)
 colors = PackedColorArray(0.3685, 0.5076501, 0.55, 1, 0.39, 0.39, 0.39, 1, 1, 1, 1, 1)
 
-[node name="Explosion2" type="Node2D" unique_id=1987168652]
+[node name="Explosion3" type="Node2D" unique_id=1987168652]
 script = ExtResource("1_jre5e")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1812128018]
