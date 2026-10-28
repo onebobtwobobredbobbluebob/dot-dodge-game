@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 					CheddaBoards.get_scoreboard("high-scores", 100)
 					$LeaderBoard/Label.text = "loading..."
 				if CheddaBoards._nickname_just_changed:
-					print("variable change: " + CheddaBoards.get_nickname())
 					timer2 = 0
 				if timer2 <= 8:
 					timer2 -= delta
