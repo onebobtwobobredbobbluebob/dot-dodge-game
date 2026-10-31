@@ -24,28 +24,9 @@ func _process(delta: float) -> void:
 		if leaderboard:
 			in_leaderboard(delta)
 		else:
-			$Ded.visible = true
-			$LeaderBoard.visible = false
-			
-			if Input.is_action_just_pressed("toggle_leaderboard"):
-				leaderboard = true
+			in_death_screen()
 	elif GameState.alive == 1:
-		$Ded.visible = false
-		if timer > 1.5:
-			GameState.alive = 2
-			$Ded/Label2.set_score(int(round(GameState.timer)))
-			CheddaBoards.submit_score_to_board("high-scores", int(round(GameState.timer)))
-			#print(int(round(GameState.timer)))
-		if GameState.player.health <= 0:
-			timer += delta
-			GameState.camera.shake += delta * 5
-			if GameState.camera.shake < 50:
-				GameState.camera.shake = 50
-		else:
-			timer = 0
-			if GameState.camera.shake > 60:
-				#print(GameState.camera.shake)
-				GameState.camera.shake = 60
+		in_game(delta)
 
 
 func start_main_menu():
@@ -60,23 +41,40 @@ func start_game():
 	GameState.start_game()
 	add_child(world)
 
-func in_game():
-	pass
+func in_game(delta: float):
+	$Ded.visible = false
+	if timer > 1.5:
+		start_death_screen()
+	if GameState.player.health <= 0:
+		timer += delta
+		GameState.camera.shake += delta * 5
+		if GameState.camera.shake < 50:
+			GameState.camera.shake = 50
+	else:
+		timer = 0
+		if GameState.camera.shake > 60:
+			#print(GameState.camera.shake)
+			GameState.camera.shake = 60
 
 func start_death_screen():
-	pass
+	GameState.alive = 2
+	$Ded/Label2.set_score(int(round(GameState.timer)))
+	CheddaBoards.submit_score_to_board("high-scores", int(round(GameState.timer)))
+	#print(int(round(GameState.timer)))
 
 func in_death_screen():
-	pass
+	$Ded.visible = true
+	$LeaderBoard.visible = false
+	if Input.is_action_just_pressed("toggle_leaderboard"):
+		start_leaderboard()
 
 func start_leaderboard():
-	pass
+	leaderboard = true
+	CheddaBoards.get_scoreboard("high-scores", 100)
+	$LeaderBoard/Label.text = "loading..."
 
 func in_leaderboard(delta: float):
 	if board_ready:
-		if $Ded.visible:
-			CheddaBoards.get_scoreboard("high-scores", 100)
-			$LeaderBoard/Label.text = "loading..."
 		if CheddaBoards._nickname_just_changed:
 			timer2 = 0
 		if timer2 <= 8:
