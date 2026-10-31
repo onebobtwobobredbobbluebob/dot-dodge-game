@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dxh0pfwuagmd8" path="res://player/player.tscn" id="1_6xmxd"]
 [ext_resource type="Script" uid="uid://0r6pccma8j73" path="res://world/world.gd" id="1_h5o24"]
-[ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://world/camera_2d.gd" id="1_tcf2h"]
 [ext_resource type="Texture2D" uid="uid://dla2crxxa16ku" path="res://assets/background.png" id="2_h5o24"]
 [ext_resource type="Script" uid="uid://h538l07d675r" path="res://world/node_2d.gd" id="5_fn3g3"]
 [ext_resource type="PackedScene" uid="uid://dqyugskh0mrhc" path="res://ui/health.tscn" id="5_mmdvd"]
@@ -63,6 +62,3 @@ transform = Transform2D(1, 0, 0, 1, 640, 360)
 modulate = Color(0, 0, 0, 0)
 texture = ExtResource("8_ai45w")
 script = ExtResource("8_4papg")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1027449500]
-script = ExtResource("1_tcf2h")

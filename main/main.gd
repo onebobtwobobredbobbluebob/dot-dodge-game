@@ -6,8 +6,8 @@ var player_id: String
 var board_ready: bool = false
 var timer2: float = 0
 var reload: bool = false
-
-signal start_the_game
+const WORLD = preload("uid://b3ow5ef8lcb2r")
+var world = WORLD.instantiate()
 
 func _ready() -> void:
 	CheddaBoards.set_api_key("cb_dot-dodge-2_c0f4373ea37958099d97e7823b098e6b")
@@ -15,14 +15,12 @@ func _ready() -> void:
 	CheddaBoards.scoreboard_loaded.connect(_on_leaderboard)
 	CheddaBoards.nickname_changed.connect(changed_nick)
 	get_board_ready()
-	GameState.alive = true
+	GameState.alive = 0
 	$Title/MenuButton.pressed.connect(start_game)
-	start_the_game.connect(GameState.start_game)
 
 func _process(delta: float) -> void:
-	if GameState.alive == false:
-		$World.visible = false
-		
+	if GameState.alive == 2:
+		world.queue_free()
 		if leaderboard:
 			if board_ready:
 				if $Ded.visible:
@@ -56,10 +54,10 @@ func _process(delta: float) -> void:
 			
 			if Input.is_action_just_pressed("toggle_leaderboard"):
 				leaderboard = true
-	else:
+	elif GameState.alive == 1:
 		$Ded.visible = false
 		if timer > 1.5:
-			GameState.alive = false
+			GameState.alive = 2
 			$Ded/Label2.set_score(int(round(GameState.timer)))
 			CheddaBoards.submit_score_to_board("high-scores", int(round(GameState.timer)))
 			#print(int(round(GameState.timer)))
@@ -75,9 +73,9 @@ func _process(delta: float) -> void:
 				GameState.camera.shake = 60
 
 func start_game():
-	$World.visible = true
 	$Title.visible = false
-	emit_signal("start_the_game")
+	GameState.start_game()
+	add_child(world)
 
 func _on_leaderboard(id: String, config: Dictionary, entries: Array):
 	print(id + ": " + "entires: " + str(entries.size()))
