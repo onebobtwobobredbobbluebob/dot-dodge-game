@@ -36,6 +36,14 @@ func _physics_process(delta: float) -> void:
 		timer += delta
 		if timer > 360:
 			timer = fmod(timer, 360)
+		if timer > 10:
+			scale = lerp(scale, Vector2(1, 1) * 0.5, 1 - pow(0.5, delta))
+			if fmod(timer, 0.2) > 0.1:
+				modulate.a = 1
+			else:
+				modulate.a = 1 - (timer - 10 * 2)
+			if timer > 14:
+				queue_free()
 		scale = Vector2(1, 1) * (1 + cos(timer * 8) * 0.03)
 		position = lerp(position, target_position, 1 - pow(0.00005, delta))
 		if abs(position.x) > (GameState.CENTER.x + 100):
@@ -66,6 +74,7 @@ func _physics_process(delta: float) -> void:
 
 func delete():
 	alive = false
+	modulate.a = 1
 	var explosion = EXPLOSION.instantiate()
 	explosion.position = position
 	explosion.position += transform.x * 30

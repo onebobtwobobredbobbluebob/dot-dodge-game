@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://d4bp1haii237v" path="res://enemies/saw.gd" id="1_u376h"]
 [ext_resource type="Texture2D" uid="uid://dc331s1mykoa" path="res://assets/saw.png" id="2_u376h"]
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="3_vssgt"]
+[ext_resource type="Texture2D" uid="uid://f6vcvrybpkr2" path="res://assets/particle_1.png" id="4_nhm2y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_20you"]
 radius = 88.005684
+
+[sub_resource type="Gradient" id="Gradient_31u1y"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Saw" type="Area2D" unique_id=776619708]
 script = ExtResource("1_u376h")
@@ -23,3 +27,29 @@ texture = ExtResource("3_vssgt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1951337750]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_20you")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1267177570]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Node2D" unique_id=506859738]
+position = Vector2(82, 0)
+amount = 50
+texture = ExtResource("4_nhm2y")
+speed_scale = 2.0
+explosiveness = 0.12
+randomness = 0.64
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(5, 10)
+direction = Vector2(0, 5)
+spread = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+angular_velocity_min = -0.2
+angular_velocity_max = -0.2
+orbit_velocity_min = -0.3
+damping_min = 20.0
+damping_max = 20.0
+scale_amount_min = 0.5
+scale_amount_max = 0.7
+color_ramp = SubResource("Gradient_31u1y")
