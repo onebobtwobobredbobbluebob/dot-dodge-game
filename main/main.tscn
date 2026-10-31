@@ -82,11 +82,11 @@ script = ExtResource("4_3wy1v")
 texture = ExtResource("6_4dugh")
 
 [node name="MenuButton" type="MenuButton" parent="Title" unique_id=555276249]
-offset_left = -44.0
+offset_left = -55.0
 offset_top = 72.0
-offset_right = 46.0
+offset_right = 55.0
 offset_bottom = 103.0
-text = "press here"
+text = "press here :D"
 script = ExtResource("7_67ri8")
 metadata/_edit_use_anchors_ = true
 

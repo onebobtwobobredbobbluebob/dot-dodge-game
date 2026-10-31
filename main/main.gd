@@ -20,7 +20,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if GameState.alive == 2:
-		world.queue_free()
+		if is_instance_valid(world):
+			world.queue_free()
 		if leaderboard:
 			if board_ready:
 				if $Ded.visible:
@@ -72,10 +73,39 @@ func _process(delta: float) -> void:
 				#print(GameState.camera.shake)
 				GameState.camera.shake = 60
 
+func start_main_menu():
+	pass
+
+func in_main_menu():
+	pass
+
 func start_game():
 	$Title.visible = false
 	GameState.start_game()
 	add_child(world)
+
+func in_game():
+	pass
+
+func start_death_screen():
+	pass
+
+func in_death_screen():
+	pass
+
+func start_leaderboard():
+	pass
+
+func in_leaderboard():
+	pass
+
+func start_shop():
+	pass
+
+func in_shop():
+	pass
+
+
 
 func _on_leaderboard(id: String, config: Dictionary, entries: Array):
 	print(id + ": " + "entires: " + str(entries.size()))
