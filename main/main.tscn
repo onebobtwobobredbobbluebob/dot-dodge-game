@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b3ow5ef8lcb2r" path="res://world/world.tscn" id="2_xwkvk"]
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
+[ext_resource type="Texture2D" uid="uid://cord560xrro5m" path="res://icon.svg" id="6_4dugh"]
+[ext_resource type="Script" uid="uid://bu2idx8lqiher" path="res://main/start_button.gd" id="7_67ri8"]
 
 [node name="Main" type="Node2D" unique_id=1763812037]
 script = ExtResource("1_pjrb6")
@@ -75,3 +77,17 @@ emoji_menu_enabled = false
 script = ExtResource("4_3wy1v")
 
 [node name="World" parent="." unique_id=556920693 instance=ExtResource("2_xwkvk")]
+visible = false
+
+[node name="Title" type="Node2D" parent="." unique_id=1377823758]
+
+[node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
+texture = ExtResource("6_4dugh")
+
+[node name="MenuButton" type="MenuButton" parent="Title" unique_id=555276249]
+offset_left = -44.0
+offset_top = 72.0
+offset_right = 46.0
+offset_bottom = 103.0
+text = "press here"
+script = ExtResource("7_67ri8")

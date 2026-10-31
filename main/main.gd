@@ -7,6 +7,8 @@ var board_ready: bool = false
 var timer2: float = 0
 var reload: bool = false
 
+signal start_the_game
+
 func _ready() -> void:
 	CheddaBoards.set_api_key("cb_dot-dodge-2_c0f4373ea37958099d97e7823b098e6b")
 	CheddaBoards.set_game_id("dot-dodge-2")
@@ -14,6 +16,8 @@ func _ready() -> void:
 	CheddaBoards.nickname_changed.connect(changed_nick)
 	get_board_ready()
 	GameState.alive = true
+	$Title/MenuButton.pressed.connect(start_game)
+	start_the_game.connect(GameState.start_game)
 
 func _process(delta: float) -> void:
 	if GameState.alive == false:
@@ -69,7 +73,12 @@ func _process(delta: float) -> void:
 			if GameState.camera.shake > 60:
 				#print(GameState.camera.shake)
 				GameState.camera.shake = 60
-		
+
+func start_game():
+	$World.visible = true
+	$Title.visible = false
+	emit_signal("start_the_game")
+
 func _on_leaderboard(id: String, config: Dictionary, entries: Array):
 	print(id + ": " + "entires: " + str(entries.size()))
 	print("playerid: " + CheddaBoards.get_player_id())
