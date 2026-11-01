@@ -1,11 +1,13 @@
 extends Node2D
 
 var timer: float = 0
+var startup_timer: float = 0
 var leaderboard: bool = false
 var player_id: String
 var board_ready: bool = false
 var timer2: float = 0
 var reload: bool = false
+var startup: bool = true
 const WORLD = preload("uid://b3ow5ef8lcb2r")
 var world = WORLD.instantiate()
 
@@ -16,20 +18,33 @@ func _ready() -> void:
 	CheddaBoards.nickname_changed.connect(changed_nick)
 	$Ded/Button.pressed.connect(back_button_pressed)
 	$Title/MenuButton.pressed.connect(start_game)
-	start_main_menu()
 	get_board_ready()
 	
 
 func _process(delta: float) -> void:
-	if GameState.alive == 2:
-		if is_instance_valid(world):
-			world.queue_free()
-		if leaderboard:
-			in_leaderboard(delta)
+	if startup:
+		$Startup.visible = true
+		startup_timer += delta * 0.5
+		$Title.visible = true
+		if startup_timer < 1:
+			$Startup/Sprite2D.modulate.a = startup_timer
 		else:
-			in_death_screen()
-	elif GameState.alive == 1:
-		in_game(delta)
+			$Startup/Sprite2D.modulate.a = 1
+		if startup_timer > 2:
+			$Startup.modulate.a = 1 - (startup_timer - 2)
+		if $Startup.modulate.a <= 0:
+			start_main_menu()
+			startup = false
+	else:
+		if GameState.alive == 2:
+			if is_instance_valid(world):
+				world.queue_free()
+			if leaderboard:
+				in_leaderboard(delta)
+			else:
+				in_death_screen()
+		elif GameState.alive == 1:
+			in_game(delta)
 
 
 func start_main_menu():

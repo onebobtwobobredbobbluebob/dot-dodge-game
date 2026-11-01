@@ -2,16 +2,25 @@
 
 [ext_resource type="Script" uid="uid://sfeyq4kvvhu7" path="res://main/main.gd" id="1_pjrb6"]
 [ext_resource type="Texture2D" uid="uid://cctawv3j0qiu" path="res://assets/bob.png" id="2_c651c"]
+[ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="2_grrlh"]
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
 [ext_resource type="Texture2D" uid="uid://cord560xrro5m" path="res://icon.svg" id="6_4dugh"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
 [ext_resource type="Script" uid="uid://bu2idx8lqiher" path="res://main/start_button.gd" id="7_67ri8"]
+[ext_resource type="Texture2D" uid="uid://idpyiqcxwbsc" path="res://assets/bob_white_highlight.png" id="8_0i4oc"]
 
 [node name="Main" type="Node2D" unique_id=1763812037]
 script = ExtResource("1_pjrb6")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1689287093]
+modulate = Color(0.28079998, 0.23849998, 0.45, 1)
+position = Vector2(-3.9696693e-05, 1.7881393e-07)
+scale = Vector2(8.877777, 5.2777777)
+texture = ExtResource("2_grrlh")
+
 [node name="Ded" type="Node2D" parent="." unique_id=2026882504]
+visible = false
 position = Vector2(0, -20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ded" unique_id=280914421]
@@ -99,6 +108,19 @@ offset_bottom = 92.0
 text = "press here :D"
 script = ExtResource("7_67ri8")
 metadata/_edit_use_anchors_ = true
+
+[node name="Startup" type="Node2D" parent="." unique_id=1860983877]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Startup" unique_id=953490414]
+modulate = Color(0.1116, 0.102000006, 0.15, 1)
+position = Vector2(-3.9696693e-05, 1.7881393e-07)
+scale = Vector2(8.877777, 5.2777777)
+texture = ExtResource("2_grrlh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Startup" unique_id=1127711608]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-18, 1)
+texture = ExtResource("8_0i4oc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=777673665]
 script = ExtResource("7_4dugh")
