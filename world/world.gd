@@ -35,7 +35,7 @@ func start_game():
 func _process(delta: float) -> void:
 	if started:
 		if timer > goal:
-			#add_item(ROCKET, round(randf_range(1, 1 + (GameState.timer / 40))))
+			add_item(ROCKET, round(randf_range(1, 1 + (GameState.timer / 40))))
 			goal = randf_range(2 / (1 + (GameState.timer / 20)), 7 / (1 + (GameState.timer / 40)))
 			timer = 0
 		
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 			timer3 = 0
 			
 		if timer4 > goal4:
-			#add_item(LASER, min(round(randf_range(1, 1 + ((GameState.timer - 60) / 60))), 3))
+			add_item(LASER, min(round(randf_range(1, 1 + ((GameState.timer - 60) / 60))), 3))
 			goal4 = randf_range(10, 40)
 			timer4 = 0
 			

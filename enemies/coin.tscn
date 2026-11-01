@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bg7babmyucslb" path="res://assets/heal_big_insides_2.png" id="3_j3n20"]
 [ext_resource type="Script" uid="uid://dhvrmi8ciu7vm" path="res://enemies/heal_insides.gd" id="4_q5jte"]
 [ext_resource type="Texture2D" uid="uid://clj7bwuv3j1m6" path="res://assets/heal_big_outsides.png" id="5_cta3v"]
-[ext_resource type="Texture2D" uid="uid://iqap62b78qjg" path="res://assets/heal_big.png" id="6_myejr"]
+[ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://enemies/coin.png" id="6_pahg4"]
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="7_xql4l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5n2w"]
@@ -31,12 +31,12 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_cta3v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1962454380]
-self_modulate = Color(1, 0, 0, 1)
 clip_children = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_myejr")
+texture = ExtResource("6_pahg4")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" unique_id=673447104]
+visible = false
 modulate = Color(1, 0.55, 0.8200002, 1)
 scale = Vector2(3.3888888, 3.0666666)
 texture = ExtResource("7_xql4l")

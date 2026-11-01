@@ -31,6 +31,6 @@ linear_accel_max = 5.0
 damping_min = 170.0
 damping_max = 170.0
 scale_amount_max = 1.5
-color = Color(1, 0.52, 0.8399999, 1)
+color = Color(1, 0.8666667, 0, 1)
 color_ramp = SubResource("Gradient_ovo5l")
 color_initial_ramp = SubResource("Gradient_1vlv1")
