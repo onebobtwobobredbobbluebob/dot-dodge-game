@@ -5,6 +5,9 @@ var shake: float = 0
 func _ready() -> void:
 	GameState.camera = self
 
+func restart() -> void:
+	shake = 0
+
 func _physics_process(delta: float) -> void:
 	if GameState.alive == 1:
 		position = Vector2(randf_range(-shake, shake), randf_range(-shake, shake))

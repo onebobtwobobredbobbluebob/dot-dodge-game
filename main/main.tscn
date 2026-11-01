@@ -12,7 +12,6 @@
 script = ExtResource("1_pjrb6")
 
 [node name="Ded" type="Node2D" parent="." unique_id=2026882504]
-visible = false
 position = Vector2(0, -20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ded" unique_id=280914421]
@@ -45,6 +44,13 @@ anyways ill work on this game a lot more next week so itll be better i hope
 
 
                                                                                                    press L for leaderboard"
+
+[node name="Button" type="MenuButton" parent="Ded" unique_id=789318705]
+offset_left = -624.0
+offset_top = -331.0
+offset_right = -579.0
+offset_bottom = -300.0
+text = "back"
 
 [node name="LeaderBoard" type="Node2D" parent="." unique_id=1615649707]
 visible = false
@@ -80,6 +86,7 @@ script = ExtResource("4_3wy1v")
 visible = false
 
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
 texture = ExtResource("6_4dugh")

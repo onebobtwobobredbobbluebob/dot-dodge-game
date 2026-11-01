@@ -8,8 +8,8 @@ offsets = PackedFloat32Array(0, 0.74654377)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_1vlv1"]
-offsets = PackedFloat32Array(0, 0.3824885, 0.86175114, 1)
-colors = PackedColorArray(0.6912, 0.71328, 0.72, 1, 0.82, 0.82, 0.82, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.17050691, 0.39170507, 1)
+colors = PackedColorArray(0.99, 0.84579, 0.6138, 1, 1, 0.77688545, 0.44889736, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="Explosion4" type="Node2D" unique_id=1987168652]
 script = ExtResource("1_d2epe")

@@ -14,8 +14,11 @@ func _ready() -> void:
 	CheddaBoards.set_game_id("dot-dodge-2")
 	CheddaBoards.scoreboard_loaded.connect(_on_leaderboard)
 	CheddaBoards.nickname_changed.connect(changed_nick)
-	get_board_ready()
+	$Ded/Button.pressed.connect(back_button_pressed)
+	$Title/MenuButton.pressed.connect(start_game)
 	start_main_menu()
+	get_board_ready()
+	
 
 func _process(delta: float) -> void:
 	if GameState.alive == 2:
@@ -31,14 +34,27 @@ func _process(delta: float) -> void:
 
 func start_main_menu():
 	GameState.alive = 0
-	$Title/MenuButton.pressed.connect(start_game)
+	$Ded.visible = false
+	$LeaderBoard.visible = false
+	$Shop.visible = false
+	$Title.visible = true
 
 func in_main_menu():
-	pass
+	$Ded.visible = false
+	$LeaderBoard.visible = false
+	$Shop.visible = false
+	$Title.visible = true
 
 func start_game():
+	GameState.alive = 1
+	timer = 0
+	$Camera2D.restart()
 	$Title.visible = false
+	$Ded.visible = false
+	$Shop.visible = false
+	$LeaderBoard.visible = false
 	GameState.start_game()
+	world = WORLD.instantiate()
 	add_child(world)
 
 func in_game(delta: float):
@@ -67,6 +83,9 @@ func in_death_screen():
 	$LeaderBoard.visible = false
 	if Input.is_action_just_pressed("toggle_leaderboard"):
 		start_leaderboard()
+
+func back_button_pressed():
+	start_main_menu()
 
 func start_leaderboard():
 	leaderboard = true

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed: float = 0
 var old_pos: Vector2 = position
-var max_health: float = 100
+var max_health: float = 10
 var health: float = 100
 var flash_timer: float = 0
 var flash: float = 1
