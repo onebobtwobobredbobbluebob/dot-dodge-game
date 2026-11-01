@@ -2,11 +2,12 @@ extends CharacterBody2D
 
 var speed: float = 0
 var old_pos: Vector2 = position
-var max_health: float = 10
+var max_health: float = 100
 var health: float = 100
 var flash_timer: float = 0
 var flash: float = 1
 var flash_green: float = 1
+var skip_to_death: bool = false
 
 func _ready() -> void:
 	GameState.player = self
@@ -39,10 +40,16 @@ func _process(delta: float) -> void:
 	
 	if health > max_health:
 		health = max_health
+	
+	if skip_to_death:
+		get_hit(100, 3)
+		health = -10
 
 func get_hit(damage: float, flash_time: float):
-	flash = flash_time
-	health -= damage
 	if damage < 0:
+		if skip_to_death:
+			return
 		flash_green = 0.8
 		$HealParticles.emitting = true
+	flash = flash_time
+	health -= damage

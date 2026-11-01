@@ -129,6 +129,7 @@ script = ExtResource("7_67ri8")
 metadata/_edit_use_anchors_ = true
 
 [node name="Startup" type="Node2D" parent="." unique_id=1860983877]
+visible = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Startup" unique_id=953490414]
 modulate = Color(0.1116, 0.102000006, 0.15, 1)
@@ -140,7 +141,40 @@ texture = ExtResource("2_grrlh")
 position = Vector2(-32, 1)
 sprite_frames = SubResource("SpriteFrames_d5n2w")
 autoplay = "default"
-frame_progress = 0.50877607
+frame_progress = 0.8440949
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=777673665]
 script = ExtResource("7_4dugh")
+
+[node name="Paused" type="Node2D" parent="." unique_id=946989662]
+z_index = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="Paused" unique_id=1576826561]
+modulate = Color(0, 0, 0, 0.39215687)
+position = Vector2(1.9073486e-05, 7.6293945e-06)
+scale = Vector2(8.877777, 5.2777777)
+texture = ExtResource("2_grrlh")
+
+[node name="Label" type="Label" parent="Paused" unique_id=1511636415]
+offset_left = -417.0
+offset_top = -156.0
+offset_right = 423.0
+offset_bottom = -87.0
+theme_override_font_sizes/font_size = 50
+text = "paused! press P or ESC to unpause!"
+
+[node name="EndRun" type="MenuButton" parent="Paused" unique_id=571624598]
+offset_left = -128.0
+offset_top = -34.0
+offset_right = 134.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 40
+text = "end run"
+
+[node name="GoBack" type="MenuButton" parent="Paused" unique_id=1570441833]
+offset_left = -128.0
+offset_top = 58.0
+offset_right = 134.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 40
+text = "go back"

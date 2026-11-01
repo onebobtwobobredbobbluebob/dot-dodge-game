@@ -10,6 +10,7 @@ var reload: bool = false
 var startup: bool = true
 const WORLD = preload("uid://b3ow5ef8lcb2r")
 var world = WORLD.instantiate()
+var game_paused: bool = false
 
 func _ready() -> void:
 	CheddaBoards.set_api_key("cb_dot-dodge-2_c0f4373ea37958099d97e7823b098e6b")
@@ -18,10 +19,13 @@ func _ready() -> void:
 	CheddaBoards.nickname_changed.connect(changed_nick)
 	$Ded/Button.pressed.connect(back_button_pressed)
 	$Title/MenuButton.pressed.connect(start_game)
+	$Paused/EndRun.pressed.connect(end_run)
+	$Paused/GoBack.pressed.connect(go_back)
 	get_board_ready()
 	
 
 func _process(delta: float) -> void:
+	$Paused.visible = false
 	if startup:
 		$Startup.visible = true
 		startup_timer += delta * 0.5
@@ -61,6 +65,7 @@ func in_main_menu():
 	$Title.visible = true
 
 func start_game():
+	game_paused = false
 	GameState.alive = 1
 	timer = 0
 	$Camera2D.restart()
@@ -71,21 +76,40 @@ func start_game():
 	GameState.start_game()
 	world = WORLD.instantiate()
 	add_child(world)
+	world.get_tree().paused = false
 
 func in_game(delta: float):
 	$Ded.visible = false
-	if timer > 1.5:
-		start_death_screen()
-	if GameState.player.health <= 0:
-		timer += delta
-		GameState.camera.shake += delta * 5
-		if GameState.camera.shake < 50:
-			GameState.camera.shake = 50
+	if game_paused == false:
+		if timer > 1.5:
+			start_death_screen()
+		if GameState.player.health <= 0:
+			timer += delta
+			GameState.camera.shake += delta * 5
+			if GameState.camera.shake < 50:
+				GameState.camera.shake = 50
+		else:
+			timer = 0
+			if GameState.camera.shake > 60:
+				#print(GameState.camera.shake)
+				GameState.camera.shake = 60
+		if Input.is_action_just_pressed("pause"):
+			game_paused = true
+			world.process_mode = Node.PROCESS_MODE_DISABLED
 	else:
-		timer = 0
-		if GameState.camera.shake > 60:
-			#print(GameState.camera.shake)
-			GameState.camera.shake = 60
+		$Paused.visible = true
+		if Input.is_action_just_pressed("pause"):
+			game_paused = false
+			world.process_mode = Node.PROCESS_MODE_INHERIT
+	#print($Paused.visible)
+
+func end_run():
+	world.find_child("Player").skip_to_death = true
+	game_paused = false
+	world.process_mode = Node.PROCESS_MODE_INHERIT
+
+func go_back():
+	start_main_menu()
 
 func start_death_screen():
 	GameState.alive = 2
