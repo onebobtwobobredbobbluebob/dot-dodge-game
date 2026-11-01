@@ -8,7 +8,26 @@
 [ext_resource type="Texture2D" uid="uid://cord560xrro5m" path="res://icon.svg" id="6_4dugh"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
 [ext_resource type="Script" uid="uid://bu2idx8lqiher" path="res://main/start_button.gd" id="7_67ri8"]
-[ext_resource type="Texture2D" uid="uid://idpyiqcxwbsc" path="res://assets/bob_white_highlight.png" id="8_0i4oc"]
+[ext_resource type="Texture2D" uid="uid://comjm0qxa1igh" path="res://assets/bob_white_highlight_animation.png" id="8_0i4oc"]
+[ext_resource type="Texture2D" uid="uid://cg1gyoac0uhwn" path="res://assets/bob_white_highlight_2.png" id="9_bsumw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwcvl"]
+atlas = ExtResource("8_0i4oc")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5n2w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwcvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bsumw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D" unique_id=1763812037]
 script = ExtResource("1_pjrb6")
@@ -117,10 +136,11 @@ position = Vector2(-3.9696693e-05, 1.7881393e-07)
 scale = Vector2(8.877777, 5.2777777)
 texture = ExtResource("2_grrlh")
 
-[node name="Sprite2D" type="Sprite2D" parent="Startup" unique_id=1127711608]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(-18, 1)
-texture = ExtResource("8_0i4oc")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Startup" unique_id=379864360]
+position = Vector2(-32, 1)
+sprite_frames = SubResource("SpriteFrames_d5n2w")
+autoplay = "default"
+frame_progress = 0.50877607
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=777673665]
 script = ExtResource("7_4dugh")
