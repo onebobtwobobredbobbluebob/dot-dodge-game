@@ -13,7 +13,7 @@ _data = [Vector2(0, 0.37078655), 0.0, 0.0, 0, 0, Vector2(0.79423875, 0.8314607),
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_31u1y"]
-offsets = PackedFloat32Array(0, 0.23963134, 1)
+offsets = PackedFloat32Array(0, 0.0921659, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_nhm2y"]
@@ -48,23 +48,24 @@ texture = ExtResource("4_nhm2y")
 speed_scale = 2.0
 explosiveness = 0.12
 randomness = 0.64
-local_coords = true
 emission_shape = 3
-emission_rect_extents = Vector2(8, 14)
-direction = Vector2(0, 5)
+emission_rect_extents = Vector2(20, 28)
+direction = Vector2(20, 5)
 spread = 1.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 60.0
 angular_velocity_min = -0.2
 angular_velocity_max = -0.2
-orbit_velocity_min = -0.4
+orbit_velocity_min = -0.3
+orbit_velocity_max = 0.1
 orbit_velocity_curve = SubResource("Curve_31u1y")
 damping_min = 20.0
 damping_max = 20.0
 angle_min = -360.0
 angle_max = 360.0
-scale_amount_min = 0.5
-scale_amount_max = 0.7
+scale_amount_min = 0.7
+scale_amount_max = 2.0
+color = Color(1, 1, 1, 0.7254902)
 color_ramp = SubResource("Gradient_31u1y")
 color_initial_ramp = SubResource("Gradient_nhm2y")

@@ -79,6 +79,6 @@ func particles():
 	$Particles.rotation = angle - rotation
 	print(rotation)
 	var l = (position - GameState.player.position).length()
-	$Particles/CPUParticles2D.position.x = l
+	$Particles/CPUParticles2D.position.x = l - 40
 	
 	
