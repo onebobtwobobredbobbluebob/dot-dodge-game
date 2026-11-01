@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 				in_death_screen()
 		elif GameState.alive == 1:
 			in_game(delta)
-	print(GameState.alive)
+	#print(GameState.alive)
 
 
 func start_main_menu():

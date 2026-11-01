@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="2_grrlh"]
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
-[ext_resource type="Texture2D" uid="uid://cord560xrro5m" path="res://icon.svg" id="6_4dugh"]
+[ext_resource type="Texture2D" uid="uid://e1mfr6mpqwaf" path="res://assets/title.png" id="6_0i4oc"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
 [ext_resource type="Script" uid="uid://bu2idx8lqiher" path="res://main/start_button.gd" id="7_67ri8"]
 [ext_resource type="Texture2D" uid="uid://comjm0qxa1igh" path="res://assets/bob_white_highlight_animation.png" id="8_0i4oc"]
@@ -114,16 +114,17 @@ script = ExtResource("4_3wy1v")
 visible = false
 
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
-texture = ExtResource("6_4dugh")
+position = Vector2(3, 47)
+texture = ExtResource("6_0i4oc")
 
 [node name="MenuButton" type="MenuButton" parent="Title" unique_id=555276249]
-offset_left = -55.0
-offset_top = 61.0
-offset_right = 55.0
-offset_bottom = 92.0
+offset_left = -94.0
+offset_top = -18.0
+offset_right = 104.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 30
 text = "press here :D"
 script = ExtResource("7_67ri8")
 metadata/_edit_use_anchors_ = true
@@ -147,6 +148,7 @@ frame_progress = 0.8440949
 script = ExtResource("7_4dugh")
 
 [node name="Paused" type="Node2D" parent="." unique_id=946989662]
+visible = false
 z_index = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="Paused" unique_id=1576826561]
