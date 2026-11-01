@@ -29,17 +29,19 @@ func _process(delta: float) -> void:
 	if startup:
 		$Startup.visible = true
 		startup_timer += delta * 0.5
-		$Title.visible = true
+		$Title.visible = false
 		if startup_timer < 1:
 			$Startup/Sprite2D.modulate.a = startup_timer
 		else:
 			$Startup/Sprite2D.modulate.a = 1
 		if startup_timer > 2:
+			$Title.visible = true
 			$Startup.modulate.a = 1 - (startup_timer - 2)
 		if $Startup.modulate.a <= 0:
 			start_main_menu()
 			startup = false
 	else:
+		$Startup.visible = false
 		if GameState.alive == 2:
 			if is_instance_valid(world):
 				world.queue_free()
@@ -49,6 +51,7 @@ func _process(delta: float) -> void:
 				in_death_screen()
 		elif GameState.alive == 1:
 			in_game(delta)
+	print(GameState.alive)
 
 
 func start_main_menu():
@@ -65,6 +68,8 @@ func in_main_menu():
 	$Title.visible = true
 
 func start_game():
+	start_main_menu()
+	startup = false
 	game_paused = false
 	GameState.alive = 1
 	timer = 0
@@ -101,7 +106,7 @@ func in_game(delta: float):
 		if Input.is_action_just_pressed("pause"):
 			game_paused = false
 			world.process_mode = Node.PROCESS_MODE_INHERIT
-	#print($Paused.visible)
+	print(game_paused)
 
 func end_run():
 	world.find_child("Player").skip_to_death = true
@@ -122,6 +127,8 @@ func in_death_screen():
 	$LeaderBoard.visible = false
 	if Input.is_action_just_pressed("toggle_leaderboard"):
 		start_leaderboard()
+	elif Input.is_action_just_pressed("escape"):
+		start_main_menu()
 
 func back_button_pressed():
 	start_main_menu()

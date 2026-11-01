@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 	
 	if skip_to_death:
 		get_hit(100, 3)
-		health = -10
+		health = -40
 
 func get_hit(damage: float, flash_time: float):
 	if damage < 0:
