@@ -4,7 +4,7 @@ class_name Saw
 const EXPLOSION = preload("uid://brk38ev5nd2cg")
 var mode: bool = randf_range(0, 2) > 1
 var speed: float = 3
-var angular_vel: float = 3
+var angular_vel: float = 300
 var damage_cooldown: float = 0
 var flash: float = 0
 func _ready() -> void:
@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		position.x += speed
 	
+	$Particles/CPUParticles2D.emitting = false
+	
 	if abs(position.x) > (GameState.CENTER.x + 100):
 		#print("dedx")
 		queue_free()
@@ -35,6 +37,7 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 	
 	if get_overlapping_bodies().has(GameState.player):
+		particles()
 		#print("nji4hufbwejh4e")
 		if damage_cooldown < 0:
 			GameState.player.get_hit(1, 0.7)
@@ -48,10 +51,14 @@ func _physics_process(delta: float) -> void:
 			item.flash = 0.1
 			delete()
 	damage_cooldown -= delta
-	rotation_degrees += angular_vel
 	
 	flash = lerp(flash, 0.0, 1 - pow(0.000005, delta))
 	$Sprite2D/WhiteOverlay.modulate.a = flash
+
+func _process(delta: float) -> void:
+	rotation_degrees += angular_vel * delta
+	$Particles.rotation_degrees -= angular_vel * delta
+
 
 func delete():
 	var explosion = EXPLOSION.instantiate()
@@ -65,3 +72,13 @@ func delete():
 	#GameState.camera.zoom = Vector2(0.9, 0.9)
 	add_sibling(explosion)
 	queue_free()
+	
+func particles():
+	$Particles/CPUParticles2D.emitting = true
+	var angle = position.direction_to(GameState.player.position).angle()
+	$Particles.rotation = angle - rotation
+	print(rotation)
+	var l = (position - GameState.player.position).length()
+	$Particles/CPUParticles2D.position.x = l
+	
+	

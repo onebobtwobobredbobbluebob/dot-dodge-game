@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 			if fmod(timer, 0.2) > 0.1:
 				modulate.a = 1
 			else:
-				modulate.a = 1 - (timer - 10 * 2)
+				modulate.a = 1 - ((timer - 10) * 2)
 			if timer > 14:
 				queue_free()
 		scale = Vector2(1, 1) * (1 + cos(timer * 8) * 0.03)

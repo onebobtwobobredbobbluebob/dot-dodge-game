@@ -8,8 +8,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_20you"]
 radius = 88.005684
 
+[sub_resource type="Curve" id="Curve_31u1y"]
+_data = [Vector2(0, 0.37078655), 0.0, 0.0, 0, 0, Vector2(0.79423875, 0.8314607), 1.5601933, 1.5601933, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="Gradient" id="Gradient_31u1y"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.23963134, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_nhm2y"]
+offsets = PackedFloat32Array(0, 0.078341015, 0.13824885, 0.1889401, 0.2626728, 1)
+colors = PackedColorArray(0.05490196, 0.21176471, 0.4745098, 1, 0.013725489, 0.5170662, 0.71112746, 1, 0, 0.6188333, 0.79, 1, 0, 0.8, 0.8, 1, 0.9261363, 0.9852272, 0.9852272, 1, 1, 1, 1, 1)
 
 [node name="Saw" type="Area2D" unique_id=776619708]
 script = ExtResource("1_u376h")
@@ -28,28 +37,34 @@ texture = ExtResource("3_vssgt")
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_20you")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1267177570]
+[node name="Particles" type="Node2D" parent="." unique_id=1267177570]
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Node2D" unique_id=506859738]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Particles" unique_id=506859738]
+z_index = 50
+z_as_relative = false
 position = Vector2(82, 0)
-amount = 50
+amount = 30
 texture = ExtResource("4_nhm2y")
 speed_scale = 2.0
 explosiveness = 0.12
 randomness = 0.64
 local_coords = true
 emission_shape = 3
-emission_rect_extents = Vector2(5, 10)
+emission_rect_extents = Vector2(8, 14)
 direction = Vector2(0, 5)
 spread = 1.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 80.0
-initial_velocity_max = 100.0
+initial_velocity_min = 50.0
+initial_velocity_max = 60.0
 angular_velocity_min = -0.2
 angular_velocity_max = -0.2
-orbit_velocity_min = -0.3
+orbit_velocity_min = -0.4
+orbit_velocity_curve = SubResource("Curve_31u1y")
 damping_min = 20.0
 damping_max = 20.0
+angle_min = -360.0
+angle_max = 360.0
 scale_amount_min = 0.5
 scale_amount_max = 0.7
 color_ramp = SubResource("Gradient_31u1y")
+color_initial_ramp = SubResource("Gradient_nhm2y")
