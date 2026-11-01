@@ -8,7 +8,7 @@ offsets = PackedFloat32Array(0, 0.74654377)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_1vlv1"]
-offsets = PackedFloat32Array(0, 0.4423963, 0.86175114, 1)
+offsets = PackedFloat32Array(0, 0.3824885, 0.86175114, 1)
 colors = PackedColorArray(0.6912, 0.71328, 0.72, 1, 0.82, 0.82, 0.82, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="Explosion4" type="Node2D" unique_id=1987168652]
@@ -31,6 +31,6 @@ linear_accel_max = 5.0
 damping_min = 170.0
 damping_max = 170.0
 scale_amount_max = 1.5
-color = Color(1, 0.8666667, 0, 1)
+color = Color(1, 0.90000004, 0, 1)
 color_ramp = SubResource("Gradient_ovo5l")
 color_initial_ramp = SubResource("Gradient_1vlv1")
