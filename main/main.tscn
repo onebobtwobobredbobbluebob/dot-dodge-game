@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://bu2ep6ukjwum2" path="res://main/mouse_trail.gd" id="10_73k8k"]
 [ext_resource type="Texture2D" uid="uid://ciw1r3tbaxij4" path="res://assets/shop.png" id="11_73k8k"]
 [ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://enemies/coin.png" id="11_oagth"]
+[ext_resource type="Script" uid="uid://pk4k3ehgs0fc" path="res://main/sprite_2d_7.gd" id="11_vapsy"]
 
 [sub_resource type="Gradient" id="Gradient_d5n2w"]
 offsets = PackedFloat32Array(0, 0.20103092, 1)
@@ -127,7 +128,7 @@ script = ExtResource("4_3wy1v")
 [node name="Shop" type="Node2D" parent="." unique_id=228098193]
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop" unique_id=1600531752]
-modulate = Color(0.8, 0.41000006, 0.2, 1)
+modulate = Color(0.2556091, 0.4000787, 0.35724655, 1)
 position = Vector2(-7.247925e-05, -3.33786e-06)
 scale = Vector2(8.877777, 5.2777777)
 texture = ExtResource("2_grrlh")
@@ -192,6 +193,14 @@ text = "chance of deflecting
 0/4
 25 coins"
 
+[node name="Label2" type="Label" parent="Shop" unique_id=1879118960]
+offset_left = -613.0
+offset_top = -348.0
+offset_right = -295.0
+offset_bottom = -211.0
+theme_override_font_sizes/font_size = 40
+text = "welcome!!!"
+
 [node name="Label" type="Label" parent="Shop" unique_id=1582027453]
 offset_left = -146.0
 offset_top = -83.0
@@ -200,28 +209,49 @@ offset_bottom = 54.0
 theme_override_font_sizes/font_size = 100
 text = "shop!!!"
 
+[node name="Sprite2D7" type="Sprite2D" parent="Shop" unique_id=1466102006]
+position = Vector2(-370, -318)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_bsumw")
+script = ExtResource("11_vapsy")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Shop" unique_id=209074643]
+position = Vector2(-593, -266)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_bsumw")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Shop" unique_id=142015130]
+position = Vector2(-523, -265)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_bsumw")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Shop" unique_id=2138513143]
+position = Vector2(-449, -265)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_bsumw")
+
 [node name="Node2D" type="Node2D" parent="Shop" unique_id=2064104869]
-position = Vector2(-616, -366)
+position = Vector2(-100, -366)
 
 [node name="Label2" type="Label" parent="Shop/Node2D" unique_id=97849162]
-offset_left = 496.0
-offset_top = 5.0
-offset_right = 814.0
-offset_bottom = 142.0
+offset_left = -157.0
+offset_top = 1.0
+offset_right = 161.0
+offset_bottom = 138.0
 theme_override_font_sizes/font_size = 70
 text = "coins: 0"
 script = ExtResource("6_5xyti")
 
 [node name="GoBack" type="MenuButton" parent="Shop" unique_id=1368999381]
 offset_left = 482.0
-offset_top = -343.0
+offset_top = -347.0
 offset_right = 622.0
-offset_bottom = -293.0
+offset_bottom = -297.0
 theme_override_font_sizes/font_size = 30
 text = "exit shop"
 
 [node name="Sprite2D6" type="Sprite2D" parent="Shop" unique_id=2096180055]
-position = Vector2(-166, -305)
+position = Vector2(-207, -304)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_oagth")
 
