@@ -18,7 +18,7 @@ func _ready() -> void:
 	CheddaBoards.scoreboard_loaded.connect(_on_leaderboard)
 	CheddaBoards.nickname_changed.connect(changed_nick)
 	$Ded/Button.pressed.connect(back_button_pressed)
-	$Title/MenuButton.pressed.connect(start_game)
+	$Title/TextureButton.pressed.connect(start_game)
 	$Paused/EndRun.pressed.connect(end_run)
 	$Paused/GoBack.pressed.connect(go_back)
 	get_board_ready()
@@ -51,7 +51,6 @@ func _process(delta: float) -> void:
 				in_death_screen()
 		elif GameState.alive == 1:
 			in_game(delta)
-	#print(GameState.alive)
 
 
 func start_main_menu():

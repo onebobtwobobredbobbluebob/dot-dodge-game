@@ -6,10 +6,17 @@
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
 [ext_resource type="Texture2D" uid="uid://e1mfr6mpqwaf" path="res://assets/title.png" id="6_0i4oc"]
+[ext_resource type="Texture2D" uid="uid://cbar1gbxeo36j" path="res://assets/start.png" id="7_0i4oc"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
-[ext_resource type="Script" uid="uid://bu2idx8lqiher" path="res://main/start_button.gd" id="7_67ri8"]
 [ext_resource type="Texture2D" uid="uid://comjm0qxa1igh" path="res://assets/bob_white_highlight_animation.png" id="8_0i4oc"]
+[ext_resource type="Script" uid="uid://57lb4gheycnd" path="res://main/texture_button.gd" id="8_bsumw"]
 [ext_resource type="Texture2D" uid="uid://cg1gyoac0uhwn" path="res://assets/bob_white_highlight_2.png" id="9_bsumw"]
+[ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="9_na0o7"]
+[ext_resource type="Script" uid="uid://bu2ep6ukjwum2" path="res://main/mouse_trail.gd" id="10_73k8k"]
+
+[sub_resource type="Gradient" id="Gradient_d5n2w"]
+offsets = PackedFloat32Array(0, 0.20103092, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwcvl"]
 atlas = ExtResource("8_0i4oc")
@@ -116,18 +123,46 @@ visible = false
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
-position = Vector2(3, 47)
+position = Vector2(3, 13)
 texture = ExtResource("6_0i4oc")
 
-[node name="MenuButton" type="MenuButton" parent="Title" unique_id=555276249]
-offset_left = -94.0
-offset_top = -18.0
-offset_right = 104.0
-offset_bottom = 32.0
-theme_override_font_sizes/font_size = 30
-text = "press here :D"
-script = ExtResource("7_67ri8")
-metadata/_edit_use_anchors_ = true
+[node name="TextureButton" type="TextureButton" parent="Title" unique_id=353394036]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -25.0
+offset_right = 180.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 100)
+texture_normal = ExtResource("7_0i4oc")
+script = ExtResource("8_bsumw")
+
+[node name="MouseTrail" type="CPUParticles2D" parent="Title" unique_id=416231101]
+amount = 30
+texture = ExtResource("9_na0o7")
+lifetime = 0.75
+explosiveness = 0.1
+randomness = 0.19
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 180.0
+gravity = Vector2(0, 400)
+initial_velocity_min = 68.37
+initial_velocity_max = 179.48
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+damping_min = 11.966
+damping_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color = Color(1, 1, 1, 0.23529412)
+color_ramp = SubResource("Gradient_d5n2w")
+script = ExtResource("10_73k8k")
 
 [node name="Startup" type="Node2D" parent="." unique_id=1860983877]
 visible = false
