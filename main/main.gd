@@ -12,16 +12,45 @@ const WORLD = preload("uid://b3ow5ef8lcb2r")
 var world = WORLD.instantiate()
 var game_paused: bool = false
 var shop = false
+var main = false
+
+
+var item_1_level: int = 0
+var item_1_max_level: int = 5
+var item_1_price: int = 5
+var item_1_price_inc: int = 5
+
+var item_2_level: int = 0
+var item_2_max_level: int = 3
+var item_2_price: int = 10
+var item_2_price_inc: int = 5
+
+var item_3_level: int = 0
+var item_3_max_level: int = 1
+var item_3_price: int = 40
+
+var item_4_level: int = 0
+var item_4_max_level: int = 4
+var item_4_price: int = 25
+var item_4_price_inc: int = 15
+
 
 func _ready() -> void:
 	CheddaBoards.set_api_key("cb_dot-dodge-2_c0f4373ea37958099d97e7823b098e6b")
 	CheddaBoards.set_game_id("dot-dodge-2")
 	CheddaBoards.scoreboard_loaded.connect(_on_leaderboard)
 	CheddaBoards.nickname_changed.connect(changed_nick)
+	
 	$Ded/Button.pressed.connect(back_button_pressed)
 	$Title/TextureButton.pressed.connect(start_game)
+	$Title/TextureButton2.pressed.connect(start_shop)
 	$Paused/EndRun.pressed.connect(end_run)
 	$Paused/GoBack.pressed.connect(go_back)
+	
+	$Shop/MenuButton.pressed.connect(bought_1)
+	$Shop/MenuButton2.pressed.connect(bought_2)
+	$Shop/MenuButton3.pressed.connect(bought_3)
+	$Shop/MenuButton4.pressed.connect(bought_4)
 	get_board_ready()
 	
 
@@ -31,6 +60,7 @@ func _process(delta: float) -> void:
 		$Startup.visible = true
 		startup_timer += delta * 0.5
 		$Title.visible = false
+		$Shop.visible = false
 		if startup_timer < 1:
 			$Startup/Sprite2D.modulate.a = startup_timer
 		else:
@@ -52,10 +82,16 @@ func _process(delta: float) -> void:
 				in_death_screen()
 		elif GameState.alive == 1:
 			in_game(delta)
+		if GameState.alive == 0:
+			if shop:
+				in_shop()
+			elif main:
+				in_main_menu()
 
 
 func start_main_menu():
 	shop = false
+	main = true
 	GameState.alive = 0
 	$Ded.visible = false
 	$LeaderBoard.visible = false
@@ -67,6 +103,7 @@ func in_main_menu():
 	$LeaderBoard.visible = false
 	$Shop.visible = false
 	$Title.visible = true
+
 
 func start_game():
 	start_main_menu()
@@ -85,6 +122,7 @@ func start_game():
 	world.get_tree().paused = false
 
 func in_game(delta: float):
+	main = false
 	$Ded.visible = false
 	if game_paused == false:
 		if timer > 1.5:
@@ -118,12 +156,14 @@ func go_back():
 	start_main_menu()
 
 func start_death_screen():
+	GameState.total_coins += GameState.coins
 	GameState.alive = 2
 	$Ded/Label2.set_score(int(round(GameState.timer)))
 	CheddaBoards.submit_score_to_board("high-scores", int(round(GameState.timer)))
 	#print(int(round(GameState.timer)))
 
 func in_death_screen():
+	main = false
 	$Ded.visible = true
 	$LeaderBoard.visible = false
 	if Input.is_action_just_pressed("toggle_leaderboard"):
@@ -168,10 +208,45 @@ func start_shop():
 
 
 func in_shop():
+	main = false
 	$Shop.visible = true
 	$Title.visible = false
+	
+	$Shop/MenuButton.text = "increase max health \n " + str(item_1_level) + "/" + str(item_1_max_level) + "\n" + str(item_1_price) + " coins"
+	$Shop/MenuButton2.text = "more heal spawns \n " + str(item_2_level) + "/" + str(item_2_max_level) + "\n" + str(item_2_price) + " coins"
+	$Shop/MenuButton3.text = "increased speed \n " + str(item_3_level) + "/" + str(item_3_max_level) + "\n" + str(item_3_price) + " coins"
+	$Shop/MenuButton4.text = "chance of deflecting \n " + str(item_4_level) + "/" + str(item_4_max_level) + "\n" + str(item_4_price) + " coins"
+	
 
+func bought_1():
+	if GameState.total_coins >= item_1_price && item_1_level <= item_1_max_level:
+		GameState.total_coins -= item_1_price
+		item_1_level += 1
+		item_1_price += item_1_price
+	elif GameState.total_coins < item_1_price:
+		$Shop/Node2D/Label2.shake += 5
 
+func bought_2():
+	if GameState.total_coins >= item_2_price && item_2_level <= item_2_max_level:
+		GameState.total_coins -= item_2_price
+		item_2_level += 1
+		item_2_price += item_2_price
+	elif GameState.total_coins < item_2_price:
+		$Shop/Node2D/Label2.shake += 5
+func bought_3():
+	if GameState.total_coins >= item_3_price && item_3_level <= item_3_max_level:
+		GameState.total_coins -= item_3_price
+		item_3_level += 1
+		item_3_price += item_3_price
+	elif GameState.total_coins < item_3_price:
+		$Shop/Node2D/Label2.shake += 5
+func bought_4():
+	if GameState.total_coins >= item_4_price && item_4_level <= item_4_max_level:
+		GameState.total_coins -= item_4_price
+		item_4_level += 1
+		item_4_price += item_4_price
+	elif GameState.total_coins < item_4_price:
+		$Shop/Node2D/Label2.shake += 5
 
 func _on_leaderboard(id: String, config: Dictionary, entries: Array):
 	print(id + ": " + "entires: " + str(entries.size()))

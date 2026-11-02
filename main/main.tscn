@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
 [ext_resource type="Texture2D" uid="uid://e1mfr6mpqwaf" path="res://assets/title.png" id="6_0i4oc"]
+[ext_resource type="Script" uid="uid://bjtqi07n1e5i1" path="res://main/label_coins.gd" id="6_5xyti"]
 [ext_resource type="Texture2D" uid="uid://cbar1gbxeo36j" path="res://assets/start.png" id="7_0i4oc"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
 [ext_resource type="Texture2D" uid="uid://comjm0qxa1igh" path="res://assets/bob_white_highlight_animation.png" id="8_0i4oc"]
@@ -119,7 +120,6 @@ emoji_menu_enabled = false
 script = ExtResource("4_3wy1v")
 
 [node name="Shop" type="Node2D" parent="." unique_id=228098193]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop" unique_id=1600531752]
 modulate = Color(0.8, 0.41000006, 0.2, 1)
@@ -137,26 +137,6 @@ text = "increase max health
 0/5
 5 coins"
 
-[node name="MenuButton3" type="MenuButton" parent="Shop" unique_id=729022261]
-offset_left = -474.0
-offset_top = 144.0
-offset_right = -76.0
-offset_bottom = 317.0
-theme_override_font_sizes/font_size = 40
-text = "orbital
-0/1
-100 coins"
-
-[node name="MenuButton4" type="MenuButton" parent="Shop" unique_id=634557402]
-offset_left = 88.0
-offset_top = 147.0
-offset_right = 486.0
-offset_bottom = 320.0
-theme_override_font_sizes/font_size = 40
-text = "chance of deflecting
-0/4
-50 coins"
-
 [node name="MenuButton2" type="MenuButton" parent="Shop" unique_id=1504583322]
 offset_left = 108.0
 offset_top = -106.0
@@ -167,6 +147,26 @@ text = "more heal spawns
 0/3
 10 coins"
 
+[node name="MenuButton3" type="MenuButton" parent="Shop" unique_id=729022261]
+offset_left = -474.0
+offset_top = 144.0
+offset_right = -76.0
+offset_bottom = 317.0
+theme_override_font_sizes/font_size = 40
+text = "increased speed
+0/1
+40 coins"
+
+[node name="MenuButton4" type="MenuButton" parent="Shop" unique_id=634557402]
+offset_left = 88.0
+offset_top = 147.0
+offset_right = 486.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 40
+text = "chance of deflecting
+0/4
+25 coins"
+
 [node name="Label" type="Label" parent="Shop" unique_id=1582027453]
 offset_left = -160.0
 offset_top = -274.0
@@ -175,7 +175,18 @@ offset_bottom = -137.0
 theme_override_font_sizes/font_size = 100
 text = "shop!!!"
 
+[node name="Node2D" type="Node2D" parent="Shop" unique_id=2064104869]
+position = Vector2(-616, -366)
+
+[node name="Label2" type="Label" parent="Shop/Node2D" unique_id=97849162]
+offset_right = 318.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 70
+text = "coins"
+script = ExtResource("6_5xyti")
+
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
 position = Vector2(3, 1)
@@ -195,6 +206,15 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(180, 100)
 texture_normal = ExtResource("7_0i4oc")
+script = ExtResource("8_bsumw")
+
+[node name="TextureButton2" type="TextureButton" parent="Title" unique_id=2098988544]
+offset_left = -180.0
+offset_top = 111.0
+offset_right = 180.0
+offset_bottom = 311.0
+pivot_offset = Vector2(180, 100)
+texture_normal = ExtResource("11_73k8k")
 script = ExtResource("8_bsumw")
 
 [node name="MouseTrail" type="CPUParticles2D" parent="Title" unique_id=416231101]
@@ -218,14 +238,6 @@ scale_amount_max = 0.2
 color = Color(1, 1, 1, 0.23529412)
 color_ramp = SubResource("Gradient_d5n2w")
 script = ExtResource("10_73k8k")
-
-[node name="TextureButton2" type="TextureButton" parent="Title" unique_id=2098988544]
-offset_left = -180.0
-offset_top = 111.0
-offset_right = 180.0
-offset_bottom = 311.0
-texture_normal = ExtResource("11_73k8k")
-script = ExtResource("8_bsumw")
 
 [node name="Startup" type="Node2D" parent="." unique_id=1860983877]
 visible = false

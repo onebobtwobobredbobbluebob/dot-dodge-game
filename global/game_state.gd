@@ -6,7 +6,7 @@ var player: CharacterBody2D
 var alive: int
 var timer: float = 0
 var coins: int
-var total_coins: int
+var total_coins: int = 100
 
 func _process(delta: float) -> void:
 	timer += delta
