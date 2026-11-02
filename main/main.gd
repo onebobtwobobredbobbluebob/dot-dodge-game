@@ -11,6 +11,7 @@ var startup: bool = true
 const WORLD = preload("uid://b3ow5ef8lcb2r")
 var world = WORLD.instantiate()
 var game_paused: bool = false
+var shop = false
 
 func _ready() -> void:
 	CheddaBoards.set_api_key("cb_dot-dodge-2_c0f4373ea37958099d97e7823b098e6b")
@@ -54,6 +55,7 @@ func _process(delta: float) -> void:
 
 
 func start_main_menu():
+	shop = false
 	GameState.alive = 0
 	$Ded.visible = false
 	$LeaderBoard.visible = false
@@ -162,10 +164,12 @@ func in_leaderboard(delta: float):
 			leaderboard = false
 
 func start_shop():
-	pass
+	shop = true
+
 
 func in_shop():
-	pass
+	$Shop.visible = true
+	$Title.visible = false
 
 
 
