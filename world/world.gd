@@ -6,7 +6,6 @@ const HEAL = preload("uid://bb25hrqjtx7yw")
 const LASER = preload("uid://d1ulw7nutlcgd")
 const COIN = preload("uid://dbi12jt85ok7w")
 
-
 var timer: float = 0
 var timer2: float = 0
 var timer3: float = 0
@@ -18,6 +17,9 @@ var goal3: float = 22
 var goal4: float = 55
 var goal5: float = 15
 var started = true
+
+func _ready() -> void:
+	$Player.screen_flash.connect($Sprite2D.flash_50)
 
 func start_game():
 	started = true
@@ -41,7 +43,7 @@ func _process(delta: float) -> void:
 		
 		if timer2 > goal2:
 			add_item(HEAL, 1)
-			goal2 = randf_range(14, 26)
+			goal2 = randf_range(GameState.heal_spawn_rate, GameState.heal_spawn_rate + 12)
 			timer2 = 0
 			
 		if timer3 > goal3:
@@ -64,6 +66,7 @@ func _process(delta: float) -> void:
 		timer3 += delta
 		timer4 += delta
 		timer5 += delta
+		
 
 func add_item(ITEM: PackedScene, amount: int):
 	for i in range(amount):

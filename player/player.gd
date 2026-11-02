@@ -2,21 +2,25 @@ extends CharacterBody2D
 
 var speed: float = 0
 var old_pos: Vector2 = position
-var max_health: float = 100
-var health: float = 100
+var max_health: float = GameState.player_max_health
+var health: float = max_health
 var flash_timer: float = 0
 var flash: float = 1
 var flash_green: float = 1
 var skip_to_death: bool = false
+signal screen_flash
 
 func _ready() -> void:
 	GameState.player = self
 
 func _process(delta: float) -> void:
+	var lerp_time = 0.005
+	if GameState.speed:
+		lerp_time = 0.002
 	var x = get_global_mouse_position().x
 	var y = get_global_mouse_position().y
-	position.x = lerp(position.x, x, 1 - pow(0.005, delta))
-	position.y = lerp(position.y, y, 1 - pow(0.005, delta))
+	position.x = lerp(position.x, x, 1 - pow(lerp_time, delta))
+	position.y = lerp(position.y, y, 1 - pow(lerp_time, delta))
 	#position.x = x
 	#position.y = y
 	if position.y < -GameState.CENTER.y:
@@ -51,5 +55,13 @@ func get_hit(damage: float, flash_time: float):
 			return
 		flash_green = 0.8
 		$HealParticles.emitting = true
+	else:
+		if(randf_range(0, 100) < GameState.chance_of_deflecting):
+			
+			flash = flash_time * 0.5
+			$CPUParticles2D3.emitting = true
+			health += damage * -0.5
+			emit_signal("screen_flash")
+			return
 	flash = flash_time
 	health -= damage

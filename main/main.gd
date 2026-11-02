@@ -46,6 +46,7 @@ func _ready() -> void:
 	$Title/TextureButton2.pressed.connect(start_shop)
 	$Paused/EndRun.pressed.connect(end_run)
 	$Paused/GoBack.pressed.connect(go_back)
+	$Shop/GoBack.pressed.connect(shop_go_back)
 	
 	$Shop/MenuButton.pressed.connect(bought_1)
 	$Shop/MenuButton2.pressed.connect(bought_2)
@@ -213,13 +214,25 @@ func in_shop():
 	$Title.visible = false
 	
 	$Shop/MenuButton.text = "increase max health \n " + str(item_1_level) + "/" + str(item_1_max_level) + "\n" + str(item_1_price) + " coins"
-	$Shop/MenuButton2.text = "more heal spawns \n " + str(item_2_level) + "/" + str(item_2_max_level) + "\n" + str(item_2_price) + " coins"
+	$Shop/MenuButton2.text = "more heals spawn \n " + str(item_2_level) + "/" + str(item_2_max_level) + "\n" + str(item_2_price) + " coins"
 	$Shop/MenuButton3.text = "increased speed \n " + str(item_3_level) + "/" + str(item_3_max_level) + "\n" + str(item_3_price) + " coins"
 	$Shop/MenuButton4.text = "chance of deflecting \n " + str(item_4_level) + "/" + str(item_4_max_level) + "\n" + str(item_4_price) + " coins"
+	GameState.player_max_health = 80 + item_1_level * 20
+	GameState.heal_spawn_rate = 14 - item_2_level * 2
+	if item_3_level == 0:
+		GameState.speed = false
+	else:
+		GameState.speed = true
+	GameState.chance_of_deflecting = item_4_level * 5
 	
+	if Input.is_action_just_pressed("escape"):
+		start_main_menu()
+
+func shop_go_back():
+	start_main_menu()
 
 func bought_1():
-	if GameState.total_coins >= item_1_price && item_1_level <= item_1_max_level:
+	if GameState.total_coins >= item_1_price && item_1_level < item_1_max_level:
 		GameState.total_coins -= item_1_price
 		item_1_level += 1
 		item_1_price += item_1_price
@@ -227,21 +240,21 @@ func bought_1():
 		$Shop/Node2D/Label2.shake += 5
 
 func bought_2():
-	if GameState.total_coins >= item_2_price && item_2_level <= item_2_max_level:
+	if GameState.total_coins >= item_2_price && item_2_level < item_2_max_level:
 		GameState.total_coins -= item_2_price
 		item_2_level += 1
 		item_2_price += item_2_price
 	elif GameState.total_coins < item_2_price:
 		$Shop/Node2D/Label2.shake += 5
 func bought_3():
-	if GameState.total_coins >= item_3_price && item_3_level <= item_3_max_level:
+	if GameState.total_coins >= item_3_price && item_3_level < item_3_max_level:
 		GameState.total_coins -= item_3_price
 		item_3_level += 1
 		item_3_price += item_3_price
 	elif GameState.total_coins < item_3_price:
 		$Shop/Node2D/Label2.shake += 5
 func bought_4():
-	if GameState.total_coins >= item_4_price && item_4_level <= item_4_max_level:
+	if GameState.total_coins >= item_4_price && item_4_level < item_4_max_level:
 		GameState.total_coins -= item_4_price
 		item_4_level += 1
 		item_4_price += item_4_price
