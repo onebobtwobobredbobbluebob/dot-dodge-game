@@ -6,7 +6,7 @@ var player: CharacterBody2D
 var alive: int
 var timer: float = 0
 var coins: int
-var total_coins: int = 15000
+var total_coins: int = 0
 var player_max_health: int = 100
 var heal_spawn_rate: int = 14
 var speed: bool = false

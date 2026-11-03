@@ -146,7 +146,7 @@ func in_game(delta: float):
 		if Input.is_action_just_pressed("pause"):
 			game_paused = false
 			world.process_mode = Node.PROCESS_MODE_INHERIT
-	print(game_paused)
+	#print(game_paused)
 
 func end_run():
 	world.find_child("Player").skip_to_death = true
@@ -154,6 +154,8 @@ func end_run():
 	world.process_mode = Node.PROCESS_MODE_INHERIT
 
 func go_back():
+	if is_instance_valid(world):
+		world.queue_free()
 	start_main_menu()
 
 func start_death_screen():
@@ -223,7 +225,7 @@ func in_shop():
 		GameState.speed = false
 	else:
 		GameState.speed = true
-	GameState.chance_of_deflecting = item_4_level * 5
+	GameState.chance_of_deflecting = item_4_level * 10
 	
 	if Input.is_action_just_pressed("escape"):
 		start_main_menu()
