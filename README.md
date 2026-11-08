@@ -1,11 +1,17 @@
 **Hello!**
 
 This is my somewhat finished game, dot dodge game!  
+
 This game is an action dodge game with upgrades you can buy
+
 You use your mouse to dodge enemies, and enemies start coming in faster and faster as you go  
+
 Your goal is to try to survive as long as possible before you die  
+
 During your run, you can also get coins which you can then use to buy all kinds of upgrades!
+
 Good Luck, and try to get on top of the leaderboards!  
+
 Play Here: [https://bob123123123.itch.io/dot-dodge-game-demo](https://bob123123123.itch.io/dot-dodge-game-demo)  
 
 <img width="1260" height="660" alt="Screenshot 2026-10-18 232149" src="https://github.com/user-attachments/assets/8af532d1-b55c-4625-8235-67f046259d96" />  
