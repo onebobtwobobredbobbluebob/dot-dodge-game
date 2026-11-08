@@ -113,7 +113,7 @@ offset_left = -549.0
 offset_top = -268.0
 offset_right = 493.0
 offset_bottom = 69.0
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 30
 text = "loading..."
 
 [node name="Label" type="Label" parent="LeaderBoard/Label" unique_id=1283410986]
@@ -136,7 +136,6 @@ emoji_menu_enabled = false
 script = ExtResource("4_3wy1v")
 
 [node name="Shop" type="Node2D" parent="." unique_id=228098193]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop" unique_id=1600531752]
 modulate = Color(0.2556091, 0.4000787, 0.35724655, 1)
@@ -213,10 +212,10 @@ theme_override_font_sizes/font_size = 40
 text = "welcome!!!"
 
 [node name="Label" type="Label" parent="Shop" unique_id=1582027453]
-offset_left = -146.0
-offset_top = -83.0
-offset_right = 172.0
-offset_bottom = 54.0
+offset_left = -156.0
+offset_top = -130.0
+offset_right = 162.0
+offset_bottom = 7.0
 theme_override_font_sizes/font_size = 100
 text = "shop!!!"
 
@@ -267,6 +266,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_oagth")
 
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
 position = Vector2(-7, 29)

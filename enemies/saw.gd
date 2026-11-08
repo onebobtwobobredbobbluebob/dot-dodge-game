@@ -40,15 +40,16 @@ func _physics_process(delta: float) -> void:
 		particles()
 		#print("nji4hufbwejh4e")
 		if damage_cooldown < 0:
-			GameState.player.get_hit(1, 0.7)
-			#delete()
 			if GameState.camera.shake < 30:
-				GameState.camera.shake += 3
+				GameState.player.get_hit(1, 0.7, 3)
+			else:
+				GameState.player.get_hit(1, 0.7, 0)
 			damage_cooldown = 0.1
 			flash = 0.3
 	for item in get_overlapping_areas():
 		if item is Laser:
 			item.flash = 0.1
+			GameState.camera.shake += shake()
 			delete()
 	damage_cooldown -= delta
 	
@@ -64,15 +65,16 @@ func delete():
 	var explosion = EXPLOSION.instantiate()
 	explosion.position = position
 	explosion.position += transform.x * 30
+	#GameState.camera.zoom = Vector2(0.9, 0.9)
+	add_sibling(explosion)
+	queue_free()
+
+func shake() -> float:
 	var dist: float = (position - GameState.player.position).length()
 	if dist < 100:
 		dist = 100
 	var shake: float = 2000 / dist
-	GameState.camera.shake += shake
-	#GameState.camera.zoom = Vector2(0.9, 0.9)
-	add_sibling(explosion)
-	queue_free()
-	
+	return shake
 func particles():
 	$Particles/CPUParticles2D.emitting = true
 	var angle = position.direction_to(GameState.player.position).angle()

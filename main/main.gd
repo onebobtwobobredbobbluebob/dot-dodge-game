@@ -30,7 +30,7 @@ var item_3_max_level: int = 1
 var item_3_price: int = 40
 
 var item_4_level: int = 0
-var item_4_max_level: int = 4
+var item_4_max_level: int = 8 #4
 var item_4_price: int = 25
 var item_4_price_inc: int = 15
 
@@ -229,6 +229,8 @@ func in_shop():
 	
 	if Input.is_action_just_pressed("escape"):
 		start_main_menu()
+	if Input.is_action_pressed("cheat3") and Input.is_action_just_pressed("cheat") and Input.is_action_just_pressed("cheat2"):
+		GameState.total_coins += 50000
 
 func shop_go_back():
 	start_main_menu()

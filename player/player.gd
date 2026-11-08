@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+const DEFLECT_PARTICLES = preload("uid://6m76bfy25dbd")
 var speed: float = 0
 var old_pos: Vector2 = position
 var max_health: float = GameState.player_max_health
@@ -46,10 +47,10 @@ func _process(delta: float) -> void:
 		health = max_health
 	
 	if skip_to_death:
-		get_hit(100, 3)
+		get_hit(100, 3, 0)
 		health = -40
 
-func get_hit(damage: float, flash_time: float):
+func get_hit(damage: float, flash_time: float, screen_shake: float):
 	if damage < 0:
 		if skip_to_death:
 			return
@@ -57,11 +58,13 @@ func get_hit(damage: float, flash_time: float):
 		$HealParticles.emitting = true
 	else:
 		if(randf_range(0, 100) < GameState.chance_of_deflecting):
-			
 			flash = flash_time * 0.5
-			$CPUParticles2D3.emitting = true
-			health += damage * -0.5
+			var deflect = DEFLECT_PARTICLES.instantiate()
+			add_child(deflect)
+			health -= damage * 0.1
 			emit_signal("screen_flash")
+			GameState.camera.shake += screen_shake * 0.5
 			return
+	GameState.camera.shake += screen_shake
 	flash = flash_time
 	health -= damage

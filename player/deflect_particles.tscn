@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://6m76bfy25dbd"]
+
+[ext_resource type="Script" uid="uid://c7wqy5yfwxw5o" path="res://player/deflect_particles.gd" id="1_pifmh"]
+[ext_resource type="Texture2D" uid="uid://biwa663kmsri4" path="res://assets/particle_health_white.png" id="1_y3h61"]
+[ext_resource type="Texture2D" uid="uid://f6vcvrybpkr2" path="res://assets/particle_1.png" id="2_pifmh"]
+
+[sub_resource type="Gradient" id="Gradient_d5n2w"]
+offsets = PackedFloat32Array(0, 0.12886597, 0.48453608, 0.7628866)
+colors = PackedColorArray(1, 1, 1, 0.46907216, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_4v1cs"]
+colors = PackedColorArray(0.13999999, 0.957, 1, 1, 0, 1, 1, 1)
+
+[node name="DeflectParticles" type="Node2D" unique_id=1093179340]
+scale = Vector2(0.06153846, 0.06153846)
+script = ExtResource("1_pifmh")
+
+[node name="Layer1" type="CPUParticles2D" parent="." unique_id=1208486137]
+scale = Vector2(16.25, 16.25)
+emitting = false
+amount = 10
+texture = ExtResource("1_y3h61")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.9
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+damping_min = 59.189
+damping_max = 75.429
+angle_min = 45.0
+angle_max = 45.0
+color = Color(1, 1, 1, 0.5882353)
+color_ramp = SubResource("Gradient_d5n2w")
+color_initial_ramp = SubResource("Gradient_4v1cs")
+
+[node name="Layer2" type="CPUParticles2D" parent="." unique_id=259836905]
+modulate = Color(1, 1, 1, 0.39215687)
+scale = Vector2(16.25, 16.25)
+emitting = false
+amount = 4
+texture = ExtResource("1_y3h61")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.9
+local_coords = true
+emission_shape = 6
+emission_ring_inner_radius = 50.0
+emission_ring_radius = 60.0
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+damping_min = 59.189
+damping_max = 75.429
+angle_min = 45.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_d5n2w")
+color_initial_ramp = SubResource("Gradient_4v1cs")
+
+[node name="Layer3" type="CPUParticles2D" parent="." unique_id=432351086]
+modulate = Color(1, 1, 1, 0.7058824)
+scale = Vector2(16.25, 16.25)
+emitting = false
+amount = 100
+texture = ExtResource("2_pifmh")
+lifetime = 1.2
+one_shot = true
+preprocess = 0.5
+explosiveness = 0.7
+local_coords = true
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 110.0
+initial_velocity_max = 120.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+damping_min = 80.0
+damping_max = 80.0
+angle_min = 45.0
+angle_max = 45.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color = Color(1, 1, 1, 0.11764706)
+color_ramp = SubResource("Gradient_d5n2w")
+color_initial_ramp = SubResource("Gradient_4v1cs")

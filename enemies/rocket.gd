@@ -38,15 +38,17 @@ func _physics_process(delta: float) -> void:
 	#print(position.y - -GameState.CENTER.y)
 	if get_overlapping_bodies().has(GameState.player):
 		#print("nji4hufbwejh4e")
-		GameState.player.get_hit(10, 2)
+		GameState.player.get_hit(10, 2, shake())
 		delete()
 	for item in get_overlapping_areas():
 		#print(item)
 		if item is Saw:
 			item.flash = 1.5
+			GameState.camera.shake += shake() * 0.85
 			delete()
 		if item is Laser:
 			item.flash = 0.1
+			GameState.camera.shake += shake() * 0.75
 			delete()
 		
 		
@@ -54,14 +56,13 @@ func delete():
 	var explosion = EXPLOSION.instantiate()
 	explosion.position = position
 	explosion.position += transform.x * 30
-	var dist: float = (position - GameState.player.position).length()
-	if dist < 100:
-		dist = 100
-	#print()
-	#print(dist)
-	var shake: float = 5000 / dist
-	#print(shake)
-	GameState.camera.shake += shake
 	#GameState.camera.zoom = Vector2(0.9, 0.9)
 	add_sibling(explosion)
 	queue_free()
+
+func shake() -> float:
+	var dist: float = (position - GameState.player.position).length()
+	if dist < 100:
+		dist = 100
+	var shake: float = 5000 / dist
+	return shake

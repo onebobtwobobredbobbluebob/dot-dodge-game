@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="4_yw30f"]
 [ext_resource type="Texture2D" uid="uid://dc331s1mykoa" path="res://assets/saw.png" id="5_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://bdxxjm2jryhwr" path="res://assets/particle_health.png" id="6_g6k8r"]
-[ext_resource type="Texture2D" uid="uid://c7bdlbj5xb4rh" path="res://assets/particle_health_3.png" id="7_boad6"]
 
 [sub_resource type="Gradient" id="Gradient_yw30f"]
 offsets = PackedFloat32Array(0, 0.0882353, 0.3137255)
@@ -35,13 +34,6 @@ colors = PackedColorArray(0.79, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5n2w"]
 radius = 617.5
-
-[sub_resource type="Gradient" id="Gradient_d5n2w"]
-offsets = PackedFloat32Array(0, 0.2113402, 1)
-colors = PackedColorArray(1, 1, 1, 0.46907216, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_4v1cs"]
-colors = PackedColorArray(3.045841, 3.045841, 3.045841, 1, 1, 1, 1, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1011571958]
 script = ExtResource("1_rkbax")
@@ -127,25 +119,3 @@ anim_offset_max = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=586187029]
 scale = Vector2(0.06153846, 0.06153846)
 shape = SubResource("CircleShape2D_d5n2w")
-
-[node name="CPUParticles2D3" type="CPUParticles2D" parent="." unique_id=526646272]
-emitting = false
-texture = ExtResource("7_boad6")
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 50.0
-direction = Vector2(1, 1)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 20.0
-angular_velocity_min = -10.0
-angular_velocity_max = 10.0
-damping_min = 59.189
-damping_max = 75.429
-angle_min = 45.0
-angle_max = 45.0
-color = Color(18.892157, 18.892157, 18.892157, 1)
-color_ramp = SubResource("Gradient_d5n2w")
-color_initial_ramp = SubResource("Gradient_4v1cs")
