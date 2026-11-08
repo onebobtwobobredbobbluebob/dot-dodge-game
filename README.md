@@ -23,3 +23,5 @@ Game made by me in Godot Engine
 Also I'm decently new to using Godot, so if you see that my code is badly written, please tell me!
 
 NOTICE: I used an outside Godot plugin/addon for back-end of the leaderboard, so credit for that goes to the plugin's owner! (I found this plugin on the built in Godot asset store btw)
+
+The reason I made this game is so I can practice and learn my godot and art skills! I also just wanna make a game that's fun and one that I'll be proud of in the future! 
