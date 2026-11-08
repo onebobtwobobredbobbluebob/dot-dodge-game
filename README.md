@@ -12,7 +12,8 @@ During your run, you can also get coins which you can then use to buy all kinds 
 
 Good Luck, and try to get on top of the leaderboards!  
 
-Play Here: [https://bob123123123.itch.io/dot-dodge-game-demo](https://bob123123123.itch.io/dot-dodge-game-demo)  
+To play this game, you can just click the itch page linked below! This will be run in your browser, so you won't have to download any executables!
+[https://bob123123123.itch.io/dot-dodge-game-demo](https://bob123123123.itch.io/dot-dodge-game-demo)  
 
 <img width="1260" height="660" alt="Screenshot 2026-10-18 232149" src="https://github.com/user-attachments/assets/8af532d1-b55c-4625-8235-67f046259d96" />  
 <img width="1260" height="660" alt="Screenshot 2026-10-25 210128" src="https://github.com/user-attachments/assets/b75f7b66-e405-4fea-880e-89c7886c2aa3" />
