@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="2_grrlh"]
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
-[ext_resource type="Texture2D" uid="uid://e1mfr6mpqwaf" path="res://assets/title.png" id="6_0i4oc"]
 [ext_resource type="Script" uid="uid://bjtqi07n1e5i1" path="res://main/label_coins.gd" id="6_5xyti"]
 [ext_resource type="Texture2D" uid="uid://bto86pfmpeyh5" path="res://assets/health_upgrade.png" id="6_q0sk7"]
 [ext_resource type="Texture2D" uid="uid://cbar1gbxeo36j" path="res://assets/start.png" id="7_0i4oc"]
@@ -21,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ciw1r3tbaxij4" path="res://assets/shop.png" id="11_73k8k"]
 [ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://enemies/coin.png" id="11_oagth"]
 [ext_resource type="Script" uid="uid://pk4k3ehgs0fc" path="res://main/sprite_2d_7.gd" id="11_vapsy"]
+[ext_resource type="Texture2D" uid="uid://de68vq3bvbj3c" path="res://assets/title_big.png.png" id="14_vapsy"]
 
 [sub_resource type="Gradient" id="Gradient_d5n2w"]
 offsets = PackedFloat32Array(0, 0.20103092, 1)
@@ -136,6 +136,7 @@ emoji_menu_enabled = false
 script = ExtResource("4_3wy1v")
 
 [node name="Shop" type="Node2D" parent="." unique_id=228098193]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop" unique_id=1600531752]
 modulate = Color(0.2556091, 0.4000787, 0.35724655, 1)
@@ -266,11 +267,11 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_oagth")
 
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
-position = Vector2(-7, 29)
-texture = ExtResource("6_0i4oc")
+position = Vector2(10, 9)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_vapsy")
 
 [node name="TextureButton" type="TextureButton" parent="Title" unique_id=353394036]
 anchors_preset = 8

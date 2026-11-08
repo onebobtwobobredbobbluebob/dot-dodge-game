@@ -30,7 +30,7 @@ var item_3_max_level: int = 1
 var item_3_price: int = 40
 
 var item_4_level: int = 0
-var item_4_max_level: int = 8 #4
+var item_4_max_level: int = 4
 var item_4_price: int = 25
 var item_4_price_inc: int = 15
 

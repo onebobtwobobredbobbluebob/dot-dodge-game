@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ce27aullyq3ty"]
+
+[ext_resource type="Texture2D" uid="uid://b7gtprycpebi5" path="res://assets/speed_upgrade.png" id="1_f2605"]
+
+[node name="ShopItem" type="Node2D" unique_id=807244770]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=427256146]
+texture = ExtResource("1_f2605")
+
+[node name="MenuButton" type="MenuButton" parent="." unique_id=764915071]
+offset_left = -43.0
+offset_top = 131.0
+offset_right = 27.0
+offset_bottom = 162.0
+text = "so coins"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=988321271]
+offset_right = 40.0
+offset_bottom = 40.0

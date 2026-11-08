@@ -58,7 +58,7 @@ func get_hit(damage: float, flash_time: float, screen_shake: float):
 		$HealParticles.emitting = true
 	else:
 		if(randf_range(0, 100) < GameState.chance_of_deflecting):
-			flash = flash_time * 0.5
+			flash = flash_time * 0.6
 			var deflect = DEFLECT_PARTICLES.instantiate()
 			add_child(deflect)
 			health -= damage * 0.1
