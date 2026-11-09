@@ -9,30 +9,13 @@ var timer2: float = 0
 var reload: bool = false
 var startup: bool = true
 const WORLD = preload("uid://b3ow5ef8lcb2r")
+const SHOP_ITEM = preload("uid://ce27aullyq3ty")
 var world = WORLD.instantiate()
 var game_paused: bool = false
 var shop = false
 var main = false
 
-
-var item_1_level: int = 0
-var item_1_max_level: int = 5
-var item_1_price: int = 5
-var item_1_price_inc: int = 5
-
-var item_2_level: int = 0
-var item_2_max_level: int = 3
-var item_2_price: int = 10
-var item_2_price_inc: int = 5
-
-var item_3_level: int = 0
-var item_3_max_level: int = 1
-var item_3_price: int = 40
-
-var item_4_level: int = 0
-var item_4_max_level: int = 4
-var item_4_price: int = 25
-var item_4_price_inc: int = 15
+var shop_items: Array[Node2D]
 
 
 func _ready() -> void:
@@ -52,8 +35,48 @@ func _ready() -> void:
 	$Shop/MenuButton2.pressed.connect(bought_2)
 	$Shop/MenuButton3.pressed.connect(bought_3)
 	$Shop/MenuButton4.pressed.connect(bought_4)
+	
+	instantiate_shop()
+	
 	get_board_ready()
 	
+
+func instantiate_shop():
+	var item_1_level: int = 0
+	var item_1_max_level: int = 5
+	var item_1_price: int = 5
+	var item_1_price_inc: int = 5
+	instantiate_shop_item(0, 5, 1, 5, 5, "health buff")
+
+	var item_2_level: int = 0
+	var item_2_max_level: int = 3
+	var item_2_price: int = 10
+	var item_2_price_inc: int = 5
+	instantiate_shop_item(0, 3, 2, 10, 5, "more heals spawn")
+
+	var item_3_level: int = 0
+	var item_3_max_level: int = 1
+	var item_3_price: int = 40
+	instantiate_shop_item(0, 1, 3, 40, 0, "speed buff")
+
+	var item_4_level: int = 0
+	var item_4_max_level: int = 4
+	var item_4_price: int = 25
+	var item_4_price_inc: int = 15
+	instantiate_shop_item(0, 4, 4, 25, 15, "deflect")
+
+func instantiate_shop_item(level: int, max_level: int, icon: int, price: int, price_increase: int, item_name: String):
+	var new_item = SHOP_ITEM.instantiate()
+	
+	new_item.level = level
+	new_item.max_level = max_level
+	new_item.icon = icon
+	new_item.price = price
+	new_item.price_increase = price_increase
+	new_item.item_name = item_name
+	
+	shop_items.append(new_item)
+
 
 func _process(delta: float) -> void:
 	$Paused.visible = false

@@ -1,16 +1,23 @@
 extends TextureButton
 
-@export var normal_scale = 0.5
-@export var hovered_multiplier = 1.1
-var target_scale = normal_scale
+@export var normal_scale: float = 0.5
+@export var hovered_multiplier: float = 1.1
+var target_scale: float = normal_scale
+var animation_disabled: bool = false
+var shake: float = 0
+var initial_position: Vector2 = position
 
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 func _process(delta: float) -> void:
-	scale = lerp(scale, Vector2(1, 1) * target_scale, 1 - pow(0.001, delta))
-	if is_hovered():
-		target_scale = hovered_multiplier * normal_scale
+	if animation_disabled:
+		scale = Vector2(1, 1) * normal_scale
 	else:
-		target_scale = normal_scale
+		scale = lerp(scale, Vector2(1, 1) * target_scale, 1 - pow(0.001, delta))
+		if is_hovered():
+			target_scale = hovered_multiplier * normal_scale
+		else:
+			target_scale = normal_scale
+	position = initial_position + Vector2(randf_range(-shake, shake), randf_range(-shake, shake))
+	shake *= 0.92
