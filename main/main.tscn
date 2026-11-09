@@ -6,21 +6,22 @@
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
 [ext_resource type="Script" uid="uid://bjtqi07n1e5i1" path="res://main/label_coins.gd" id="6_5xyti"]
-[ext_resource type="Texture2D" uid="uid://bto86pfmpeyh5" path="res://assets/health_upgrade.png" id="6_q0sk7"]
+[ext_resource type="Texture2D" uid="uid://bto86pfmpeyh5" path="res://assets/shop/health_upgrade.png" id="6_q0sk7"]
 [ext_resource type="Texture2D" uid="uid://cbar1gbxeo36j" path="res://assets/start.png" id="7_0i4oc"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
-[ext_resource type="Texture2D" uid="uid://cclcs6dt1cubi" path="res://assets/heal_upgrade.png" id="7_vapsy"]
+[ext_resource type="Texture2D" uid="uid://cclcs6dt1cubi" path="res://assets/shop/heal_upgrade.png" id="7_vapsy"]
 [ext_resource type="Texture2D" uid="uid://comjm0qxa1igh" path="res://assets/bob_white_highlight_animation.png" id="8_0i4oc"]
 [ext_resource type="Script" uid="uid://57lb4gheycnd" path="res://main/texture_button.gd" id="8_bsumw"]
-[ext_resource type="Texture2D" uid="uid://b7gtprycpebi5" path="res://assets/speed_upgrade.png" id="8_jofbb"]
+[ext_resource type="Texture2D" uid="uid://b7gtprycpebi5" path="res://assets/shop/speed_upgrade.png" id="8_jofbb"]
 [ext_resource type="Texture2D" uid="uid://cg1gyoac0uhwn" path="res://assets/bob_white_highlight_2.png" id="9_bsumw"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="9_na0o7"]
-[ext_resource type="Texture2D" uid="uid://bgx8jhppoir1h" path="res://assets/sheild_upgrade.png" id="9_re7it"]
+[ext_resource type="Texture2D" uid="uid://bgx8jhppoir1h" path="res://assets/shop/sheild_upgrade.png" id="9_re7it"]
 [ext_resource type="Script" uid="uid://bu2ep6ukjwum2" path="res://main/mouse_trail.gd" id="10_73k8k"]
 [ext_resource type="Texture2D" uid="uid://ciw1r3tbaxij4" path="res://assets/shop.png" id="11_73k8k"]
 [ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://enemies/coin.png" id="11_oagth"]
 [ext_resource type="Script" uid="uid://pk4k3ehgs0fc" path="res://main/sprite_2d_7.gd" id="11_vapsy"]
 [ext_resource type="Texture2D" uid="uid://de68vq3bvbj3c" path="res://assets/title_big.png.png" id="14_vapsy"]
+[ext_resource type="PackedScene" uid="uid://ce27aullyq3ty" path="res://main/shop_item.tscn" id="20_jofbb"]
 
 [sub_resource type="Gradient" id="Gradient_d5n2w"]
 offsets = PackedFloat32Array(0, 0.20103092, 1)
@@ -269,7 +270,7 @@ texture = ExtResource("11_oagth")
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
-position = Vector2(10, 9)
+position = Vector2(1, 27)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_vapsy")
 
@@ -321,6 +322,10 @@ scale_amount_max = 0.2
 color = Color(1, 1, 1, 0.23529412)
 color_ramp = SubResource("Gradient_d5n2w")
 script = ExtResource("10_73k8k")
+
+[node name="ShopItem" parent="Title" unique_id=807244770 instance=ExtResource("20_jofbb")]
+position = Vector2(-349, 84)
+scale = Vector2(0.5, 0.5)
 
 [node name="Startup" type="Node2D" parent="." unique_id=1860983877]
 visible = false

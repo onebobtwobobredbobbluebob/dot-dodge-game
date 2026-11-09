@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cclcs6dt1cubi"
-path="res://.godot/imported/heal_upgrade.png-7d7e926c502dcf7d21faa0bea9dbcc3b.ctex"
+uid="uid://cksd0ra5rc32a"
+path="res://.godot/imported/shop_item_button_shadows.png-4488f6e7736c7fda8119ae4213b5e161.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/heal_upgrade.png"
-dest_files=["res://.godot/imported/heal_upgrade.png-7d7e926c502dcf7d21faa0bea9dbcc3b.ctex"]
+source_file="res://assets/shop/shop_item_button_shadows.png"
+dest_files=["res://.godot/imported/shop_item_button_shadows.png-4488f6e7736c7fda8119ae4213b5e161.ctex"]
 
 [params]
 

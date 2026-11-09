@@ -1,19 +1,67 @@
 [gd_scene format=3 uid="uid://ce27aullyq3ty"]
 
-[ext_resource type="Texture2D" uid="uid://b7gtprycpebi5" path="res://assets/speed_upgrade.png" id="1_f2605"]
+[ext_resource type="Texture2D" uid="uid://dq05fwthh5xpj" path="res://assets/shop/shop_item_background.png" id="1_rvwxv"]
+[ext_resource type="FontFile" uid="uid://ctxqsqpn22la6" path="res://assets/Taiyaki-Regular-BF64b8d3728e1e2.ttf" id="2_2p4po"]
+[ext_resource type="Texture2D" uid="uid://dn4bd5d4ho8nl" path="res://assets/shop/speed_upgrade_flat.png" id="2_5nha3"]
+[ext_resource type="Texture2D" uid="uid://baqq77sbdeini" path="res://assets/shop/shop_item_alpha.png" id="3_hmqou"]
+[ext_resource type="Texture2D" uid="uid://cr872kej1w3ll" path="res://assets/shop/shop_item_shadows.png" id="4_yedl1"]
+[ext_resource type="Texture2D" uid="uid://fi3tv4wykyse" path="res://assets/shop/shop_item_button_outline.png" id="6_hmqou"]
+[ext_resource type="Script" uid="uid://57lb4gheycnd" path="res://main/texture_button.gd" id="6_rw6uc"]
+[ext_resource type="BitMap" uid="uid://dfwiga85vmg3k" path="res://assets/shop/shop_item_button_button.png" id="7_yedl1"]
+[ext_resource type="Texture2D" uid="uid://b3wkk6wbmckdy" path="res://assets/shop/shop_item_outline.png" id="8_1knda"]
 
 [node name="ShopItem" type="Node2D" unique_id=807244770]
+metadata/_edit_horizontal_guides_ = [-255.0]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=679698897]
+texture = ExtResource("1_rvwxv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=427256146]
-texture = ExtResource("1_f2605")
+position = Vector2(-197, -72)
+texture = ExtResource("2_5nha3")
 
-[node name="MenuButton" type="MenuButton" parent="." unique_id=764915071]
-offset_left = -43.0
-offset_top = 131.0
-offset_right = 27.0
-offset_bottom = 162.0
-text = "so coins"
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=620390440]
+clip_children = 1
+texture = ExtResource("3_hmqou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D3" unique_id=226532217]
+modulate = Color(1, 1, 1, 0.39215687)
+texture = ExtResource("4_yedl1")
+
+[node name="MenuButton3" type="Label" parent="." unique_id=1924578085]
+offset_left = 25.0
+offset_top = -99.0
+offset_right = 249.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0, 0.17233339, 0.47, 1)
+theme_override_fonts/font = ExtResource("2_2p4po")
+theme_override_font_sizes/font_size = 150
+text = "0/5
+"
+
+[node name="MenuButton2" type="Label" parent="." unique_id=1053894801]
+offset_left = -20.0
+offset_top = -158.0
+offset_right = 286.0
+offset_bottom = 7.0
+theme_override_colors/font_color = Color(0, 0.17233339, 0.47, 1)
+theme_override_fonts/font = ExtResource("2_2p4po")
+theme_override_font_sizes/font_size = 60
+text = "Speed Buff
+
+"
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=988321271]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -400.0
+offset_top = -265.0
+offset_right = 400.0
+offset_bottom = 275.0
+pivot_offset = Vector2(400, 430)
+texture_normal = ExtResource("6_hmqou")
+texture_click_mask = ExtResource("7_yedl1")
+script = ExtResource("6_rw6uc")
+normal_scale = 1.0
+hovered_multiplier = 1.04
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=819285114]
+texture = ExtResource("8_1knda")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dfwiga85vmg3k"
+path="res://.godot/imported/shop_item_button_button.png-f0168a2d9038df3367e56924aa17e6e8.res"
+
+[deps]
+
+source_file="res://assets/shop/shop_item_button_button.png"
+dest_files=["res://.godot/imported/shop_item_button_button.png-f0168a2d9038df3367e56924aa17e6e8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

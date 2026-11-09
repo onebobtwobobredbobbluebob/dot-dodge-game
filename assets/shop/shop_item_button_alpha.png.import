@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bto86pfmpeyh5"
-path="res://.godot/imported/health_upgrade.png-0f5febfadd27efb2725a3c6f918a65e2.ctex"
+uid="uid://uuot78fcsumb"
+path="res://.godot/imported/shop_item_button_alpha.png-e0179a59fc6dbee9c2252e4057495c55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/health_upgrade.png"
-dest_files=["res://.godot/imported/health_upgrade.png-0f5febfadd27efb2725a3c6f918a65e2.ctex"]
+source_file="res://assets/shop/shop_item_button_alpha.png"
+dest_files=["res://.godot/imported/shop_item_button_alpha.png-e0179a59fc6dbee9c2252e4057495c55.ctex"]
 
 [params]
 
