@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://ce27aullyq3ty"]
 
+[ext_resource type="Script" uid="uid://drohifoo4it56" path="res://main/shop_item.gd" id="1_41ypk"]
 [ext_resource type="Texture2D" uid="uid://dq05fwthh5xpj" path="res://assets/shop/shop_item_background.png" id="1_rvwxv"]
 [ext_resource type="FontFile" uid="uid://ctxqsqpn22la6" path="res://assets/Taiyaki-Regular-BF64b8d3728e1e2.ttf" id="2_2p4po"]
-[ext_resource type="Texture2D" uid="uid://dn4bd5d4ho8nl" path="res://assets/shop/icons/speed_upgrade_flat.png" id="2_5nha3"]
+[ext_resource type="Texture2D" uid="uid://dn4bd5d4ho8nl" path="res://assets/shop/icons/3.png" id="2_5nha3"]
 [ext_resource type="Texture2D" uid="uid://baqq77sbdeini" path="res://assets/shop/shop_item_alpha.png" id="3_hmqou"]
 [ext_resource type="Texture2D" uid="uid://cr872kej1w3ll" path="res://assets/shop/shop_item_shadows.png" id="4_yedl1"]
 [ext_resource type="Texture2D" uid="uid://fi3tv4wykyse" path="res://assets/shop/shop_item_button_outline.png" id="6_hmqou"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cksd0ra5rc32a" path="res://assets/shop/shop_item_button_shadows.png" id="10_41ypk"]
 
 [node name="ShopItem" type="Node2D" unique_id=807244770]
+script = ExtResource("1_41ypk")
 metadata/_edit_horizontal_guides_ = [-255.0]
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=679698897]
@@ -56,7 +58,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.17233339, 0.47, 1)
 theme_override_fonts/font = ExtResource("2_2p4po")
 theme_override_font_sizes/font_size = 150
-text = "0/2"
+text = "2/2"
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=988321271]
 offset_left = -400.0
@@ -102,7 +104,7 @@ layout_mode = 2
 position = Vector2(-67, 38)
 texture = ExtResource("9_1knda")
 
-[node name="MenuButton2" type="Label" parent="TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer/HBoxContainer" unique_id=1636303023]
+[node name="Price" type="Label" parent="TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer/HBoxContainer" unique_id=1636303023]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.17233339, 0.47, 1)
 theme_override_fonts/font = ExtResource("2_2p4po")

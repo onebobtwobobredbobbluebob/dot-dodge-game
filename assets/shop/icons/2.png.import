@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd228rbwywnsg"
-path="res://.godot/imported/heal_upgrade_flat.png-bf71b7d62966f21e0d4a028a486bde2a.ctex"
+uid="uid://bldn6wnva4ggu"
+path="res://.godot/imported/2.png-9c6a21fe5b304b87f4fc5fda8196b363.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shop/icons/heal_upgrade_flat.png"
-dest_files=["res://.godot/imported/heal_upgrade_flat.png-bf71b7d62966f21e0d4a028a486bde2a.ctex"]
+source_file="res://assets/shop/icons/2.png"
+dest_files=["res://.godot/imported/2.png-9c6a21fe5b304b87f4fc5fda8196b363.ctex"]
 
 [params]
 

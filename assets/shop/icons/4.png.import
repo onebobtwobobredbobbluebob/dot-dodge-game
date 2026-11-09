@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6gljrn2h2d0d"
-path="res://.godot/imported/health_upgrade_flat.png-25832286078408bfdba89c3797d66c63.ctex"
+uid="uid://dtfyov2npb7ar"
+path="res://.godot/imported/4.png-2f3d6e84d7503372e7f3207253f76ab6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shop/icons/health_upgrade_flat.png"
-dest_files=["res://.godot/imported/health_upgrade_flat.png-25832286078408bfdba89c3797d66c63.ctex"]
+source_file="res://assets/shop/icons/4.png"
+dest_files=["res://.godot/imported/4.png-2f3d6e84d7503372e7f3207253f76ab6.ctex"]
 
 [params]
 
