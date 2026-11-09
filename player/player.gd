@@ -64,6 +64,7 @@ func get_hit(damage: float, flash_time: float, screen_shake: float):
 			health -= damage * 0.1
 			emit_signal("screen_flash")
 			GameState.camera.shake += screen_shake * 0.5
+
 			return
 	GameState.camera.shake += screen_shake
 	flash = flash_time

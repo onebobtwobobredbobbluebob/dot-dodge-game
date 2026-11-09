@@ -15,7 +15,7 @@ var game_paused: bool = false
 var shop = false
 var main = false
 
-var shop_items: Array[Node2D]
+var shop_items: Array[Control]
 
 
 func _ready() -> void:
@@ -31,39 +31,19 @@ func _ready() -> void:
 	$Paused/GoBack.pressed.connect(go_back)
 	$Shop/GoBack.pressed.connect(shop_go_back)
 	
-	$Shop/MenuButton.pressed.connect(bought_1)
-	$Shop/MenuButton2.pressed.connect(bought_2)
-	$Shop/MenuButton3.pressed.connect(bought_3)
-	$Shop/MenuButton4.pressed.connect(bought_4)
-	
 	instantiate_shop()
 	
 	get_board_ready()
 	
 
 func instantiate_shop():
-	var item_1_level: int = 0
-	var item_1_max_level: int = 5
-	var item_1_price: int = 5
-	var item_1_price_inc: int = 5
-	instantiate_shop_item(0, 5, 1, 5, 5, "health buff")
-
-	var item_2_level: int = 0
-	var item_2_max_level: int = 3
-	var item_2_price: int = 10
-	var item_2_price_inc: int = 5
-	instantiate_shop_item(0, 3, 2, 10, 5, "more heals spawn")
-
-	var item_3_level: int = 0
-	var item_3_max_level: int = 1
-	var item_3_price: int = 40
+	instantiate_shop_item(0, 5, 1, 5, 5, "hp buff")
+	instantiate_shop_item(0, 3, 2, 10, 5, "more heals")
 	instantiate_shop_item(0, 1, 3, 40, 0, "speed buff")
-
-	var item_4_level: int = 0
-	var item_4_max_level: int = 4
-	var item_4_price: int = 25
-	var item_4_price_inc: int = 15
 	instantiate_shop_item(0, 4, 4, 25, 15, "deflect")
+	
+	for i in shop_items:
+		$Shop/Sprite2D2/VScrollBar/VBoxContainer.add_child(i)
 
 func instantiate_shop_item(level: int, max_level: int, icon: int, price: int, price_increase: int, item_name: String):
 	var new_item = SHOP_ITEM.instantiate()
@@ -74,6 +54,8 @@ func instantiate_shop_item(level: int, max_level: int, icon: int, price: int, pr
 	new_item.price = price
 	new_item.price_increase = price_increase
 	new_item.item_name = item_name
+	
+	new_item.broke.connect(broke_no_money)
 	
 	shop_items.append(new_item)
 
@@ -238,17 +220,13 @@ func in_shop():
 	$Shop.visible = true
 	$Title.visible = false
 	
-	$Shop/MenuButton.text = "increase max health \n " + str(item_1_level) + "/" + str(item_1_max_level) + "\n" + str(item_1_price) + " coins"
-	$Shop/MenuButton2.text = "more heals spawn \n " + str(item_2_level) + "/" + str(item_2_max_level) + "\n" + str(item_2_price) + " coins"
-	$Shop/MenuButton3.text = "increased speed \n " + str(item_3_level) + "/" + str(item_3_max_level) + "\n" + str(item_3_price) + " coins"
-	$Shop/MenuButton4.text = "chance of deflecting \n " + str(item_4_level) + "/" + str(item_4_max_level) + "\n" + str(item_4_price) + " coins"
-	GameState.player_max_health = 80 + item_1_level * 20
-	GameState.heal_spawn_rate = 14 - item_2_level * 2
-	if item_3_level == 0:
+	GameState.player_max_health = 80 + shop_items.get(0).level * 20
+	GameState.heal_spawn_rate = 14 - shop_items.get(1).level * 2
+	if shop_items.get(2).level == 0:
 		GameState.speed = false
 	else:
 		GameState.speed = true
-	GameState.chance_of_deflecting = item_4_level * 10
+	GameState.chance_of_deflecting = shop_items.get(3).level * 10
 	
 	if Input.is_action_just_pressed("escape"):
 		start_main_menu()
@@ -258,35 +236,8 @@ func in_shop():
 func shop_go_back():
 	start_main_menu()
 
-func bought_1():
-	if GameState.total_coins >= item_1_price && item_1_level < item_1_max_level:
-		GameState.total_coins -= item_1_price
-		item_1_level += 1
-		item_1_price += item_1_price
-	elif GameState.total_coins < item_1_price:
-		$Shop/Node2D/Label2.shake += 5
-
-func bought_2():
-	if GameState.total_coins >= item_2_price && item_2_level < item_2_max_level:
-		GameState.total_coins -= item_2_price
-		item_2_level += 1
-		item_2_price += item_2_price
-	elif GameState.total_coins < item_2_price:
-		$Shop/Node2D/Label2.shake += 5
-func bought_3():
-	if GameState.total_coins >= item_3_price && item_3_level < item_3_max_level:
-		GameState.total_coins -= item_3_price
-		item_3_level += 1
-		item_3_price += item_3_price
-	elif GameState.total_coins < item_3_price:
-		$Shop/Node2D/Label2.shake += 5
-func bought_4():
-	if GameState.total_coins >= item_4_price && item_4_level < item_4_max_level:
-		GameState.total_coins -= item_4_price
-		item_4_level += 1
-		item_4_price += item_4_price
-	elif GameState.total_coins < item_4_price:
-		$Shop/Node2D/Label2.shake += 5
+func broke_no_money():
+		$Shop/Node2D/Label3.shake += 5
 
 func _on_leaderboard(id: String, config: Dictionary, entries: Array):
 	print(id + ": " + "entires: " + str(entries.size()))

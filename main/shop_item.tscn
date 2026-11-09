@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drohifoo4it56" path="res://main/shop_item.gd" id="1_41ypk"]
 [ext_resource type="Texture2D" uid="uid://dq05fwthh5xpj" path="res://assets/shop/shop_item_background.png" id="1_rvwxv"]
+[ext_resource type="Texture2D" uid="uid://bi0f54vreetba" path="res://assets/shop/shop_item_layout_a.png" id="2_2lemb"]
 [ext_resource type="FontFile" uid="uid://ctxqsqpn22la6" path="res://assets/Taiyaki-Regular-BF64b8d3728e1e2.ttf" id="2_2p4po"]
 [ext_resource type="Texture2D" uid="uid://dn4bd5d4ho8nl" path="res://assets/shop/icons/3.png" id="2_5nha3"]
 [ext_resource type="Texture2D" uid="uid://baqq77sbdeini" path="res://assets/shop/shop_item_alpha.png" id="3_hmqou"]
@@ -14,35 +15,45 @@
 [ext_resource type="Texture2D" uid="uid://yw7lsfup0j6o" path="res://assets/shop/shop_item_coin.png" id="9_1knda"]
 [ext_resource type="Texture2D" uid="uid://cksd0ra5rc32a" path="res://assets/shop/shop_item_button_shadows.png" id="10_41ypk"]
 
-[node name="ShopItem" type="Node2D" unique_id=807244770]
+[node name="ShopItem" type="CenterContainer" unique_id=2091647405]
+offset_right = 770.0
+offset_bottom = 510.0
 script = ExtResource("1_41ypk")
 metadata/_edit_horizontal_guides_ = [-255.0]
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=679698897]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1699292527]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_2lemb")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1158534609]
+position = Vector2(385, 250)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=679698897]
 texture = ExtResource("1_rvwxv")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=427256146]
+[node name="Icon" type="Sprite2D" parent="Node2D" unique_id=427256146]
 position = Vector2(-197, -72)
 texture = ExtResource("2_5nha3")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=620390440]
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=620390440]
 clip_children = 1
 texture = ExtResource("3_hmqou")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D3" unique_id=226532217]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Sprite2D3" unique_id=226532217]
 modulate = Color(1, 1, 1, 0.39215687)
 texture = ExtResource("4_yedl1")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=664199241]
+[node name="CenterContainer" type="CenterContainer" parent="Node2D" unique_id=664199241]
 offset_left = -428.0
 offset_top = -288.0
 offset_right = 702.0
 offset_bottom = 158.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1643081630]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/CenterContainer" unique_id=1643081630]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1053894801]
+[node name="Name" type="Label" parent="Node2D/CenterContainer/VBoxContainer" unique_id=1053894801]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.17233339, 0.47, 1)
 theme_override_fonts/font = ExtResource("2_2p4po")
@@ -50,17 +61,17 @@ theme_override_font_sizes/font_size = 60
 text = "speed buff"
 horizontal_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer" unique_id=335107398]
+[node name="CenterContainer" type="CenterContainer" parent="Node2D/CenterContainer/VBoxContainer" unique_id=335107398]
 layout_mode = 2
 
-[node name="Count" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer" unique_id=1924578085]
+[node name="Count" type="Label" parent="Node2D/CenterContainer/VBoxContainer/CenterContainer" unique_id=1924578085]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.17233339, 0.47, 1)
 theme_override_fonts/font = ExtResource("2_2p4po")
 theme_override_font_sizes/font_size = 150
 text = "2/2"
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=988321271]
+[node name="TextureButton" type="TextureButton" parent="Node2D" unique_id=988321271]
 offset_left = -400.0
 offset_top = -265.0
 offset_right = 400.0
@@ -71,16 +82,16 @@ script = ExtResource("6_rw6uc")
 normal_scale = 1.0
 hovered_multiplier = 1.04
 
-[node name="Sprite2D" type="Node2D" parent="TextureButton" unique_id=296168411]
+[node name="Sprite2D" type="Node2D" parent="Node2D/TextureButton" unique_id=296168411]
 position = Vector2(400, 270)
 
-[node name="Sprite2D2" type="Sprite2D" parent="TextureButton/Sprite2D" unique_id=138619686]
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/TextureButton/Sprite2D" unique_id=138619686]
 clip_children = 2
 texture = ExtResource("7_3o5ct")
 
-[node name="Node2D" type="Node2D" parent="TextureButton/Sprite2D/Sprite2D2" unique_id=1306553574]
+[node name="Node2D" type="Node2D" parent="Node2D/TextureButton/Sprite2D/Sprite2D2" unique_id=1306553574]
 
-[node name="SoldOut" type="Label" parent="TextureButton/Sprite2D/Sprite2D2/Node2D" unique_id=275402450]
+[node name="SoldOut" type="Label" parent="Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D" unique_id=275402450]
 visible = false
 offset_left = -201.0
 offset_top = 119.0
@@ -91,32 +102,32 @@ theme_override_fonts/font = ExtResource("2_2p4po")
 theme_override_font_sizes/font_size = 100
 text = "sold out"
 
-[node name="CenterContainer" type="CenterContainer" parent="TextureButton/Sprite2D/Sprite2D2/Node2D" unique_id=1920197880]
+[node name="CenterContainer" type="CenterContainer" parent="Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D" unique_id=1920197880]
 offset_left = -179.0
 offset_top = 37.0
 offset_right = 273.0
 offset_bottom = 289.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer" unique_id=1613611714]
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer" unique_id=1613611714]
 layout_mode = 2
 
-[node name="Sprite2D4" type="Sprite2D" parent="TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer/HBoxContainer" unique_id=254794032]
-position = Vector2(-67, 38)
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer/HBoxContainer" unique_id=254794032]
+position = Vector2(-67, 43)
 texture = ExtResource("9_1knda")
 
-[node name="Price" type="Label" parent="TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer/HBoxContainer" unique_id=1636303023]
+[node name="Price" type="Label" parent="Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer/HBoxContainer" unique_id=1636303023]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.17233339, 0.47, 1)
 theme_override_fonts/font = ExtResource("2_2p4po")
 theme_override_font_sizes/font_size = 100
 text = "500"
 
-[node name="Sprite2D3" type="Sprite2D" parent="TextureButton/Sprite2D/Sprite2D2" unique_id=1958519466]
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/TextureButton/Sprite2D/Sprite2D2" unique_id=1958519466]
 modulate = Color(1, 1, 1, 0.39215687)
 texture = ExtResource("10_41ypk")
 
-[node name="Sprite2D" type="Sprite2D" parent="TextureButton/Sprite2D" unique_id=1529959923]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/TextureButton/Sprite2D" unique_id=1529959923]
 texture = ExtResource("6_hmqou")
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=819285114]
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D" unique_id=819285114]
 texture = ExtResource("8_1knda")

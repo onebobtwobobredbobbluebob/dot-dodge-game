@@ -6,22 +6,17 @@
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
 [ext_resource type="Script" uid="uid://bjtqi07n1e5i1" path="res://main/label_coins.gd" id="6_5xyti"]
-[ext_resource type="Texture2D" uid="uid://bto86pfmpeyh5" path="res://assets/shop/health_upgrade.png" id="6_q0sk7"]
 [ext_resource type="Texture2D" uid="uid://cbar1gbxeo36j" path="res://assets/start.png" id="7_0i4oc"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
-[ext_resource type="Texture2D" uid="uid://cclcs6dt1cubi" path="res://assets/shop/heal_upgrade.png" id="7_vapsy"]
 [ext_resource type="Texture2D" uid="uid://comjm0qxa1igh" path="res://assets/bob_white_highlight_animation.png" id="8_0i4oc"]
 [ext_resource type="Script" uid="uid://57lb4gheycnd" path="res://main/texture_button.gd" id="8_bsumw"]
-[ext_resource type="Texture2D" uid="uid://b7gtprycpebi5" path="res://assets/shop/speed_upgrade.png" id="8_jofbb"]
 [ext_resource type="Texture2D" uid="uid://cg1gyoac0uhwn" path="res://assets/bob_white_highlight_2.png" id="9_bsumw"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="9_na0o7"]
-[ext_resource type="Texture2D" uid="uid://bgx8jhppoir1h" path="res://assets/shop/sheild_upgrade.png" id="9_re7it"]
 [ext_resource type="Script" uid="uid://bu2ep6ukjwum2" path="res://main/mouse_trail.gd" id="10_73k8k"]
 [ext_resource type="Texture2D" uid="uid://ciw1r3tbaxij4" path="res://assets/shop.png" id="11_73k8k"]
 [ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://enemies/coin.png" id="11_oagth"]
 [ext_resource type="Script" uid="uid://pk4k3ehgs0fc" path="res://main/sprite_2d_7.gd" id="11_vapsy"]
 [ext_resource type="Texture2D" uid="uid://de68vq3bvbj3c" path="res://assets/title_big.png.png" id="14_vapsy"]
-[ext_resource type="PackedScene" uid="uid://ce27aullyq3ty" path="res://main/shop_item.tscn" id="20_jofbb"]
 
 [sub_resource type="Gradient" id="Gradient_d5n2w"]
 offsets = PackedFloat32Array(0, 0.20103092, 1)
@@ -144,66 +139,6 @@ position = Vector2(-7.247925e-05, -3.33786e-06)
 scale = Vector2(8.877777, 5.2777777)
 texture = ExtResource("2_grrlh")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Shop" unique_id=290758017]
-position = Vector2(-309, -221)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_q0sk7")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Shop" unique_id=1638133329]
-position = Vector2(327, -230)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_vapsy")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Shop" unique_id=1177760171]
-position = Vector2(-310, 113)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_jofbb")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Shop" unique_id=1827362457]
-position = Vector2(302, 130)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_re7it")
-
-[node name="MenuButton" type="MenuButton" parent="Shop" unique_id=1450244751]
-offset_left = -505.0
-offset_top = -177.0
-offset_right = -107.0
-offset_bottom = -4.0
-theme_override_font_sizes/font_size = 40
-text = "increase max health
-0/5
-5 coins"
-
-[node name="MenuButton2" type="MenuButton" parent="Shop" unique_id=1504583322]
-offset_left = 139.0
-offset_top = -178.0
-offset_right = 499.0
-offset_bottom = -5.0
-theme_override_font_sizes/font_size = 40
-text = "more heals spawn
-0/3
-10 coins"
-
-[node name="MenuButton3" type="MenuButton" parent="Shop" unique_id=729022261]
-offset_left = -502.0
-offset_top = 169.0
-offset_right = -104.0
-offset_bottom = 342.0
-theme_override_font_sizes/font_size = 40
-text = "increased speed
-0/1
-40 coins"
-
-[node name="MenuButton4" type="MenuButton" parent="Shop" unique_id=634557402]
-offset_left = 97.0
-offset_top = 188.0
-offset_right = 495.0
-offset_bottom = 361.0
-theme_override_font_sizes/font_size = 40
-text = "chance of deflecting
-0/4
-25 coins"
-
 [node name="Label2" type="Label" parent="Shop" unique_id=1879118960]
 offset_left = -613.0
 offset_top = -348.0
@@ -213,12 +148,43 @@ theme_override_font_sizes/font_size = 40
 text = "welcome!!!"
 
 [node name="Label" type="Label" parent="Shop" unique_id=1582027453]
-offset_left = -156.0
-offset_top = -130.0
-offset_right = 162.0
-offset_bottom = 7.0
+offset_left = -47.0
+offset_top = -237.0
+offset_right = 271.0
+offset_bottom = -100.0
 theme_override_font_sizes/font_size = 100
 text = "shop!!!"
+
+[node name="Node2D" type="Node2D" parent="Shop" unique_id=732874307]
+position = Vector2(-150, -360)
+
+[node name="Label3" type="Label" parent="Shop/Node2D" unique_id=97849162]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 318.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 70
+text = "coins:"
+script = ExtResource("6_5xyti")
+
+[node name="Sprite2D2" type="Node2D" parent="Shop" unique_id=1521155100]
+scale = Vector2(0.5, 0.5)
+
+[node name="VScrollBar" type="ScrollContainer" parent="Shop/Sprite2D2" unique_id=1311582051]
+offset_left = -1186.0
+offset_top = -460.0
+offset_right = -404.0
+offset_bottom = 652.0
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="GridContainer" parent="Shop/Sprite2D2/VScrollBar" unique_id=1336197271]
+layout_mode = 2
 
 [node name="Sprite2D7" type="Sprite2D" parent="Shop" unique_id=1466102006]
 position = Vector2(-370, -318)
@@ -241,18 +207,6 @@ position = Vector2(-449, -265)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_bsumw")
 
-[node name="Node2D" type="Node2D" parent="Shop" unique_id=2064104869]
-position = Vector2(-140, -366)
-
-[node name="Label2" type="Label" parent="Shop/Node2D" unique_id=97849162]
-offset_left = -157.0
-offset_top = 1.0
-offset_right = 161.0
-offset_bottom = 138.0
-theme_override_font_sizes/font_size = 70
-text = "coins: 0"
-script = ExtResource("6_5xyti")
-
 [node name="GoBack" type="MenuButton" parent="Shop" unique_id=1368999381]
 offset_left = 482.0
 offset_top = -347.0
@@ -267,6 +221,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_oagth")
 
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=298224684]
 position = Vector2(1, 27)
@@ -321,10 +276,6 @@ scale_amount_max = 0.2
 color = Color(1, 1, 1, 0.23529412)
 color_ramp = SubResource("Gradient_d5n2w")
 script = ExtResource("10_73k8k")
-
-[node name="ShopItem" parent="Title" unique_id=807244770 instance=ExtResource("20_jofbb")]
-position = Vector2(-349, 84)
-scale = Vector2(0.5, 0.5)
 
 [node name="Startup" type="Node2D" parent="." unique_id=1860983877]
 visible = false
