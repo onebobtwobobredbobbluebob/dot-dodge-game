@@ -37,6 +37,7 @@ func buy():
 	if max_level > level:
 		if GameState.total_coins < price:
 			emit_signal("broke")
+			$Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer.shake += 5
 		else:
 			GameState.total_coins -= price
 			level += 1

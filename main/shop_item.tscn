@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b3wkk6wbmckdy" path="res://assets/shop/shop_item_outline.png" id="8_1knda"]
 [ext_resource type="Texture2D" uid="uid://yw7lsfup0j6o" path="res://assets/shop/shop_item_coin.png" id="9_1knda"]
 [ext_resource type="Texture2D" uid="uid://cksd0ra5rc32a" path="res://assets/shop/shop_item_button_shadows.png" id="10_41ypk"]
+[ext_resource type="Script" uid="uid://ee4ayb4u1wne" path="res://main/center_container.gd" id="11_e5qlt"]
 
 [node name="ShopItem" type="CenterContainer" unique_id=2091647405]
 offset_right = 770.0
@@ -107,6 +108,7 @@ offset_left = -179.0
 offset_top = 37.0
 offset_right = 273.0
 offset_bottom = 289.0
+script = ExtResource("11_e5qlt")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer" unique_id=1613611714]
 layout_mode = 2
