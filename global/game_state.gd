@@ -11,6 +11,7 @@ var player_max_health: int = 100
 var heal_spawn_rate: int = 14
 var speed: bool = false
 var chance_of_deflecting: int = 0
+var shop: bool = false
 
 func _process(delta: float) -> void:
 	timer += delta

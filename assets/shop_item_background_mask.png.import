@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bt6uf07julv5m"
+path="res://.godot/imported/shop_item_background_mask.png-8bbcc83aa169e3e7be1b854d4fca012b.res"
+
+[deps]
+
+source_file="res://assets/shop_item_background_mask.png"
+dest_files=["res://.godot/imported/shop_item_background_mask.png-8bbcc83aa169e3e7be1b854d4fca012b.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

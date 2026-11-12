@@ -12,7 +12,6 @@ const WORLD = preload("uid://b3ow5ef8lcb2r")
 const SHOP_ITEM = preload("uid://ce27aullyq3ty")
 var world = WORLD.instantiate()
 var game_paused: bool = false
-var shop = false
 var main = false
 
 var shop_items: Array[Control]
@@ -89,14 +88,14 @@ func _process(delta: float) -> void:
 		elif GameState.alive == 1:
 			in_game(delta)
 		if GameState.alive == 0:
-			if shop:
+			if GameState.shop:
 				in_shop()
 			elif main:
 				in_main_menu()
 
 
 func start_main_menu():
-	shop = false
+	GameState.shop = false
 	main = true
 	GameState.alive = 0
 	$Ded.visible = false
@@ -212,7 +211,7 @@ func in_leaderboard(delta: float):
 			leaderboard = false
 
 func start_shop():
-	shop = true
+	GameState.shop = true
 
 
 func in_shop():

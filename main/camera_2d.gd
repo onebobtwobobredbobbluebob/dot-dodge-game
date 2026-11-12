@@ -9,7 +9,7 @@ func restart() -> void:
 	shake = 0
 
 func _physics_process(delta: float) -> void:
-	if GameState.alive == 1:
+	if GameState.alive == 1 or GameState.shop:
 		position = Vector2(randf_range(-shake, shake), randf_range(-shake, shake))
 		shake *= 0.92
 		zoom += (Vector2(1, 1) - zoom) * 0.1

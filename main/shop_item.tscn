@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dn4bd5d4ho8nl" path="res://assets/shop/icons/3.png" id="2_5nha3"]
 [ext_resource type="Script" uid="uid://i0q6ow3t46ot" path="res://main/shake_node2d.gd" id="3_367jf"]
 [ext_resource type="Texture2D" uid="uid://baqq77sbdeini" path="res://assets/shop/shop_item_alpha.png" id="3_hmqou"]
+[ext_resource type="BitMap" uid="uid://bt6uf07julv5m" path="res://assets/shop_item_background_mask.png" id="3_pkxnl"]
 [ext_resource type="Texture2D" uid="uid://cr872kej1w3ll" path="res://assets/shop/shop_item_shadows.png" id="4_yedl1"]
 [ext_resource type="Texture2D" uid="uid://fi3tv4wykyse" path="res://assets/shop/shop_item_button_outline.png" id="6_hmqou"]
 [ext_resource type="Script" uid="uid://57lb4gheycnd" path="res://main/texture_button.gd" id="6_rw6uc"]
@@ -17,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://yw7lsfup0j6o" path="res://assets/shop/shop_item_coin.png" id="9_1knda"]
 [ext_resource type="Texture2D" uid="uid://cksd0ra5rc32a" path="res://assets/shop/shop_item_button_shadows.png" id="10_41ypk"]
 [ext_resource type="Script" uid="uid://ee4ayb4u1wne" path="res://main/shake_control.gd" id="11_e5qlt"]
+[ext_resource type="Texture2D" uid="uid://de7okrp85nbhy" path="res://assets/shop/shop_item_background_mask_transparent.png" id="12_q1n2h"]
+[ext_resource type="Texture2D" uid="uid://bptiuhbkj5530" path="res://assets/shop/shop_item_button_button_transparent.png" id="13_5gae7"]
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="18_jqlyh"]
 
 [node name="ShopItem" type="CenterContainer" unique_id=2091647405]
@@ -29,9 +32,10 @@ metadata/_edit_horizontal_guides_ = [-255.0]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 texture_normal = ExtResource("2_2lemb")
+texture_click_mask = ExtResource("3_pkxnl")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1158534609]
-position = Vector2(385, 250)
+position = Vector2(385, 248)
 script = ExtResource("3_367jf")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=679698897]
@@ -52,9 +56,9 @@ texture = ExtResource("4_yedl1")
 
 [node name="CenterContainer" type="CenterContainer" parent="Node2D" unique_id=664199241]
 offset_left = -428.0
-offset_top = -288.0
+offset_top = -239.0
 offset_right = 702.0
-offset_bottom = 158.0
+offset_bottom = 109.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Node2D/CenterContainer" unique_id=1643081630]
 layout_mode = 2
@@ -94,12 +98,13 @@ text = "2/2"
 script = ExtResource("11_e5qlt")
 
 [node name="TextureButton2" type="TextureButton" parent="Node2D" unique_id=1846202189]
-modulate = Color(1, 1, 1, 0)
-offset_left = -387.0
+modulate = Color(0, 0.0333333, 1, 0)
+offset_left = -385.0
 offset_top = -248.0
-offset_right = 383.0
+offset_right = 385.0
 offset_bottom = 262.0
-texture_normal = ExtResource("2_2lemb")
+texture_normal = ExtResource("12_q1n2h")
+texture_click_mask = ExtResource("3_pkxnl")
 
 [node name="TextureButton" type="TextureButton" parent="Node2D" unique_id=988321271]
 offset_left = -400.0
@@ -107,12 +112,14 @@ offset_top = -265.0
 offset_right = 400.0
 offset_bottom = 275.0
 pivot_offset = Vector2(400, 430)
+texture_normal = ExtResource("13_5gae7")
 texture_click_mask = ExtResource("7_yedl1")
 script = ExtResource("6_rw6uc")
 normal_scale = 1.0
 hovered_multiplier = 1.04
 
 [node name="Sprite2D" type="Node2D" parent="Node2D/TextureButton" unique_id=296168411]
+modulate = Color(1, 1, 1, 0.44705883)
 position = Vector2(400, 270)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D/TextureButton/Sprite2D" unique_id=138619686]
@@ -167,8 +174,8 @@ texture = ExtResource("1_rvwxv")
 
 [node name="WhiteOverlay" type="Sprite2D" parent="Node2D/Sprite2D5" unique_id=1595508773]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(0, 4.9999847)
-scale = Vector2(5.2722225, 3.8277776)
+position = Vector2(0.9999876, 6.5000324)
+scale = Vector2(4.222223, 2.7944448)
 texture = ExtResource("18_jqlyh")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Node2D" unique_id=819285114]
