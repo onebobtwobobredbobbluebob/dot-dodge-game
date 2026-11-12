@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 
 var orig_position: Vector2 = position
 var shake: float = 0

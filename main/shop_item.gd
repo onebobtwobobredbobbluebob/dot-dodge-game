@@ -6,12 +6,13 @@ var icon: int = 1
 var price: int = 0
 var price_increase: int = 0
 var item_name: String = "item123"
+var flash: float = 0
 
 signal broke
 
 func _ready() -> void:
 	$Node2D/TextureButton.pressed.connect(buy)
-	pass
+	$Node2D/TextureButton2.pressed.connect(click)
 
 func _process(delta: float) -> void:
 	if max_level > level:
@@ -32,6 +33,8 @@ func _process(delta: float) -> void:
 	else:
 		modulate.v = 1
 	
+	flash = lerp(flash, 0.0, 1 - pow(0.000005, delta))
+	$Node2D/Sprite2D5/WhiteOverlay.modulate.a = flash
 
 func buy():
 	if max_level > level:
@@ -42,7 +45,12 @@ func buy():
 			GameState.total_coins -= price
 			level += 1
 			price += price_increase
+			$Node2D.shake += 30
+			flash = 0.8
 			
 	else:
-		$Node2D/TextureButton.shake += 10
-		
+		$Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/SoldOut.shake += 7
+		$Node2D/CenterContainer/VBoxContainer/CenterContainer/Count/Control/Count2.shake += 7
+
+func click():
+	$Node2D.shake += 3
