@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://npsun6owlhap"
-path="res://.godot/imported/coin.png-652df8da44bb918ae8052140a4de75b0.ctex"
+uid="uid://bpeh4lg1x3a3h"
+path="res://.godot/imported/particle_upgrade_white.png-5922e894264cc7ff3ff37dbfec0bf03c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/coin.png"
-dest_files=["res://.godot/imported/coin.png-652df8da44bb918ae8052140a4de75b0.ctex"]
+source_file="res://assets/shop/particle_upgrade_white.png"
+dest_files=["res://.godot/imported/particle_upgrade_white.png-5922e894264cc7ff3ff37dbfec0bf03c.ctex"]
 
 [params]
 

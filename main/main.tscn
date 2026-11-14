@@ -14,10 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="9_na0o7"]
 [ext_resource type="Script" uid="uid://bu2ep6ukjwum2" path="res://main/mouse_trail.gd" id="10_73k8k"]
 [ext_resource type="Texture2D" uid="uid://ciw1r3tbaxij4" path="res://assets/shop.png" id="11_73k8k"]
-[ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://enemies/coin.png" id="11_oagth"]
+[ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://assets/coin.png" id="11_oagth"]
 [ext_resource type="Script" uid="uid://pk4k3ehgs0fc" path="res://main/sprite_2d_7.gd" id="11_vapsy"]
 [ext_resource type="Texture2D" uid="uid://de68vq3bvbj3c" path="res://assets/title_big.png.png" id="14_vapsy"]
 [ext_resource type="Script" uid="uid://g2w1kcpqjpsv" path="res://world/screen_flash.gd" id="17_4hmqs"]
+
+[sub_resource type="Theme" id="Theme_4hmqs"]
 
 [sub_resource type="Gradient" id="Gradient_d5n2w"]
 offsets = PackedFloat32Array(0, 0.20103092, 1)
@@ -174,17 +176,20 @@ theme_override_font_sizes/font_size = 70
 text = "coins:"
 script = ExtResource("6_5xyti")
 
-[node name="Sprite2D2" type="Node2D" parent="Shop" unique_id=1521155100]
+[node name="ScrollShop" type="Node2D" parent="Shop" unique_id=1521155100]
 scale = Vector2(0.5, 0.5)
 
-[node name="VScrollBar" type="ScrollContainer" parent="Shop/Sprite2D2" unique_id=1311582051]
+[node name="VScrollBar" type="ScrollContainer" parent="Shop/ScrollShop" unique_id=1163521575]
 offset_left = -1186.0
 offset_top = -460.0
 offset_right = -404.0
 offset_bottom = 652.0
 size_flags_vertical = 4
+theme = SubResource("Theme_4hmqs")
+scroll_deadzone = 30
+scroll_hint_mode = 1
 
-[node name="VBoxContainer" type="GridContainer" parent="Shop/Sprite2D2/VScrollBar" unique_id=1336197271]
+[node name="VBoxContainer" type="GridContainer" parent="Shop/ScrollShop/VScrollBar" unique_id=1336197271]
 layout_mode = 2
 
 [node name="Sprite2D7" type="Sprite2D" parent="Shop" unique_id=1466102006]

@@ -1,5 +1,6 @@
 extends Control
 
+const UPGRADE_PARTICLES = preload("uid://dsu3wu4bowljm")
 var level: int = 0
 var max_level: int = 0
 var icon: int = 1
@@ -9,6 +10,7 @@ var item_name: String = "item123"
 var flash: float = 0
 
 signal broke
+signal click_particles
 
 func _ready() -> void:
 	$Node2D/TextureButton.pressed.connect(buy)
@@ -39,6 +41,7 @@ func _process(delta: float) -> void:
 	$Node2D/Sprite2D5/WhiteOverlay.modulate.a = flash
 
 func buy():
+	emit_signal("click_particles")
 	if max_level > level:
 		if GameState.total_coins < price:
 			emit_signal("broke")
@@ -48,11 +51,13 @@ func buy():
 			GameState.total_coins -= price
 			level += 1
 			price += price_increase
+			var particles = UPGRADE_PARTICLES.instantiate()
+			$Node2D.add_child(particles)
 			if level == max_level:
 				$Node2D.shake += 40
 				GameState.camera.shake += 12
 				flash = 3
-				GameState.screen_flash.flash = 0.5
+				GameState.screen_flash.flash = 0.2
 			else:
 				$Node2D.shake += 20
 				GameState.camera.shake += 5
@@ -64,4 +69,5 @@ func buy():
 		$Node2D.shake += 2
 
 func click():
+	emit_signal("click_particles")
 	$Node2D.shake += 3

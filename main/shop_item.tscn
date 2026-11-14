@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dq05fwthh5xpj" path="res://assets/shop/shop_item_background.png" id="1_rvwxv"]
 [ext_resource type="Texture2D" uid="uid://bi0f54vreetba" path="res://assets/shop/shop_item_layout_a.png" id="2_2lemb"]
 [ext_resource type="FontFile" uid="uid://ctxqsqpn22la6" path="res://assets/Taiyaki-Regular-BF64b8d3728e1e2.ttf" id="2_2p4po"]
-[ext_resource type="Texture2D" uid="uid://dn4bd5d4ho8nl" path="res://assets/shop/icons/3.png" id="2_5nha3"]
 [ext_resource type="Script" uid="uid://i0q6ow3t46ot" path="res://main/shake_node2d.gd" id="3_367jf"]
 [ext_resource type="Texture2D" uid="uid://baqq77sbdeini" path="res://assets/shop/shop_item_alpha.png" id="3_hmqou"]
 [ext_resource type="BitMap" uid="uid://bt6uf07julv5m" path="res://assets/shop_item_background_mask.png" id="3_pkxnl"]
 [ext_resource type="Texture2D" uid="uid://cr872kej1w3ll" path="res://assets/shop/shop_item_shadows.png" id="4_yedl1"]
+[ext_resource type="Texture2D" uid="uid://bldn6wnva4ggu" path="res://assets/shop/icons/2.png" id="6_5gae7"]
 [ext_resource type="Texture2D" uid="uid://fi3tv4wykyse" path="res://assets/shop/shop_item_button_outline.png" id="6_hmqou"]
 [ext_resource type="Script" uid="uid://57lb4gheycnd" path="res://main/texture_button.gd" id="6_rw6uc"]
 [ext_resource type="Texture2D" uid="uid://uuot78fcsumb" path="res://assets/shop/shop_item_button_alpha.png" id="7_3o5ct"]
@@ -44,7 +44,7 @@ texture = ExtResource("1_rvwxv")
 
 [node name="Icon" type="Sprite2D" parent="Node2D" unique_id=427256146]
 position = Vector2(-197, -72)
-texture = ExtResource("2_5nha3")
+texture = ExtResource("6_5gae7")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=620390440]
 clip_children = 1

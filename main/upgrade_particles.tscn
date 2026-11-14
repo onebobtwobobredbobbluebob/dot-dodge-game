@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dsu3wu4bowljm"]
+
+[ext_resource type="Texture2D" uid="uid://bpeh4lg1x3a3h" path="res://assets/shop/particle_upgrade_white.png" id="1_kyunv"]
+[ext_resource type="Script" uid="uid://oku3evvuhqsm" path="res://main/upgrade_particles.gd" id="1_ldrd6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_omkd4"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_1vldf"]
+offsets = PackedFloat32Array(0, 0.06506849, 0.14041096, 0.5753425, 0.7979452, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.47959182, 1, 1, 1, 1, 1, 1, 1, 0.67816097, 1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_jnsnx"]
+offsets = PackedFloat32Array(0, 0.17465754, 0.9931507)
+colors = PackedColorArray(1, 0.65, 0, 1, 1, 0.78275865, 0, 1, 1, 0.9333334, 0, 1)
+
+[node name="UpgradeParticles" type="Node2D" unique_id=1802817898]
+script = ExtResource("1_ldrd6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=968918089]
+light_mask = 257
+material = SubResource("CanvasItemMaterial_omkd4")
+position = Vector2(0, 100)
+emitting = false
+amount = 15
+texture = ExtResource("1_kyunv")
+lifetime = 1.5
+one_shot = true
+speed_scale = 4.0
+explosiveness = 0.8
+randomness = 1.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(350, 150)
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_max = 50.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+linear_accel_min = 20.0
+linear_accel_max = 50.0
+scale_amount_min = 0.9
+scale_amount_max = 3.0
+color = Color(1, 1, 1, 0.5882353)
+color_ramp = SubResource("Gradient_1vldf")
+color_initial_ramp = SubResource("Gradient_jnsnx")
+anim_offset_max = 1.0

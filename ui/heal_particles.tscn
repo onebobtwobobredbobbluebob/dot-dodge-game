@@ -9,11 +9,12 @@ particles_anim_v_frames = 3
 particles_anim_loop = true
 
 [sub_resource type="Gradient" id="Gradient_1vldf"]
-offsets = PackedFloat32Array(0, 0.41621622, 0.5297297, 0.6216216, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.47959182, 1, 1, 1, 1, 1, 1, 1, 0.67816097, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.13235295, 0.20588236, 0.5753425, 0.7979452, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.47959182, 1, 1, 1, 1, 1, 1, 1, 0.67816097, 1, 1, 1, 0, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_6ituw"]
-colors = PackedColorArray(0.79, 1, 1, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.0102739725, 0.46917808, 0.61986303, 0.6232877, 0.8390411, 0.8458904, 1)
+colors = PackedColorArray(0, 0.14509805, 0.4, 1, 0.38431373, 0.44313726, 0.6627451, 1, 0.43442774, 0.4776106, 0.60880077, 1, 0, 1, 0.01666665, 1, 0.077000014, 0.77, 0.16940011, 1, 0.15662652, 0.28417677, 0.40481925, 1, 0, 0.17600006, 0.48, 1)
 
 [node name="HealParticles" type="Node2D" unique_id=1861793460]
 

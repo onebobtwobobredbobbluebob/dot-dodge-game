@@ -10,6 +10,7 @@ var reload: bool = false
 var startup: bool = true
 const WORLD = preload("uid://b3ow5ef8lcb2r")
 const SHOP_ITEM = preload("uid://ce27aullyq3ty")
+const SHOP_CLICK_PARTICLES = preload("uid://bjfgxq4h4ylah")
 var world = WORLD.instantiate()
 var game_paused: bool = false
 var main = false
@@ -42,7 +43,7 @@ func instantiate_shop():
 	instantiate_shop_item(0, 4, 4, 25, 15, "deflect")
 	
 	for i in shop_items:
-		$Shop/Sprite2D2/VScrollBar/VBoxContainer.add_child(i)
+		$Shop/ScrollShop/VScrollBar/VBoxContainer.add_child(i)
 
 func instantiate_shop_item(level: int, max_level: int, icon: int, price: int, price_increase: int, item_name: String):
 	var new_item = SHOP_ITEM.instantiate()
@@ -55,6 +56,7 @@ func instantiate_shop_item(level: int, max_level: int, icon: int, price: int, pr
 	new_item.item_name = item_name
 	
 	new_item.broke.connect(broke_no_money)
+	new_item.click_particles.connect(shop_clicked)
 	
 	shop_items.append(new_item)
 
@@ -239,7 +241,12 @@ func shop_go_back():
 	start_main_menu()
 
 func broke_no_money():
-		$Shop/Node2D/Label3.shake += 5
+	$Shop/Node2D/Label3.shake += 5
+
+func shop_clicked():
+	var particles = SHOP_CLICK_PARTICLES.instantiate()
+	particles.position = get_global_mouse_position()
+	$Shop.add_child(particles)
 
 func _on_leaderboard(id: String, config: Dictionary, entries: Array):
 	print(id + ": " + "entires: " + str(entries.size()))
