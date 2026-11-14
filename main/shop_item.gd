@@ -30,14 +30,13 @@ func _process(delta: float) -> void:
 	$Node2D/Icon.texture = load("res://assets/shop/icons/" + str(icon) + ".png")
 	if max_level <= level or GameState.total_coins < price:
 		modulate.v = 0.5
+		$Node2D/TextureButton.animation_disabled = true
 	else:
 		modulate.v = 1
+		$Node2D/TextureButton.animation_disabled = false
 	
 	flash = lerp(flash, 0.0, 1 - pow(0.000005, delta))
 	$Node2D/Sprite2D5/WhiteOverlay.modulate.a = flash
-	
-	if $Node2D/TextureButton2.is_hovered():
-		modulate.v = 2
 
 func buy():
 	if max_level > level:
@@ -49,9 +48,14 @@ func buy():
 			GameState.total_coins -= price
 			level += 1
 			price += price_increase
-			$Node2D.shake += 30
-			GameState.camera.shake += 5
-			flash = 0.8
+			if level == max_level:
+				$Node2D.shake += 50
+				GameState.camera.shake += 15
+				flash = 3
+			else:
+				$Node2D.shake += 30
+				GameState.camera.shake += 5
+				flash = 0.8
 			
 	else:
 		$Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/SoldOut.shake += 7

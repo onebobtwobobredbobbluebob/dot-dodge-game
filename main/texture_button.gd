@@ -13,6 +13,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if animation_disabled:
 		scale = Vector2(1, 1) * normal_scale
+		target_scale = normal_scale
 	else:
 		scale = lerp(scale, Vector2(1, 1) * target_scale, 1 - pow(0.001, delta))
 		if is_hovered():

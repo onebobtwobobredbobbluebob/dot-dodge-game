@@ -119,7 +119,6 @@ normal_scale = 1.0
 hovered_multiplier = 1.04
 
 [node name="Sprite2D" type="Node2D" parent="Node2D/TextureButton" unique_id=296168411]
-modulate = Color(1, 1, 1, 0.44705883)
 position = Vector2(400, 270)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D/TextureButton/Sprite2D" unique_id=138619686]

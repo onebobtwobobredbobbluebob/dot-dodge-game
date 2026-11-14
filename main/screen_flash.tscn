@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cx7cacigggeqc"]
+
+[ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="1_q5rd3"]
+[ext_resource type="Script" uid="uid://g2w1kcpqjpsv" path="res://world/screen_flash.gd" id="2_p2y7h"]
+
+[node name="ScreenFlash" type="Sprite2D" unique_id=1894972023]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(14.138889, 8.216667)
+texture = ExtResource("1_q5rd3")
+script = ExtResource("2_p2y7h")
