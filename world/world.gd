@@ -19,7 +19,7 @@ var goal5: float = 15
 var started = true
 
 func _ready() -> void:
-	$Player.screen_flash.connect($Sprite2D.flash_50)
+	$Player.screen_flash.connect(GameState.screen_flash.flash_50)
 
 func start_game():
 	started = true

@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://enemies/coin.png" id="11_oagth"]
 [ext_resource type="Script" uid="uid://pk4k3ehgs0fc" path="res://main/sprite_2d_7.gd" id="11_vapsy"]
 [ext_resource type="Texture2D" uid="uid://de68vq3bvbj3c" path="res://assets/title_big.png.png" id="14_vapsy"]
+[ext_resource type="Script" uid="uid://g2w1kcpqjpsv" path="res://world/screen_flash.gd" id="17_4hmqs"]
 
 [sub_resource type="Gradient" id="Gradient_d5n2w"]
 offsets = PackedFloat32Array(0, 0.20103092, 1)
@@ -292,12 +293,20 @@ sprite_frames = SubResource("SpriteFrames_d5n2w")
 autoplay = "default"
 frame_progress = 0.8440949
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1450101038]
+
+[node name="ScreenFlash" type="Sprite2D" parent="CanvasLayer" unique_id=1894972023]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(14.138889, 8.216667)
+texture = ExtResource("2_grrlh")
+script = ExtResource("17_4hmqs")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=777673665]
 script = ExtResource("7_4dugh")
 
 [node name="Paused" type="Node2D" parent="." unique_id=946989662]
 visible = false
-z_index = 16
+z_index = 90
 
 [node name="Sprite2D" type="Sprite2D" parent="Paused" unique_id=1576826561]
 modulate = Color(0, 0, 0, 0.39215687)

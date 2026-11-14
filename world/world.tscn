@@ -9,8 +9,6 @@
 [ext_resource type="Script" uid="uid://djmmxotl1bcvn" path="res://world/score_count.gd" id="7_sc4t8"]
 [ext_resource type="Script" uid="uid://c75se40jknbvx" path="res://world/vignette.gd" id="8_4papg"]
 [ext_resource type="Texture2D" uid="uid://bnnyefriok2i6" path="res://assets/vignette_white.png" id="8_ai45w"]
-[ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="10_ov2xu"]
-[ext_resource type="Script" uid="uid://g2w1kcpqjpsv" path="res://world/screen_flash.gd" id="11_mad0u"]
 
 [node name="World" type="Node2D" unique_id=556920693]
 script = ExtResource("1_h5o24")
@@ -64,10 +62,3 @@ transform = Transform2D(1, 0, 0, 1, 640, 360)
 modulate = Color(0, 0, 0, 0)
 texture = ExtResource("8_ai45w")
 script = ExtResource("8_4papg")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1610004966]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(0.5000012, -0.4999714)
-scale = Vector2(14.138889, 8.216667)
-texture = ExtResource("10_ov2xu")
-script = ExtResource("11_mad0u")

@@ -49,11 +49,12 @@ func buy():
 			level += 1
 			price += price_increase
 			if level == max_level:
-				$Node2D.shake += 50
-				GameState.camera.shake += 15
+				$Node2D.shake += 40
+				GameState.camera.shake += 12
 				flash = 3
+				GameState.screen_flash.flash = 0.5
 			else:
-				$Node2D.shake += 30
+				$Node2D.shake += 20
 				GameState.camera.shake += 5
 				flash = 0.8
 			

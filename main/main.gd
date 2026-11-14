@@ -61,6 +61,7 @@ func instantiate_shop_item(level: int, max_level: int, icon: int, price: int, pr
 
 func _process(delta: float) -> void:
 	$Paused.visible = false
+	GameState.screen_flash.disabled = true
 	if startup:
 		$Startup.visible = true
 		startup_timer += delta * 0.5
@@ -127,6 +128,7 @@ func start_game():
 	world.get_tree().paused = false
 
 func in_game(delta: float):
+	GameState.screen_flash.disabled = false
 	main = false
 	$Ded.visible = false
 	if game_paused == false:
@@ -215,6 +217,7 @@ func start_shop():
 
 
 func in_shop():
+	GameState.screen_flash.disabled = false
 	main = false
 	$Shop.visible = true
 	$Title.visible = false

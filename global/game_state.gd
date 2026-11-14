@@ -12,6 +12,7 @@ var heal_spawn_rate: int = 14
 var speed: bool = false
 var chance_of_deflecting: int = 0
 var shop: bool = false
+var screen_flash: Sprite2D
 
 func _process(delta: float) -> void:
 	timer += delta
