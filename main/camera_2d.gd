@@ -15,3 +15,4 @@ func _physics_process(delta: float) -> void:
 		zoom += (Vector2(1, 1) - zoom) * 0.1
 	else:
 		position = Vector2(0, 0)
+		shake = 0

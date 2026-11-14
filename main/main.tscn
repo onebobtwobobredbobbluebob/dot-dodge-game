@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
 [ext_resource type="Script" uid="uid://bjtqi07n1e5i1" path="res://main/label_coins.gd" id="6_5xyti"]
+[ext_resource type="FontFile" uid="uid://ctxqsqpn22la6" path="res://assets/Taiyaki-Regular-BF64b8d3728e1e2.ttf" id="6_q0sk7"]
 [ext_resource type="Texture2D" uid="uid://cbar1gbxeo36j" path="res://assets/start.png" id="7_0i4oc"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
 [ext_resource type="Texture2D" uid="uid://comjm0qxa1igh" path="res://assets/bob_white_highlight_animation.png" id="8_0i4oc"]
@@ -15,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bu2ep6ukjwum2" path="res://main/mouse_trail.gd" id="10_73k8k"]
 [ext_resource type="Texture2D" uid="uid://ciw1r3tbaxij4" path="res://assets/shop.png" id="11_73k8k"]
 [ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://assets/coin.png" id="11_oagth"]
+[ext_resource type="Script" uid="uid://dfqp6me01bl4c" path="res://main/sprite_2d.gd" id="11_piupu"]
 [ext_resource type="Script" uid="uid://pk4k3ehgs0fc" path="res://main/sprite_2d_7.gd" id="11_vapsy"]
 [ext_resource type="Texture2D" uid="uid://de68vq3bvbj3c" path="res://assets/title_big.png.png" id="14_vapsy"]
 [ext_resource type="Script" uid="uid://g2w1kcpqjpsv" path="res://world/screen_flash.gd" id="17_4hmqs"]
@@ -159,7 +161,7 @@ theme_override_font_sizes/font_size = 100
 text = "shop!!!"
 
 [node name="Node2D" type="Node2D" parent="Shop" unique_id=732874307]
-position = Vector2(-150, -360)
+position = Vector2(-150, -340)
 
 [node name="Label3" type="Label" parent="Shop/Node2D" unique_id=97849162]
 anchors_preset = 7
@@ -172,6 +174,7 @@ offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_q0sk7")
 theme_override_font_sizes/font_size = 70
 text = "coins:"
 script = ExtResource("6_5xyti")
@@ -222,8 +225,8 @@ theme_override_font_sizes/font_size = 30
 text = "exit shop"
 
 [node name="Sprite2D6" type="Sprite2D" parent="Shop" unique_id=2096180055]
-position = Vector2(-207, -304)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-211.5, -308.5)
+scale = Vector2(0.5642857, 0.5642857)
 texture = ExtResource("11_oagth")
 
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
@@ -233,6 +236,7 @@ visible = false
 position = Vector2(1, 27)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_vapsy")
+script = ExtResource("11_piupu")
 
 [node name="TextureButton" type="TextureButton" parent="Title" unique_id=353394036]
 anchors_preset = 8
@@ -302,6 +306,7 @@ frame_progress = 0.8440949
 
 [node name="ScreenFlash" type="Sprite2D" parent="CanvasLayer" unique_id=1894972023]
 modulate = Color(1, 1, 1, 0)
+position = Vector2(39, 24)
 scale = Vector2(14.138889, 8.216667)
 texture = ExtResource("2_grrlh")
 script = ExtResource("17_4hmqs")
