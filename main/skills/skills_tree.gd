@@ -13,13 +13,25 @@ func _ready() -> void:
 			notch.position = Vector2((j - size) * dist + abs(size - i) * dist / 2.0, (i - size) * y_dist)
 			notch.i = i
 			notch.j = j
-			
-			var counter = 0
-			var puedo_pos: Vector2 = notch.position
-			while(puedo_pos != Vector2(0, 0)):
-				puedo_pos.angle_to(Vector2(0, 0))
-				counter += 1
+			notch.ring = 1
+			var x = floor(j - (((float(size) * 2.0) - abs(i - size)) / 2))
+			var y = (abs(i - size))
+			notch.x = x
+			notch.y = y
+			var new_i: int = i
+			var new_j: int = j
+			var counter: int = 0
+			while(x > 0):
+				var temp_i: int = new_i
+				var temp_j: int = new_j
+				var current_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
 				
+				
+				
+				
+				#if(x )
+				x = floor(abs(temp_j - (((float(size) * 2.0) - abs(temp_i - size)) / 2)))
+				y = (abs(temp_i - size))
 			
 			add_child(notch)
 			
