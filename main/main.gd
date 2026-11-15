@@ -54,6 +54,7 @@ func instantiate_shop_item(level: int, max_level: int, icon: int, price: int, pr
 	new_item.price = price
 	new_item.price_increase = price_increase
 	new_item.item_name = item_name
+	new_item.unlock_requirement = shop_items.back()
 	
 	new_item.broke.connect(broke_no_money)
 	new_item.click_particles.connect(shop_clicked)

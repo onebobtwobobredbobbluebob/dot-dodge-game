@@ -1,5 +1,6 @@
 extends Control
 
+class_name ShopItem
 const UPGRADE_PARTICLES = preload("uid://dsu3wu4bowljm")
 var level: int = 0
 var max_level: int = 0
@@ -8,6 +9,8 @@ var price: int = 0
 var price_increase: int = 0
 var item_name: String = "item123"
 var flash: float = 0
+var locked: bool = true
+var unlock_requirement: ShopItem = null
 
 signal broke
 signal click_particles
@@ -17,6 +20,16 @@ func _ready() -> void:
 	$Node2D/TextureButton2.pressed.connect(click)
 
 func _process(delta: float) -> void:
+	if unlock_requirement == null:
+		locked = false
+	elif unlock_requirement.level > 0:
+		locked = false
+	else:
+		locked = true
+	
+	$Node2D/Locked.visible = locked
+	
+	
 	if max_level > level:
 		$Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer/HBoxContainer/Price.text = str(price)
 		$Node2D/TextureButton/Sprite2D/Sprite2D2/Node2D/CenterContainer.visible = true
@@ -30,7 +43,7 @@ func _process(delta: float) -> void:
 	$Node2D/CenterContainer/VBoxContainer/Name.text = item_name
 	$Node2D/CenterContainer/VBoxContainer/CenterContainer/Count.text = str(level) + "/" + str(max_level)
 	$Node2D/Icon.texture = load("res://assets/shop/icons/" + str(icon) + ".png")
-	if max_level <= level or GameState.total_coins < price:
+	if not locked and (max_level <= level or GameState.total_coins < price):
 		modulate.v = 0.5
 		$Node2D/TextureButton.animation_disabled = true
 	else:

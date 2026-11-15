@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://de7okrp85nbhy" path="res://assets/shop/shop_item_background_mask_transparent.png" id="12_q1n2h"]
 [ext_resource type="Texture2D" uid="uid://bptiuhbkj5530" path="res://assets/shop/shop_item_button_button_transparent.png" id="13_5gae7"]
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="18_jqlyh"]
+[ext_resource type="Texture2D" uid="uid://dlgb0x1ipym4l" path="res://assets/shop/shop_item_locked_overlay_outlined_cropped.png" id="22_0ep3k"]
+[ext_resource type="Script" uid="uid://qfymk4jk0n13" path="res://main/locked.gd" id="22_0vwoi"]
 
 [node name="ShopItem" type="CenterContainer" unique_id=2091647405]
 offset_right = 770.0
@@ -179,3 +181,23 @@ texture = ExtResource("18_jqlyh")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Node2D" unique_id=819285114]
 texture = ExtResource("8_1knda")
+
+[node name="Locked" type="Sprite2D" parent="Node2D" unique_id=1373912056]
+scale = Vector2(1.004, 1.008)
+script = ExtResource("22_0vwoi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Locked" unique_id=1001152063]
+position = Vector2(0, 7.936508)
+texture = ExtResource("22_0ep3k")
+
+[node name="SoldOut" type="Label" parent="Node2D/Locked" unique_id=2132574278]
+visible = false
+offset_left = -160.0
+offset_top = 99.0
+offset_right = 188.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.2185, 0.2185, 0.23, 1)
+theme_override_fonts/font = ExtResource("2_2p4po")
+theme_override_font_sizes/font_size = 100
+text = "locked "
+script = ExtResource("11_e5qlt")
