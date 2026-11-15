@@ -1,11 +1,12 @@
 extends GraphEdit
 
+var mouse_down: bool = false
+
 func _process(delta: float) -> void:
-	print("hi")
 	pass
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventScreenDrag:
+	if event is InputEventMouseMotion:
+		print("hi")
 		scroll_offset += event.relative
-	print("hi")
-	
+	print(event)
