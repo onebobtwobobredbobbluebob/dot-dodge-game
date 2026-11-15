@@ -11,11 +11,19 @@ func _ready() -> void:
 		for j in (size * 2 + 1) - abs(i - size):
 			var notch = SKILLS_TREE_NOTCH.instantiate()
 			notch.position = Vector2((j - size) * dist + abs(size - i) * dist / 2.0, (i - size) * y_dist)
-			notch.ring = round(abs(j - (((float(size) * 2.0) - abs(i - size)) / 2)) + (abs(i - size)))
-			#abs(i - size)
 			notch.i = i
 			notch.j = j
+			
+			var counter = 0
+			var puedo_pos: Vector2 = notch.position
+			while(puedo_pos != Vector2(0, 0)):
+				puedo_pos.angle_to(Vector2(0, 0))
+				counter += 1
+				
+			
 			add_child(notch)
+			
+			
 
 func _process(delta: float) -> void:
 	pass
