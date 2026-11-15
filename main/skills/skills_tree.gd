@@ -20,21 +20,22 @@ func _ready() -> void:
 			notch.y = y
 			var current_pos: Vector2 = Vector2((j - size) * dist + abs(size - i) * dist / 2.0, (i - size) * y_dist)
 			var counter: int = 0
-			while(current_pos.length() < 0.1):
+			
+			while(current_pos.distance_to(Vector2(0, 0)) > 30):
 				var new_pos = current_pos
 				var temp_pos = new_pos
 				var current_dist = temp_pos.distance_to(Vector2(0, 0))
 				var new_dist: float
 				var min_dist: float = current_dist
-				for o in range(6):
+				for o in 6:
 					temp_pos = current_pos + Vector2.from_angle(deg_to_rad(60 * o)) * dist
 					new_dist = temp_pos.distance_to(Vector2(0, 0))
 					if(new_dist < min_dist):
 						min_dist = new_dist
 						new_pos = temp_pos
 				current_pos = new_pos
-				
-				
+				print(str(current_pos) + " - " + str(counter))
+				print(current_pos.distance_to(Vector2(0, 0)) < 50)
 				counter += 1
 			notch.ring = counter
 			add_child(notch)
