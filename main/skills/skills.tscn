@@ -9,28 +9,52 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="Skills" type="Node2D" unique_id=47408911]
 
 [node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
-offset_right = 500.0
-offset_bottom = 300.0
+offset_right = 700.0
+offset_bottom = 400.0
 theme_override_colors/selection_fill = Color(1, 1, 1, 0)
 theme_override_colors/selection_stroke = Color(1, 1, 1, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s2w8")
-scroll_offset = Vector2(-250, -150)
+scroll_offset = Vector2(-50, -30)
 grid_pattern = 1
 panning_scheme = 1
+zoom = 0.8
 zoom_min = 0.2
-zoom_max = 2.0
+zoom_max = 1.0
 minimap_enabled = false
 show_menu = false
 script = ExtResource("3_2s2w8")
 
 [node name="GraphElement" type="GraphElement" parent="GraphEdit" unique_id=1234303435]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 300.0
-offset_right = 500.0
-offset_bottom = 300.0
+offset_left = 250.0
+offset_top = 150.0
+offset_right = 250.0
+offset_bottom = 150.0
+scale = Vector2(0.8, 0.8)
 position_offset = Vector2(250, 150)
 draggable = false
 selectable = false
 
 [node name="SkillsTree" parent="GraphEdit/GraphElement" unique_id=1727312714 instance=ExtResource("2_hju8c")]
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit" unique_id=213853307]
+visible = false
+layout_mode = 0
+offset_left = -350.0
+offset_top = -370.0
+offset_right = -305.0
+offset_bottom = -260.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 1
+position_offset = Vector2(-500, -500)
+
+[node name="GraphNode2" type="GraphNode" parent="GraphEdit" unique_id=1466105602]
+visible = false
+layout_mode = 0
+offset_left = 850.0
+offset_top = 830.0
+offset_right = 859.0
+offset_bottom = 885.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 1
+position_offset = Vector2(1000, 1000)

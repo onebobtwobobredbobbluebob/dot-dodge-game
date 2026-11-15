@@ -13,6 +13,7 @@ var speed: bool = false
 var chance_of_deflecting: int = 0
 var shop: bool = false
 var screen_flash: Sprite2D
+var rings_unlocked: int = 1
 
 func _process(delta: float) -> void:
 	timer += delta
