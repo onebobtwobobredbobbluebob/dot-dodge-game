@@ -18,70 +18,23 @@ func _ready() -> void:
 			var y = (abs(i - size))
 			notch.x = x
 			notch.y = y
-			var new_i: int = i
-			var new_j: int = j
+			var current_pos: Vector2 = Vector2((j - size) * dist + abs(size - i) * dist / 2.0, (i - size) * y_dist)
 			var counter: int = 0
-			while(Vector2(new_j, new_i) != Vector2(size, size)):
-				var temp_i: int = new_i
-				var temp_j: int = new_j
-				var current_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
+			while(current_pos.length() < 0.1):
+				var new_pos = current_pos
+				var temp_pos = new_pos
+				var current_dist = temp_pos.distance_to(Vector2(0, 0))
 				var new_dist: float
 				var min_dist: float = current_dist
-				
-				temp_j = new_j - 1
-				temp_i = new_i - 1
-				
-				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
-				if(new_dist < min_dist):
-					min_dist = new_dist
-					new_j = temp_j
-					new_i = temp_i
+				for o in range(6):
+					temp_pos = current_pos + Vector2.from_angle(deg_to_rad(60 * o)) * dist
+					new_dist = temp_pos.distance_to(Vector2(0, 0))
+					if(new_dist < min_dist):
+						min_dist = new_dist
+						new_pos = temp_pos
+				current_pos = new_pos
 				
 				
-				temp_j = new_j
-				temp_i = new_i - 1
-				
-				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
-				if(new_dist < min_dist):
-					min_dist = new_dist
-					new_j = temp_j
-					new_i = temp_i
-				
-				temp_j = new_j + 1
-				temp_i = new_i
-				
-				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
-				if(new_dist < min_dist):
-					min_dist = new_dist
-					new_j = temp_j
-					new_i = temp_i
-				
-				temp_j = new_j
-				temp_i = new_i + 1
-				
-				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
-				if(new_dist < min_dist):
-					min_dist = new_dist
-					new_j = temp_j
-					new_i = temp_i
-				
-				temp_j = new_j - 1
-				temp_i = new_i + 1
-				
-				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
-				if(new_dist < min_dist):
-					min_dist = new_dist
-					new_j = temp_j
-					new_i = temp_i
-				
-				temp_j = new_j - 1
-				temp_i = new_i
-				
-				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
-				if(new_dist < min_dist):
-					min_dist = new_dist
-					new_j = temp_j
-					new_i = temp_i
 				counter += 1
 			notch.ring = counter
 			add_child(notch)
