@@ -2,12 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="1_0cv2t"]
 [ext_resource type="Script" uid="uid://chvdhja3ln4re" path="res://main/skills/skills_tree_notch.gd" id="2_jtpt1"]
+[ext_resource type="Texture2D" uid="uid://cym4krlwn65do" path="res://assets/skill/skill_notch.png" id="3_80nim"]
+[ext_resource type="Texture2D" uid="uid://u8d8hobii6dr" path="res://assets/skill/skill_notch_outline.png" id="3_j8rwk"]
 
 [node name="SkillTreeNotch" type="Sprite2D" unique_id=652901614]
+self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_0cv2t")
 script = ExtResource("2_jtpt1")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1632720020]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_j8rwk")
+
 [node name="Label" type="Label" parent="." unique_id=1283119244]
+visible = false
 offset_left = -38.0
 offset_top = -50.0
 offset_right = 37.0
@@ -17,6 +25,7 @@ theme_override_font_sizes/font_size = 30
 text = "1, 2"
 
 [node name="Label2" type="Label" parent="." unique_id=759204984]
+visible = false
 offset_left = -35.0
 offset_top = -6.0
 offset_right = 40.0
@@ -24,3 +33,7 @@ offset_bottom = 36.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1010138840]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_80nim")
