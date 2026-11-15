@@ -27,7 +27,8 @@ func _process(delta: float) -> void:
 	else:
 		locked = true
 	
-	$Node2D/Locked.visible = locked
+	$Node2D/Locked.is_visible = locked
+	$Node2D/TextureButton.visible = not locked
 	
 	
 	if max_level > level:
