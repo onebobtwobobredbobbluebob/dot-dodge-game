@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="9_na0o7"]
 [ext_resource type="Script" uid="uid://bu2ep6ukjwum2" path="res://main/mouse_trail.gd" id="10_73k8k"]
 [ext_resource type="Texture2D" uid="uid://ciw1r3tbaxij4" path="res://assets/shop.png" id="11_73k8k"]
+[ext_resource type="PackedScene" uid="uid://chkjf2fdck78v" path="res://main/skills/skills.tscn" id="11_jofbb"]
 [ext_resource type="Texture2D" uid="uid://npsun6owlhap" path="res://assets/coin.png" id="11_oagth"]
 [ext_resource type="Script" uid="uid://dfqp6me01bl4c" path="res://main/sprite_2d.gd" id="11_piupu"]
 [ext_resource type="Script" uid="uid://pk4k3ehgs0fc" path="res://main/sprite_2d_7.gd" id="11_vapsy"]
@@ -228,6 +229,8 @@ text = "exit shop"
 position = Vector2(-211.5, -308.5)
 scale = Vector2(0.5642857, 0.5642857)
 texture = ExtResource("11_oagth")
+
+[node name="Skills" parent="Shop" unique_id=47408911 instance=ExtResource("11_jofbb")]
 
 [node name="Title" type="Node2D" parent="." unique_id=1377823758]
 visible = false
