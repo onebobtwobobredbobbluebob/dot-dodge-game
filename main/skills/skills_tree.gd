@@ -21,15 +21,70 @@ func _ready() -> void:
 			var new_i: int = i
 			var new_j: int = j
 			var counter: int = 0
-			while(x > 0):
+			while(Vector2(new_j, new_i) != Vector2(size, size)):
 				var temp_i: int = new_i
 				var temp_j: int = new_j
 				var current_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
+				var new_dist: float
+				var min_dist: float = current_dist
+				
+				temp_j = new_j - 1
+				temp_i = new_i - 1
+				
+				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
+				if(new_dist < min_dist):
+					min_dist = new_dist
+					new_j = j
+					new_i = i
+				
+				
+				temp_j = new_j
+				temp_i = new_i - 1
+				
+				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
+				if(new_dist < min_dist):
+					min_dist = new_dist
+					new_j = j
+					new_i = i
+				
+				temp_j = new_j + 1
+				temp_i = new_i
+				
+				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
+				if(new_dist < min_dist):
+					min_dist = new_dist
+					new_j = j
+					new_i = i
+				
+				temp_j = new_j
+				temp_i = new_i + 1
+				
+				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
+				if(new_dist < min_dist):
+					min_dist = new_dist
+					new_j = j
+					new_i = i
+				
+				temp_j = new_j - 1
+				temp_i = new_i + 1
+				
+				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
+				if(new_dist < min_dist):
+					min_dist = new_dist
+					new_j = j
+					new_i = i
+				
+				temp_j = new_j - 1
+				temp_i = new_i
+				
+				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
+				if(new_dist < min_dist):
+					min_dist = new_dist
+					new_j = j
+					new_i = i
 				
 				
 				
-				
-				#if(x )
 				x = floor(abs(temp_j - (((float(size) * 2.0) - abs(temp_i - size)) / 2)))
 				y = (abs(temp_i - size))
 			
