@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://iwgkjkwx0lcf"]
 
 [ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="1_0cv2t"]
+[ext_resource type="Script" uid="uid://chvdhja3ln4re" path="res://main/skills/skills_tree_notch.gd" id="2_jtpt1"]
 
-[node name="Sprite2D" type="Sprite2D" unique_id=652901614]
+[node name="SkillTreeNotch" type="Sprite2D" unique_id=652901614]
 texture = ExtResource("1_0cv2t")
+script = ExtResource("2_jtpt1")
+
+[node name="Label" type="Label" parent="." unique_id=1283119244]
+offset_left = -38.0
+offset_top = -50.0
+offset_right = 37.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1, 2"
+
+[node name="Label2" type="Label" parent="." unique_id=759204984]
+offset_left = -35.0
+offset_top = -6.0
+offset_right = 40.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "0"
