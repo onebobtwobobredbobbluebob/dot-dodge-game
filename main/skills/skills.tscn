@@ -1,35 +1,36 @@
 [gd_scene format=3 uid="uid://chkjf2fdck78v"]
 
-[ext_resource type="Script" uid="uid://d3aady3hwvw8h" path="res://main/skills/skills_camera.gd" id="1_hju8c"]
-[ext_resource type="Texture2D" uid="uid://bi0f54vreetba" path="res://assets/shop/shop_item_layout_a.png" id="2_2s2w8"]
+[ext_resource type="PackedScene" uid="uid://ds77ba3160tk2" path="res://main/skills/skills_tree.tscn" id="2_hju8c"]
 [ext_resource type="Script" uid="uid://dvg3d46tyio7" path="res://main/skills/graph_edit.gd" id="3_2s2w8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Skills" type="Node2D" unique_id=47408911]
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1121462998]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2016581961]
-handle_input_locally = false
-render_target_update_mode = 4
-
-[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport" unique_id=235056409]
-script = ExtResource("1_hju8c")
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=891994552]
-position = Vector2(234, 252.00003)
-scale = Vector2(1.7012987, 1.7019608)
-texture = ExtResource("2_2s2w8")
-
-[node name="GraphEdit" type="GraphEdit" parent="SubViewportContainer/SubViewport" unique_id=1614388791]
-offset_left = -277.0
-offset_top = -282.0
-offset_right = 246.0
-offset_bottom = 240.0
-scroll_offset = Vector2(-40, -40)
+[node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
+offset_right = 500.0
+offset_bottom = 300.0
+theme_override_colors/selection_fill = Color(1, 1, 1, 0)
+theme_override_colors/selection_stroke = Color(1, 1, 1, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_2s2w8")
+scroll_offset = Vector2(-250, -150)
+grid_pattern = 1
 panning_scheme = 1
-type_names = {
-0: "444"
-}
+zoom_min = 0.2
+zoom_max = 2.0
+minimap_enabled = false
+show_menu = false
 script = ExtResource("3_2s2w8")
+
+[node name="GraphElement" type="GraphElement" parent="GraphEdit" unique_id=1234303435]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 300.0
+offset_right = 500.0
+offset_bottom = 300.0
+position_offset = Vector2(250, 150)
+draggable = false
+selectable = false
+
+[node name="SkillsTree" parent="GraphEdit/GraphElement" unique_id=1727312714 instance=ExtResource("2_hju8c")]

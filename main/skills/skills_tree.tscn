@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ds77ba3160tk2"]
+
+[ext_resource type="Script" uid="uid://cgry2byhfe78h" path="res://main/skills/skills_tree.gd" id="1_f6gtx"]
+
+[node name="SkillsTree" type="Node2D" unique_id=295609466]
+script = ExtResource("1_f6gtx")
