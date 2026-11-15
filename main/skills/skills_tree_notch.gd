@@ -10,4 +10,4 @@ func _process(delta: float) -> void:
 	modulate.v = 2.0 / (ring + 1)
 	var size = 5
 	$Label.text = str(j) + ", " + str(i)
-	$Label2.text = str(x)
+	$Label2.text = str(ring)

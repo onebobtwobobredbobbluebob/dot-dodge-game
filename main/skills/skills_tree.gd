@@ -34,8 +34,8 @@ func _ready() -> void:
 				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
 				if(new_dist < min_dist):
 					min_dist = new_dist
-					new_j = j
-					new_i = i
+					new_j = temp_j
+					new_i = temp_i
 				
 				
 				temp_j = new_j
@@ -44,8 +44,8 @@ func _ready() -> void:
 				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
 				if(new_dist < min_dist):
 					min_dist = new_dist
-					new_j = j
-					new_i = i
+					new_j = temp_j
+					new_i = temp_i
 				
 				temp_j = new_j + 1
 				temp_i = new_i
@@ -53,8 +53,8 @@ func _ready() -> void:
 				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
 				if(new_dist < min_dist):
 					min_dist = new_dist
-					new_j = j
-					new_i = i
+					new_j = temp_j
+					new_i = temp_i
 				
 				temp_j = new_j
 				temp_i = new_i + 1
@@ -62,8 +62,8 @@ func _ready() -> void:
 				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
 				if(new_dist < min_dist):
 					min_dist = new_dist
-					new_j = j
-					new_i = i
+					new_j = temp_j
+					new_i = temp_i
 				
 				temp_j = new_j - 1
 				temp_i = new_i + 1
@@ -71,8 +71,8 @@ func _ready() -> void:
 				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
 				if(new_dist < min_dist):
 					min_dist = new_dist
-					new_j = j
-					new_i = i
+					new_j = temp_j
+					new_i = temp_i
 				
 				temp_j = new_j - 1
 				temp_i = new_i
@@ -80,14 +80,10 @@ func _ready() -> void:
 				new_dist = Vector2((temp_j - size) * dist + abs(size - temp_i) * dist / 2.0, (temp_i - size) * y_dist).length()
 				if(new_dist < min_dist):
 					min_dist = new_dist
-					new_j = j
-					new_i = i
-				
-				
-				
-				x = floor(abs(temp_j - (((float(size) * 2.0) - abs(temp_i - size)) / 2)))
-				y = (abs(temp_i - size))
-			
+					new_j = temp_j
+					new_i = temp_i
+				counter += 1
+			notch.ring = counter
 			add_child(notch)
 			
 			
