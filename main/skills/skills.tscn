@@ -87,6 +87,7 @@ mouse_filter = 1
 position_offset = Vector2(1000, 1000)
 
 [node name="Skill" type="GraphNode" parent="GraphEdit" unique_id=28517367]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 52.0
@@ -96,9 +97,6 @@ script = ExtResource("4_oxxbg")
 
 [node name="Sprite2D" type="Sprite2D" parent="GraphEdit/Skill" unique_id=888599178]
 texture = ExtResource("5_jgvd8")
-
-[node name="Skill" type="Sprite2D" parent="." unique_id=586267104]
-visible = false
 
 [node name="MouseDetect" type="Area2D" parent="." unique_id=1822911739]
 visible = false

@@ -46,10 +46,11 @@ func _process(delta: float) -> void:
 	pass
 
 func get_nearest_notch(pos: Vector2):
-	var min_dist: float = notches[0].postition.distanceTo(pos)
+	var min_dist: float = notches[0].position.distance_to(pos)
 	var nearest_notch: Notch = notches[0]
 	for i in notches:
-		if notches[i].postition.distanceTo(pos) < min_dist:
-			min_dist = notches[i].postition.distanceTo(pos)
-			nearest_notch = notches[i]
+		i.nearest = false
+		if i.position.distance_to(pos) < min_dist:
+			min_dist = i.position.distance_to(pos)
+			nearest_notch = i
 	return nearest_notch
