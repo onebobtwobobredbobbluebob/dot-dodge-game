@@ -2,6 +2,7 @@ extends TextureButton
 
 var mouse_down: bool = false
 var mouse_over: bool = false
+var orig_position: Vector2 = position
 
 func _ready() -> void:
 	mouse_entered.connect(entered)

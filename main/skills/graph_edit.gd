@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if not(event.pressed == true and mouse_over == false):
+		if not(event.pressed == true and (mouse_over == false or $Skill.mouse_over == true)):
 			mouse_down = event.pressed
 	if event is InputEventMouseMotion:
 		if mouse_down:

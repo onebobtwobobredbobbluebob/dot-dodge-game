@@ -154,12 +154,14 @@ theme_override_font_sizes/font_size = 40
 text = "welcome!!!"
 
 [node name="Label" type="Label" parent="Shop" unique_id=1582027453]
-offset_left = -47.0
-offset_top = -237.0
-offset_right = 271.0
-offset_bottom = -100.0
-theme_override_font_sizes/font_size = 100
-text = "shop!!!"
+offset_left = -144.0
+offset_top = -239.0
+offset_right = 408.0
+offset_bottom = -92.0
+theme_override_constants/line_spacing = -19
+theme_override_font_sizes/font_size = 60
+text = "work in progress→
+         ↓↓↓↓↓↓↓↓↓"
 
 [node name="Node2D" type="Node2D" parent="Shop" unique_id=732874307]
 position = Vector2(-150, -340)

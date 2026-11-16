@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="3_83h37"]
 [ext_resource type="Script" uid="uid://cj0f425v6o664" path="res://main/skills/skill.gd" id="4_oxxbg"]
 [ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="5_jgvd8"]
-[ext_resource type="Texture2D" uid="uid://cord560xrro5m" path="res://icon.svg" id="6_s0ga7"]
 [ext_resource type="Script" uid="uid://dv32n5v0ei4mv" path="res://main/skills/skill_outside.gd" id="7_nfpqj"]
 [ext_resource type="Script" uid="uid://b6uysxvn0akqb" path="res://main/skills/mouse_detect.gd" id="9_brkye"]
 
@@ -21,18 +20,19 @@ script = ExtResource("1_nfpqj")
 
 [node name="SkillOutside" type="TextureButton" parent="." unique_id=1049376738]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 354.0
+offset_left = 546.0
 offset_top = -181.0
-offset_right = 693.0
-offset_bottom = -10.0
-texture_normal = ExtResource("6_s0ga7")
+offset_right = 696.0
+offset_bottom = -31.0
+texture_normal = ExtResource("5_jgvd8")
 stretch_mode = 0
 script = ExtResource("7_nfpqj")
 
 [node name="Sprite2D" type="Sprite2D" parent="SkillOutside" unique_id=128635275]
 z_index = 20
-scale = Vector2(2.6484375, 1.3359374)
-texture = ExtResource("6_s0ga7")
+position = Vector2(-1.8239021e-05, -4.7683716e-06)
+scale = Vector2(1.153846, 1.1538461)
+texture = ExtResource("5_jgvd8")
 centered = false
 
 [node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
@@ -90,13 +90,14 @@ position_offset = Vector2(1000, 1000)
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 52.0
-offset_bottom = 55.0
+offset_right = 131.0
+offset_bottom = 131.0
 selectable = false
 script = ExtResource("4_oxxbg")
 
 [node name="Sprite2D" type="Sprite2D" parent="GraphEdit/Skill" unique_id=888599178]
 texture = ExtResource("5_jgvd8")
+centered = false
 
 [node name="MouseDetect" type="Area2D" parent="." unique_id=1822911739]
 visible = false

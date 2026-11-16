@@ -21,11 +21,11 @@ func _process(delta: float) -> void:
 	
 	if nearest:
 		if not enabled:
-			scale = Vector2(1, 1) * 0.9
-			modulate = Color(4.416, 0.171, 0.171)
+			scale = Vector2(1, 1) * 0.96
+			modulate = Color(2.603, 0.079, 0.079, modulate.a + 0.2)
 		else:
 			scale = Vector2(1, 1) * 0.9
-			modulate = Color(1.2, 1.2, 1.2)
+			modulate = Color(1.2, 1.2, 1.2, modulate.a)
 	else:
 		scale = Vector2(1, 1)
 	$Label.text = str(j) + ", " + str(i)
