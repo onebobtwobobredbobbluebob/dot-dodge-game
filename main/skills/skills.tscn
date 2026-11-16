@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://chkjf2fdck78v"]
 
+[ext_resource type="Script" uid="uid://cy7b7fv2v7fco" path="res://main/skills/skills.gd" id="1_nfpqj"]
 [ext_resource type="PackedScene" uid="uid://ds77ba3160tk2" path="res://main/skills/skills_tree.tscn" id="2_hju8c"]
 [ext_resource type="Script" uid="uid://dvg3d46tyio7" path="res://main/skills/graph_edit.gd" id="3_2s2w8"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="3_83h37"]
@@ -7,11 +8,32 @@
 [ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="5_jgvd8"]
 [ext_resource type="Texture2D" uid="uid://cord560xrro5m" path="res://icon.svg" id="6_s0ga7"]
 [ext_resource type="Script" uid="uid://dv32n5v0ei4mv" path="res://main/skills/skill_outside.gd" id="7_nfpqj"]
+[ext_resource type="Script" uid="uid://b6uysxvn0akqb" path="res://main/skills/mouse_detect.gd" id="9_brkye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5n2w"]
+size = Vector2(700, 400)
+
 [node name="Skills" type="Node2D" unique_id=47408911]
+script = ExtResource("1_nfpqj")
+
+[node name="SkillOutside" type="TextureButton" parent="." unique_id=1049376738]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 354.0
+offset_top = -181.0
+offset_right = 693.0
+offset_bottom = -10.0
+texture_normal = ExtResource("6_s0ga7")
+stretch_mode = 0
+script = ExtResource("7_nfpqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="SkillOutside" unique_id=128635275]
+z_index = 20
+scale = Vector2(2.6484375, 1.3359374)
+texture = ExtResource("6_s0ga7")
+centered = false
 
 [node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
 offset_right = 700.0
@@ -65,10 +87,10 @@ mouse_filter = 1
 position_offset = Vector2(1000, 1000)
 
 [node name="Skill" type="GraphNode" parent="GraphEdit" unique_id=28517367]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 52.0
 offset_bottom = 55.0
-mouse_filter = 1
 selectable = false
 script = ExtResource("4_oxxbg")
 
@@ -78,10 +100,10 @@ texture = ExtResource("5_jgvd8")
 [node name="Skill" type="Sprite2D" parent="." unique_id=586267104]
 visible = false
 
-[node name="SkillOutside" type="TextureButton" parent="." unique_id=1049376738]
-offset_left = 565.0
-offset_top = -181.0
-offset_right = 693.0
-offset_bottom = -53.0
-texture_normal = ExtResource("6_s0ga7")
-script = ExtResource("7_nfpqj")
+[node name="MouseDetect" type="Area2D" parent="." unique_id=1822911739]
+visible = false
+script = ExtResource("9_brkye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetect" unique_id=1134469700]
+position = Vector2(350, 200)
+shape = SubResource("RectangleShape2D_d5n2w")
