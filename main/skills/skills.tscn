@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://ds77ba3160tk2" path="res://main/skills/skills_tree.tscn" id="2_hju8c"]
 [ext_resource type="Script" uid="uid://dvg3d46tyio7" path="res://main/skills/graph_edit.gd" id="3_2s2w8"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="3_83h37"]
+[ext_resource type="Script" uid="uid://cj0f425v6o664" path="res://main/skills/skill.gd" id="4_oxxbg"]
+[ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="5_jgvd8"]
+[ext_resource type="Texture2D" uid="uid://cord560xrro5m" path="res://icon.svg" id="6_s0ga7"]
+[ext_resource type="Script" uid="uid://dv32n5v0ei4mv" path="res://main/skills/skill_outside.gd" id="7_nfpqj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -59,3 +63,25 @@ offset_right = 1009.0
 offset_bottom = 1055.0
 mouse_filter = 1
 position_offset = Vector2(1000, 1000)
+
+[node name="Skill" type="GraphNode" parent="GraphEdit" unique_id=28517367]
+layout_mode = 0
+offset_right = 52.0
+offset_bottom = 55.0
+mouse_filter = 1
+selectable = false
+script = ExtResource("4_oxxbg")
+
+[node name="Sprite2D" type="Sprite2D" parent="GraphEdit/Skill" unique_id=888599178]
+texture = ExtResource("5_jgvd8")
+
+[node name="Skill" type="Sprite2D" parent="." unique_id=586267104]
+visible = false
+
+[node name="SkillOutside" type="TextureButton" parent="." unique_id=1049376738]
+offset_left = 565.0
+offset_top = -181.0
+offset_right = 693.0
+offset_bottom = -53.0
+texture_normal = ExtResource("6_s0ga7")
+script = ExtResource("7_nfpqj")

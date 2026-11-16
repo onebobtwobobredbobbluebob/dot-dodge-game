@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name Notch
 var ring: int
 var i: int
 var j: int

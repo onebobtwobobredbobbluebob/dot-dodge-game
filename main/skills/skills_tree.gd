@@ -1,12 +1,13 @@
 extends Node2D
 
 const SKILLS_TREE_NOTCH = preload("uid://iwgkjkwx0lcf")
+var notches: Array[Notch]
 
 func _ready() -> void:
+	GameState.skills_tree = self
 	var size = 5
 	var dist = 150
 	var y_dist = sqrt(dist * dist * 4 / 5.0)
-	print(y_dist)
 	for i in size * 2 + 1:
 		for j in (size * 2 + 1) - abs(i - size):
 			var notch = SKILLS_TREE_NOTCH.instantiate()
@@ -34,13 +35,21 @@ func _ready() -> void:
 						min_dist = new_dist
 						new_pos = temp_pos
 				current_pos = new_pos
-				print(str(current_pos) + " - " + str(counter))
-				print(current_pos.distance_to(Vector2(0, 0)) < 50)
 				counter += 1
 			notch.ring = counter
+			notches.append(notch)
 			add_child(notch)
 			
 			
 
 func _process(delta: float) -> void:
 	pass
+
+func get_nearest_notch(pos: Vector2):
+	var min_dist: float = notches[0].postition.distanceTo(pos)
+	var nearest_notch: Notch = notches[0]
+	for i in notches:
+		if notches[i].postition.distanceTo(pos) < min_dist:
+			min_dist = notches[i].postition.distanceTo(pos)
+			nearest_notch = notches[i]
+	return nearest_notch
