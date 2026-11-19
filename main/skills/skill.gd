@@ -2,6 +2,8 @@ extends GraphElement
 
 var mouse_down: bool = false
 var mouse_over: bool = false
+var old_gobal_mouse_pos: Vector2 = Vector2(0, 0)
+var zoom: float = 1
 
 func _ready() -> void:
 	mouse_entered.connect(entered)
@@ -16,8 +18,8 @@ func _input(event: InputEvent) -> void:
 			mouse_down = event.pressed
 	if event is InputEventMouseMotion:
 		if mouse_down:
-			position_offset += event.screen_relative
-
+			position_offset += (get_global_mouse_position() - old_gobal_mouse_pos) / zoom
+		old_gobal_mouse_pos = get_global_mouse_position()
 func entered():
 	mouse_over = true
 

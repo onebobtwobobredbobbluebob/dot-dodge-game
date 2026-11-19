@@ -8,7 +8,7 @@ func _ready() -> void:
 	mouse_exited.connect(exited)
 
 func _process(delta: float) -> void:
-	pass
+	$Skill.zoom = zoom
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
