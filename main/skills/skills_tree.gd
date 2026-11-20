@@ -2,6 +2,7 @@ extends Node2D
 
 const SKILLS_TREE_NOTCH = preload("uid://iwgkjkwx0lcf")
 var notches: Array[Notch]
+var turn_off_notches: bool = true
 
 func _ready() -> void:
 	GameState.skills_tree = self

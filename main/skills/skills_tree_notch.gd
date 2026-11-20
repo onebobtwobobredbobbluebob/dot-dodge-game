@@ -11,6 +11,8 @@ var enabled: bool = false
 
 func _process(delta: float) -> void:
 	enabled = ring <= GameState.rings_unlocked
+	if get_parent().turn_off_notches == true:
+		nearest = false
 	modulate = Color(1, 1, 1)
 	if enabled:
 		modulate.v = 1

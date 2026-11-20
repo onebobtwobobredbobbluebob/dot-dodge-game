@@ -10,8 +10,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if $GraphEdit.mouse_over:
+		$GraphEdit/GraphElement/SkillsTree.turn_off_notches = false
 		skill_opacity = 0
 	else:
+		$GraphEdit/GraphElement/SkillsTree.turn_off_notches = true
 		skill_opacity = 1
 	
 	if $SkillOutside.mouse_down or $GraphEdit/Skill.mouse_down:
