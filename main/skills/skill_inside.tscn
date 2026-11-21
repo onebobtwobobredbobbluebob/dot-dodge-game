@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cveeubbyrapkn"]
+
+[ext_resource type="Script" uid="uid://cj0f425v6o664" path="res://main/skills/skill_inside.gd" id="1_c3oac"]
+[ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="2_ubmqf"]
+
+[node name="SkillInside" type="GraphNode" unique_id=712937176]
+self_modulate = Color(1, 1, 1, 0)
+mouse_filter = 1
+selectable = false
+script = ExtResource("1_c3oac")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635926025]
+texture = ExtResource("2_ubmqf")
+centered = false

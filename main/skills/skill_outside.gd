@@ -9,6 +9,7 @@ var old_gobal_mouse_pos: Vector2 = position
 var skill: Skill = Skill.new()
 
 func _ready() -> void:
+	$Sprite2D.scale = Vector2(1, 1) * (1.154 / 150) * size
 	mouse_entered.connect(entered)
 	mouse_exited.connect(exited)
 

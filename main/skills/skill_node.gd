@@ -5,8 +5,9 @@ var mouse_down: bool = false
 var mouse_over: bool = false
 var orig_position: Vector2 = position
 var old_gobal_mouse_pos: Vector2 = position
-var skill: Skill = Skill.new()
+@export var skill: Skill = Skill.new()
 var parts: Array[SkillPart]
+var size: Vector2 = Vector2(131, 131)
 
 func _ready() -> void:
 	for i in skill.layout:
@@ -14,6 +15,7 @@ func _ready() -> void:
 		var skill_part = SKILL_OUTSIDE.instantiate()
 		skill_part.position = get_pos(i)
 		skill_part.skill = skill
+		skill_part.size = size
 		parts.append(skill_part)
 		add_child(skill_part)
 

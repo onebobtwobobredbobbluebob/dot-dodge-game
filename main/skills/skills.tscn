@@ -6,33 +6,29 @@
 [ext_resource type="Script" uid="uid://dvg3d46tyio7" path="res://main/skills/graph_edit.gd" id="3_2s2w8"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="3_83h37"]
 [ext_resource type="Script" uid="uid://cjvprxtbyyec4" path="res://main/skills/skill_node.gd" id="3_tqmet"]
-[ext_resource type="Script" uid="uid://cj0f425v6o664" path="res://main/skills/skill.gd" id="4_oxxbg"]
-[ext_resource type="PackedScene" uid="uid://c6nf5nynb4auv" path="res://main/skills/skill_outside.tscn" id="4_txcsx"]
-[ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="5_jgvd8"]
+[ext_resource type="Script" uid="uid://580mq52nnuxy" path="res://main/skills/skill.gd" id="4_oxxbg"]
+[ext_resource type="Resource" uid="uid://eq07v4hn57j1" path="res://resources/skills/skill_test.tres" id="4_pwtyx"]
 [ext_resource type="Script" uid="uid://b6uysxvn0akqb" path="res://main/skills/mouse_detect.gd" id="9_brkye"]
-
-[sub_resource type="Resource" id="Resource_5t2tq"]
-script = ExtResource("2_brkye")
-metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
-
-[sub_resource type="Resource" id="Resource_j6hp2"]
-script = ExtResource("2_brkye")
-metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Resource" id="Resource_txcsx"]
+script = ExtResource("2_brkye")
+layout = Array[Vector3]([Vector3(0, 0, 0), Vector3(1, 0, 0)])
+metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5n2w"]
 size = Vector2(700, 400)
 
 [node name="Skills" type="Node2D" unique_id=47408911]
 script = ExtResource("1_nfpqj")
-skills = Array[ExtResource("2_brkye")]([SubResource("Resource_5t2tq"), SubResource("Resource_j6hp2")])
+skills = Array[ExtResource("2_brkye")]([null])
 
 [node name="SkillNode" type="Node2D" parent="." unique_id=1845381565]
+position = Vector2(546, -181)
 script = ExtResource("3_tqmet")
-
-[node name="SkillOutside" parent="SkillNode" unique_id=2021322099 instance=ExtResource("4_txcsx")]
+skill = ExtResource("4_pwtyx")
 
 [node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
 offset_right = 700.0
@@ -85,19 +81,13 @@ offset_bottom = 1055.0
 mouse_filter = 1
 position_offset = Vector2(1000, 1000)
 
-[node name="Skill" type="GraphNode" parent="GraphEdit" unique_id=28517367]
+[node name="Skill" type="GraphElement" parent="GraphEdit" unique_id=594712960]
 visible = false
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 131.0
-offset_bottom = 131.0
-mouse_filter = 1
-selectable = false
+offset_right = 9.0
+offset_bottom = 63.0
 script = ExtResource("4_oxxbg")
-
-[node name="Sprite2D" type="Sprite2D" parent="GraphEdit/Skill" unique_id=888599178]
-texture = ExtResource("5_jgvd8")
-centered = false
+skill = SubResource("Resource_txcsx")
 
 [node name="MouseDetect" type="Area2D" parent="." unique_id=1822911739]
 visible = false
