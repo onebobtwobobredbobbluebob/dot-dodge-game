@@ -4,6 +4,7 @@ var mouse_down: bool = false
 var mouse_over: bool = false
 var old_gobal_mouse_pos: Vector2 = Vector2(0, 0)
 var zoom: float = 1
+var skill: Skill = Skill.new()
 
 func _ready() -> void:
 	mouse_entered.connect(entered)

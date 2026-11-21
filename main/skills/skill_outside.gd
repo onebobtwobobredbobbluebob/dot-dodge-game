@@ -1,9 +1,12 @@
 extends TextureButton
 
+class_name SkillPart
+
 var mouse_down: bool = false
 var mouse_over: bool = false
 var orig_position: Vector2 = position
 var old_gobal_mouse_pos: Vector2 = position
+var skill: Skill = Skill.new()
 
 func _ready() -> void:
 	mouse_entered.connect(entered)
@@ -18,7 +21,7 @@ func _input(event: InputEvent) -> void:
 			mouse_down = event.pressed
 	if event is InputEventMouseMotion:
 		if mouse_down:
-			position += (get_global_mouse_position() - old_gobal_mouse_pos)
+			get_parent().position += (get_global_mouse_position() - old_gobal_mouse_pos)
 		old_gobal_mouse_pos = get_global_mouse_position()
 
 func entered():

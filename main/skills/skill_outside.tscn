@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c6nf5nynb4auv"]
+
+[ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="1_qfnp5"]
+[ext_resource type="Script" uid="uid://dv32n5v0ei4mv" path="res://main/skills/skill_outside.gd" id="2_c1mgx"]
+
+[node name="SkillOutside" type="TextureButton" unique_id=2021322099]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 546.0
+offset_top = -181.0
+offset_right = 696.0
+offset_bottom = -31.0
+texture_normal = ExtResource("1_qfnp5")
+stretch_mode = 0
+script = ExtResource("2_c1mgx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1572555803]
+z_index = 20
+position = Vector2(-1.8239021e-05, -4.7683716e-06)
+scale = Vector2(1.153846, 1.1538461)
+texture = ExtResource("1_qfnp5")
+centered = false

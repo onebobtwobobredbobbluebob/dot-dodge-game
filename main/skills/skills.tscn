@@ -1,13 +1,23 @@
 [gd_scene format=3 uid="uid://chkjf2fdck78v"]
 
 [ext_resource type="Script" uid="uid://cy7b7fv2v7fco" path="res://main/skills/skills.gd" id="1_nfpqj"]
+[ext_resource type="Script" uid="uid://dynh1xbkgxp0l" path="res://main/skills/skill_peices.gd" id="2_brkye"]
 [ext_resource type="PackedScene" uid="uid://ds77ba3160tk2" path="res://main/skills/skills_tree.tscn" id="2_hju8c"]
 [ext_resource type="Script" uid="uid://dvg3d46tyio7" path="res://main/skills/graph_edit.gd" id="3_2s2w8"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="3_83h37"]
+[ext_resource type="Script" uid="uid://cjvprxtbyyec4" path="res://main/skills/skill_node.gd" id="3_tqmet"]
 [ext_resource type="Script" uid="uid://cj0f425v6o664" path="res://main/skills/skill.gd" id="4_oxxbg"]
+[ext_resource type="PackedScene" uid="uid://c6nf5nynb4auv" path="res://main/skills/skill_outside.tscn" id="4_txcsx"]
 [ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="5_jgvd8"]
-[ext_resource type="Script" uid="uid://dv32n5v0ei4mv" path="res://main/skills/skill_outside.gd" id="7_nfpqj"]
 [ext_resource type="Script" uid="uid://b6uysxvn0akqb" path="res://main/skills/mouse_detect.gd" id="9_brkye"]
+
+[sub_resource type="Resource" id="Resource_5t2tq"]
+script = ExtResource("2_brkye")
+metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
+
+[sub_resource type="Resource" id="Resource_j6hp2"]
+script = ExtResource("2_brkye")
+metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -17,23 +27,12 @@ size = Vector2(700, 400)
 
 [node name="Skills" type="Node2D" unique_id=47408911]
 script = ExtResource("1_nfpqj")
+skills = Array[ExtResource("2_brkye")]([SubResource("Resource_5t2tq"), SubResource("Resource_j6hp2")])
 
-[node name="SkillOutside" type="TextureButton" parent="." unique_id=1049376738]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 546.0
-offset_top = -181.0
-offset_right = 696.0
-offset_bottom = -31.0
-texture_normal = ExtResource("5_jgvd8")
-stretch_mode = 0
-script = ExtResource("7_nfpqj")
+[node name="SkillNode" type="Node2D" parent="." unique_id=1845381565]
+script = ExtResource("3_tqmet")
 
-[node name="Sprite2D" type="Sprite2D" parent="SkillOutside" unique_id=128635275]
-z_index = 20
-position = Vector2(-1.8239021e-05, -4.7683716e-06)
-scale = Vector2(1.153846, 1.1538461)
-texture = ExtResource("5_jgvd8")
-centered = false
+[node name="SkillOutside" parent="SkillNode" unique_id=2021322099 instance=ExtResource("4_txcsx")]
 
 [node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
 offset_right = 700.0
@@ -92,6 +91,7 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 131.0
 offset_bottom = 131.0
+mouse_filter = 1
 selectable = false
 script = ExtResource("4_oxxbg")
 

@@ -7,7 +7,7 @@ var turn_off_notches: bool = true
 func _ready() -> void:
 	GameState.skills_tree = self
 	var size = 5
-	var dist = 150
+	var dist = GameState.skill_dist
 	var y_dist = sqrt(dist * dist * 4 / 5.0)
 	for i in size * 2 + 1:
 		for j in (size * 2 + 1) - abs(i - size):

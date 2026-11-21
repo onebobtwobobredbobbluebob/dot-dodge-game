@@ -1,3 +1,7 @@
-[gd_resource type="Resource" format=3 uid="uid://eq07v4hn57j1"]
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://eq07v4hn57j1"]
+
+[ext_resource type="Script" uid="uid://dynh1xbkgxp0l" path="res://main/skills/skill_peices.gd" id="1_5t2tq"]
 
 [resource]
+script = ExtResource("1_5t2tq")
+metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
