@@ -20,7 +20,8 @@ func _process(delta: float) -> void:
 	if $SkillNode.mouse_down or $GraphEdit/Skill.mouse_down:
 		$GraphEdit/Skill.visible = true
 		if $SkillNode.mouse_down:
-			$GraphEdit/Skill.position_offset = ($SkillNode.position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + ($SkillNode.size / 2 / $GraphEdit.zoom) - ($GraphEdit/Skill.size / 2)
+			var mouse_offset: Vector2 = ((get_global_mouse_position() - $SkillNode.global_position) / $GraphEdit.zoom * $SkillNode.scale - ((get_global_mouse_position() - $SkillNode.global_position)))
+			$GraphEdit/Skill.position_offset = ($SkillNode.position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + ($SkillNode.size / 2) + mouse_offset - ($GraphEdit/Skill.size / 2)
 		$SkillNode.modulate.a = skill_opacity
 		$GraphEdit/Skill.modulate.a = 1 - skill_opacity
 		if $GraphEdit.mouse_over:
@@ -60,7 +61,8 @@ func _process(delta: float) -> void:
 		#$GraphEdit/Skill.position_offset = ($SkillNode.position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + ($SkillNode.size / 2 / $GraphEdit.zoom) - ($GraphEdit/Skill.size / 2)
 		#$GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) = ($SkillNode.position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + ($SkillNode.size / 2 / $GraphEdit.zoom)
 		#($GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) - ($SkillNode.size / 2 / $GraphEdit.zoom)) * $GraphEdit.zoom - $GraphEdit.scroll_offset = $SkillNode.position
-		$SkillNode.position = ($GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) - ($SkillNode.size / 2 / $GraphEdit.zoom)) * $GraphEdit.zoom - $GraphEdit.scroll_offset
+		var mouse_offset: Vector2 = ((get_global_mouse_position() - $GraphEdit/Skill.global_position) / $GraphEdit.zoom * $SkillNode.scale - ((get_global_mouse_position() - $GraphEdit/Skill.global_position))) / $GraphEdit/Skill.scale
+		$SkillNode.position = ($GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) - ($SkillNode.size / 2 / $GraphEdit.zoom)) * $GraphEdit.zoom - $GraphEdit.scroll_offset - mouse_offset
 	
 	if old_inside_mouse_down and not $GraphEdit/Skill.mouse_down:
 		if $GraphEdit.mouse_over:

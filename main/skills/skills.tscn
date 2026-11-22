@@ -26,7 +26,8 @@ script = ExtResource("1_nfpqj")
 skills = Array[ExtResource("2_brkye")]([null])
 
 [node name="SkillNode" type="Node2D" parent="." unique_id=1845381565]
-position = Vector2(546, -181)
+position = Vector2(372, -233)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("3_tqmet")
 skill = ExtResource("4_pwtyx")
 
@@ -39,7 +40,7 @@ theme_override_colors/selection_stroke = Color(1, 1, 1, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_2s2w8")
 grid_pattern = 1
 panning_scheme = 1
-zoom_min = 0.2
+zoom_min = 0.4
 zoom_max = 1.0
 minimap_enabled = false
 show_menu = false

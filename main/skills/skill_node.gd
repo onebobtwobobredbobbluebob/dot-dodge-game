@@ -10,6 +10,7 @@ var parts: Array[SkillPart]
 var size: Vector2 = Vector2(131, 131)
 
 func _ready() -> void:
+	scale = skill.scale
 	for i in skill.layout:
 		
 		var skill_part = SKILL_OUTSIDE.instantiate()
@@ -18,6 +19,7 @@ func _ready() -> void:
 		skill_part.size = size
 		parts.append(skill_part)
 		add_child(skill_part)
+	size = size * scale
 
 
 func get_pos(coords: Vector3) -> Vector2:
