@@ -14,7 +14,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if mouse_over:
-		$Sprite2D.modulate = Color(0.97, 0.579, 0.904, 1.0)
+		pass
+		#$Sprite2D.modulate = Color(0.97, 0.579, 0.904, 1.0)
 	else:
 		$Sprite2D.modulate = Color(1, 1, 1)
 

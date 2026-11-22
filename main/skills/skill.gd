@@ -12,7 +12,6 @@ var parts: Array[SkillInsidePart]
 
 func _ready() -> void:
 	for i in skill.layout:
-		
 		var skill_part = SKILL_INSIDE.instantiate()
 		skill_part.position = get_pos(i)
 		skill_part.skill = skill

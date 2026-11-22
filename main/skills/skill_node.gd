@@ -12,6 +12,7 @@ var parts: Array[SkillPart]
 var size: Vector2 = Vector2(131, 131)
 
 func _ready() -> void:
+	position = skill.position
 	scale = skill.scale * Vector2(1, 1)
 	for i in skill.layout:
 		

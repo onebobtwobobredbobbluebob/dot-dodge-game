@@ -30,7 +30,8 @@ func _ready() -> void:
 		old_mouse_overs.append(false)
 
 func _process(delta: float) -> void:
-	for s in skills:
+	for s in skills.size():
+		print(skill_outsides[s].position)
 		if $GraphEdit.mouse_over:
 			$GraphEdit/GraphElement/SkillsTree.turn_off_notches = false
 			skill_opacities[s] = 0
