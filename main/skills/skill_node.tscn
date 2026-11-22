@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dt8h3y138sf7s"]
+
+[ext_resource type="Script" uid="uid://cjvprxtbyyec4" path="res://main/skills/skill_node.gd" id="1_wn32n"]
+[ext_resource type="Resource" uid="uid://eq07v4hn57j1" path="res://resources/skills/skill_test.tres" id="2_dnnx3"]
+
+[node name="SkillNode" type="Node2D" unique_id=157454210]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_wn32n")
+skill = ExtResource("2_dnnx3")

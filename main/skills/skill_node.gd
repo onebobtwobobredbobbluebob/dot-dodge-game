@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name SkillNodeOutside
+
 const SKILL_OUTSIDE = preload("uid://c6nf5nynb4auv")
 var mouse_down: bool = false
 var mouse_over: bool = false

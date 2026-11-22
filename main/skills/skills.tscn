@@ -93,6 +93,7 @@ script = ExtResource("4_oxxbg")
 skill = SubResource("Resource_txcsx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=846400871]
+visible = false
 modulate = Color(2.8165433, 0, 0, 1)
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(372, -233)
