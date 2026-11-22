@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cveeubbyrapkn"]
 
 [ext_resource type="Script" uid="uid://cj0f425v6o664" path="res://main/skills/skill_inside.gd" id="1_c3oac"]
-[ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="2_ubmqf"]
+[ext_resource type="Texture2D" uid="uid://c0nhe8hsnrmbv" path="res://assets/skill/skill_peice_basic_outline.png" id="2_c3oac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5n2w"]
 radius = 66.0
@@ -12,7 +12,8 @@ script = ExtResource("1_c3oac")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635926025]
 position = Vector2(-65, -65)
-texture = ExtResource("2_ubmqf")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_c3oac")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1621833242]

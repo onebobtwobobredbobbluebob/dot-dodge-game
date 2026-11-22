@@ -5,11 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://ds77ba3160tk2" path="res://main/skills/skills_tree.tscn" id="2_hju8c"]
 [ext_resource type="Script" uid="uid://dvg3d46tyio7" path="res://main/skills/graph_edit.gd" id="3_2s2w8"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="3_83h37"]
+[ext_resource type="Texture2D" uid="uid://c0nhe8hsnrmbv" path="res://assets/skill/skill_peice_basic_outline.png" id="3_nfpqj"]
 [ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="5_tqmet"]
 [ext_resource type="Script" uid="uid://b6uysxvn0akqb" path="res://main/skills/mouse_detect.gd" id="9_brkye"]
 
 [sub_resource type="Resource" id="Resource_s0ga7"]
 script = ExtResource("2_brkye")
+texture = ExtResource("3_nfpqj")
 metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [sub_resource type="Resource" id="Resource_nfpqj"]
@@ -17,6 +19,7 @@ script = ExtResource("2_brkye")
 layout = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 1, 0)])
 scale = 0.7
 position = Vector2(346, -191)
+texture = ExtResource("3_nfpqj")
 metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]
@@ -32,6 +35,7 @@ skills = Array[ExtResource("2_brkye")]([SubResource("Resource_s0ga7"), SubResour
 [node name="SkillNodeOutsides" type="Node2D" parent="." unique_id=537841648]
 
 [node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
+z_index = 2
 offset_right = 700.0
 offset_bottom = 400.0
 mouse_filter = 1

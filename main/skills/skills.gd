@@ -106,7 +106,12 @@ func _process(delta: float) -> void:
 			#var zoom_relative = $GraphEdit.zoom / skill_outsides[s].scale.x
 			#var mouse_offset: Vector2 = ((get_global_mouse_position() - skill_insides[s].global_position) / zoom_relative - ((get_global_mouse_position() - skill_insides[s].global_position)))
 			#skill_outsides[s].position = (skill_insides[s].position_offset + (skill_insides[s].size / 2) - (skill_outsides[s].size * skill_outsides[s].scale / 2 / zoom_relative)) * zoom_relative - $GraphEdit.scroll_offset - mouse_offset
-			
+		if skill_insides[s].mouse_down or skill_outsides[s].mouse_down:
+			skill_insides[s].z_index = 1
+			skill_outsides[s].z_index = 1
+		else:
+			skill_insides[s].z_index = 0
+			skill_outsides[s].z_index = 0
 		if old_inside_mouse_downs[s] and not skill_insides[s].mouse_down:
 			if $GraphEdit.mouse_over:
 				var pos: Vector2 = (skill_insides[s].position_offset + skill_insides[s].size / 2) - $GraphEdit/GraphElement.position_offset

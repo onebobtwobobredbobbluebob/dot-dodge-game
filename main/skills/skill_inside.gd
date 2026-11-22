@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 		#$Sprite2D.modulate = Color(0.97, 0.579, 0.904, 1.0)
 	else:
 		$Sprite2D.modulate = Color(1, 1, 1)
+	$Sprite2D.texture = skill.texture
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

@@ -5,3 +5,4 @@ class_name Skill
 @export var name: String = "new skill thing aa"
 @export var scale: float = 1
 @export var position: Vector2 = Vector2(546.0, -181.0)
+@export var texture: Texture2D = load("res://assets/costume2.svg")
