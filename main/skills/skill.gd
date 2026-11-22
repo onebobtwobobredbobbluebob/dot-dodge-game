@@ -41,4 +41,4 @@ func _process(delta: float) -> void:
 			if i.mouse_down:
 				mouse_down = true
 			i.zoom = zoom
-	skill.ac
+	skill.activated = activated

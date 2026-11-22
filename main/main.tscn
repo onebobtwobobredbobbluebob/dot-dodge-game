@@ -2,15 +2,23 @@
 
 [ext_resource type="Script" uid="uid://sfeyq4kvvhu7" path="res://main/main.gd" id="1_pjrb6"]
 [ext_resource type="Texture2D" uid="uid://cctawv3j0qiu" path="res://assets/bob.png" id="2_c651c"]
+[ext_resource type="Texture2D" uid="uid://btqp7tmf814ty" path="res://assets/title_background/title_background_layer_a.png" id="2_frbr6"]
 [ext_resource type="Texture2D" uid="uid://bgnjmqhaewv03" path="res://assets/white_overlay.png" id="2_grrlh"]
 [ext_resource type="Script" uid="uid://bfyv1sm0iv5nn" path="res://main/label_2.gd" id="3_c651c"]
+[ext_resource type="Script" uid="uid://nyyxm7dvvvcv" path="res://main/sprite_2d_2.gd" id="3_re7it"]
 [ext_resource type="Script" uid="uid://c2c1j3rl7gu8a" path="res://main/line_edit.gd" id="4_3wy1v"]
+[ext_resource type="Texture2D" uid="uid://xf2ks224k6m0" path="res://assets/title_background/title_background_layer_b.png" id="4_o8j3b"]
+[ext_resource type="Texture2D" uid="uid://btareseq4slof" path="res://assets/title_background/title_background_layer_c.png" id="5_wpkmi"]
 [ext_resource type="Script" uid="uid://bjtqi07n1e5i1" path="res://main/label_coins.gd" id="6_5xyti"]
+[ext_resource type="Texture2D" uid="uid://4oq8m3jwnqo5" path="res://assets/title_background/title_background_layer_d.png" id="6_o0l78"]
 [ext_resource type="FontFile" uid="uid://ctxqsqpn22la6" path="res://assets/Taiyaki-Regular-BF64b8d3728e1e2.ttf" id="6_q0sk7"]
 [ext_resource type="Texture2D" uid="uid://cbar1gbxeo36j" path="res://assets/start.png" id="7_0i4oc"]
 [ext_resource type="Script" uid="uid://dqlm85akpbrf4" path="res://main/camera_2d.gd" id="7_4dugh"]
+[ext_resource type="Texture2D" uid="uid://c85btdi8dw555" path="res://assets/title_background/title_background_layer_e.png" id="7_576ah"]
 [ext_resource type="Texture2D" uid="uid://comjm0qxa1igh" path="res://assets/bob_white_highlight_animation.png" id="8_0i4oc"]
 [ext_resource type="Script" uid="uid://57lb4gheycnd" path="res://main/texture_button.gd" id="8_bsumw"]
+[ext_resource type="Texture2D" uid="uid://b31wl8xq4h1r7" path="res://assets/title_background/title_background_layer_f.png" id="8_wpvt5"]
+[ext_resource type="Texture2D" uid="uid://rfi88b582sc5" path="res://assets/title_background/title_background_layer_g.png" id="9_amlcg"]
 [ext_resource type="Texture2D" uid="uid://cg1gyoac0uhwn" path="res://assets/bob_white_highlight_2.png" id="9_bsumw"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="9_na0o7"]
 [ext_resource type="Script" uid="uid://bu2ep6ukjwum2" path="res://main/mouse_trail.gd" id="10_73k8k"]
@@ -50,10 +58,30 @@ animations = [{
 script = ExtResource("1_pjrb6")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1689287093]
-modulate = Color(0.88, 0.85, 1, 1)
+modulate = Color(0.8784314, 0.8509804, 1, 1)
 position = Vector2(-3.9696693e-05, 1.7881393e-07)
-scale = Vector2(8.877777, 5.2777777)
-texture = ExtResource("2_grrlh")
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_frbr6")
+script = ExtResource("3_re7it")
+
+[node name="Bg1" type="Sprite2D" parent="Sprite2D2" unique_id=2013715869]
+texture = ExtResource("4_o8j3b")
+
+[node name="Bg2" type="Sprite2D" parent="Sprite2D2" unique_id=547445430]
+texture = ExtResource("5_wpkmi")
+
+[node name="Bg3" type="Sprite2D" parent="Sprite2D2" unique_id=1530795144]
+texture = ExtResource("6_o0l78")
+
+[node name="Bg4" type="Sprite2D" parent="Sprite2D2" unique_id=1934646258]
+modulate = Color(1, 1, 1, 0.37254903)
+texture = ExtResource("7_576ah")
+
+[node name="Bg5" type="Sprite2D" parent="Sprite2D2" unique_id=2020565066]
+texture = ExtResource("8_wpvt5")
+
+[node name="Bg6" type="Sprite2D" parent="Sprite2D2" unique_id=424114556]
+texture = ExtResource("9_amlcg")
 
 [node name="Ded" type="Node2D" parent="." unique_id=2026882504]
 visible = false
@@ -138,6 +166,7 @@ emoji_menu_enabled = false
 script = ExtResource("4_3wy1v")
 
 [node name="Shop" type="Node2D" parent="." unique_id=228098193]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop" unique_id=1600531752]
 modulate = Color(0.29234004, 0.17390001, 0.47, 1)
@@ -154,13 +183,14 @@ theme_override_font_sizes/font_size = 40
 text = "welcome!!!"
 
 [node name="Label" type="Label" parent="Shop" unique_id=1582027453]
+modulate = Color(1, 1, 1, 0.3529412)
 offset_left = -144.0
 offset_top = -182.0
 offset_right = 409.0
 offset_bottom = -92.0
 theme_override_constants/line_spacing = -19
 theme_override_font_sizes/font_size = 60
-text = "work in progress ->"
+text = "(work in progress)"
 
 [node name="Node2D" type="Node2D" parent="Shop" unique_id=732874307]
 position = Vector2(-150, -340)
