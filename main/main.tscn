@@ -166,7 +166,6 @@ emoji_menu_enabled = false
 script = ExtResource("4_3wy1v")
 
 [node name="Shop" type="Node2D" parent="." unique_id=228098193]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Shop" unique_id=1600531752]
 modulate = Color(0.29234004, 0.17390001, 0.47, 1)
@@ -184,12 +183,14 @@ text = "welcome!!!"
 
 [node name="Label" type="Label" parent="Shop" unique_id=1582027453]
 modulate = Color(1, 1, 1, 0.3529412)
-offset_left = -144.0
-offset_top = -182.0
-offset_right = 409.0
-offset_bottom = -92.0
+z_index = 5
+offset_left = -87.86946
+offset_top = -295.2375
+offset_right = 856.53613
+offset_bottom = -44.04448
+rotation = 0.65449846
 theme_override_constants/line_spacing = -19
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 100
 text = "(work in progress)"
 
 [node name="Node2D" type="Node2D" parent="Shop" unique_id=732874307]
