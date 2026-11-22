@@ -8,6 +8,7 @@ var x: int
 var y: int
 var nearest: bool = false
 var enabled: bool = false
+var taken: bool = false
 
 func _process(delta: float) -> void:
 	enabled = ring <= GameState.rings_unlocked
@@ -25,6 +26,9 @@ func _process(delta: float) -> void:
 		if not enabled:
 			scale = Vector2(1, 1) * 0.96
 			modulate = Color(2.603, 0.079, 0.079, modulate.a + 0.2)
+		elif taken:
+			scale = Vector2(1, 1) * 1.1
+			modulate = Color(2.703, 0.079, .079, modulate.a + 0.2)
 		else:
 			scale = Vector2(1, 1) * 0.9
 			modulate = Color(1.2, 1.2, 1.2, modulate.a)

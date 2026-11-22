@@ -14,6 +14,9 @@ metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [sub_resource type="Resource" id="Resource_nfpqj"]
 script = ExtResource("2_brkye")
+layout = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 1, 0)])
+scale = 0.7
+position = Vector2(346, -191)
 metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]

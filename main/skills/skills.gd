@@ -65,10 +65,13 @@ func _process(delta: float) -> void:
 				var pos2: Vector2 = ((skill_insides[s].position_offset + i.position) + skill_insides[s].size / 2) - $GraphEdit/GraphElement.position_offset
 				var nearest2: Notch = $GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos2)
 				nearests.append(nearest2)
-				if not nearest2.enabled:
+				if not nearest2.enabled or nearest2.taken:
 					all_enabled = false
 			if nearest.enabled and all_enabled:
 				skill_insides[s].position_offset = (nearest.position - skill_insides[s].size / 2) + $GraphEdit/GraphElement.position_offset
+				for n in nearests:
+					n.taken = true
+				skill_insides[s].activated = true
 			else:
 				skill_outsides[s].position = skill_outsides[s].orig_position
 				skill_opacities[s] = 1
@@ -84,6 +87,12 @@ func _process(delta: float) -> void:
 			$GraphEdit/GraphElement/SkillsTree.clear_nearest_notch()
 		
 		if skill_insides[s].mouse_down:
+			if skill_insides[s].activated:
+				skill_insides[s].activated = false
+				for i in skill_insides[s].parts:
+					var pos2: Vector2 = ((skill_insides[s].position_offset + i.position) + skill_insides[s].size / 2) - $GraphEdit/GraphElement.position_offset
+					var nearest2: Notch = $GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos2)
+					nearest2.taken = false
 			#skill_insides[s].position_offset = (skill_outsides[s].position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + (skill_outsides[s].size / 2 / $GraphEdit.zoom) - (skill_insides[s].size / 2)
 			#skill_insides[s].position_offset + (skill_insides[s].size / 2) = (skill_outsides[s].position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + (skill_outsides[s].size / 2 / $GraphEdit.zoom)
 			#(skill_insides[s].position_offset + (skill_insides[s].size / 2) - (skill_outsides[s].size / 2 / $GraphEdit.zoom)) * $GraphEdit.zoom - $GraphEdit.scroll_offset = skill_outsides[s].position
@@ -109,10 +118,13 @@ func _process(delta: float) -> void:
 					var pos2: Vector2 = ((skill_insides[s].position_offset + i.position) + skill_insides[s].size / 2) - $GraphEdit/GraphElement.position_offset
 					var nearest2: Notch = $GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos2)
 					nearests.append(nearest2)
-					if not nearest2.enabled:
+					if not nearest2.enabled or nearest2.taken:
 						all_enabled = false
 				if nearest.enabled and all_enabled:
 					skill_insides[s].position_offset = (nearest.position - skill_insides[s].size / 2) + $GraphEdit/GraphElement.position_offset
+					for n in nearests:
+						n.taken = true
+					skill_insides[s].activated = true
 				else:
 					skill_outsides[s].position = skill_outsides[s].orig_position
 					skill_opacities[s] = 1
