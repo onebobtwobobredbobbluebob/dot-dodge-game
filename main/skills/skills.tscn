@@ -12,6 +12,10 @@
 script = ExtResource("2_brkye")
 metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
+[sub_resource type="Resource" id="Resource_nfpqj"]
+script = ExtResource("2_brkye")
+metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -20,7 +24,7 @@ size = Vector2(700, 400)
 
 [node name="Skills" type="Node2D" unique_id=47408911]
 script = ExtResource("1_nfpqj")
-skills = Array[ExtResource("2_brkye")]([SubResource("Resource_s0ga7")])
+skills = Array[ExtResource("2_brkye")]([SubResource("Resource_s0ga7"), SubResource("Resource_nfpqj")])
 
 [node name="SkillNodeOutsides" type="Node2D" parent="." unique_id=537841648]
 
