@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dvg3d46tyio7" path="res://main/skills/graph_edit.gd" id="3_2s2w8"]
 [ext_resource type="Texture2D" uid="uid://cjj4biydunsnd" path="res://assets/dot.png" id="3_83h37"]
 [ext_resource type="Texture2D" uid="uid://c0nhe8hsnrmbv" path="res://assets/skill/skill_peice_basic_outline.png" id="3_nfpqj"]
+[ext_resource type="Texture2D" uid="uid://ih1njnjstd1t" path="res://assets/skill/skill_peice_basic_outline_white.png" id="4_brkye"]
 [ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="5_tqmet"]
 [ext_resource type="Script" uid="uid://b6uysxvn0akqb" path="res://main/skills/mouse_detect.gd" id="9_brkye"]
 
@@ -19,7 +20,8 @@ script = ExtResource("2_brkye")
 layout = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 1, 0)])
 scale = 0.7
 position = Vector2(346, -191)
-texture = ExtResource("3_nfpqj")
+texture = ExtResource("4_brkye")
+modulate = Color(1, 0.51, 0.51, 1)
 metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]

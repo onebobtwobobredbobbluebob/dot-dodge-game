@@ -11,6 +11,7 @@ var skill: Skill = Skill.new()
 func _ready() -> void:
 	$Sprite2D.scale = Vector2(1, 1) * (1.154 / 150) * size / 2
 	$Sprite2D.texture = skill.texture
+	$Sprite2D.modulate = skill.modulate
 	mouse_entered.connect(entered)
 	mouse_exited.connect(exited)
 
