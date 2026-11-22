@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 		#$GraphEdit/Skill.position_offset = ($SkillNode.position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + ($SkillNode.size / 2) + mouse_offset / $SkillNode.scale - ($GraphEdit/Skill.size / 2)
 		$Sprite2D.scale = $SkillNode.scale
 		print(mouse_offset)
-		$Sprite2D.position = ($GraphEdit/Skill.position_offset - ($SkillNode.size / 2) - mouse_offset / $GraphEdit.zoom + ($GraphEdit/Skill.size / 2)) * $GraphEdit.zoom - $GraphEdit.scroll_offset + Vector2(20, 20)
+		$Sprite2D.position = ($GraphEdit/Skill.position_offset - ($SkillNode.size / 2) - mouse_offset / $GraphEdit.zoom + ($SkillNode.size / 2)) * $GraphEdit.zoom - $GraphEdit.scroll_offset - ($SkillNode.size * $SkillNode.scale / 2)
 		$SkillNode.position = ($GraphEdit/Skill.position_offset - ($SkillNode.size / 2) - mouse_offset / $SkillNode.scale + ($GraphEdit/Skill.size / 2)) * $GraphEdit.zoom - $GraphEdit.scroll_offset
 		
 		#$SkillNode.position = ($GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) - ($SkillNode.size * $SkillNode.scale / 2 / $GraphEdit.zoom)) * $GraphEdit.zoom - $GraphEdit.scroll_offset - mouse_offset / $SkillNode.scale
