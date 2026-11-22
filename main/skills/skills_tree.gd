@@ -7,8 +7,8 @@ var turn_off_notches: bool = true
 func _ready() -> void:
 	GameState.skills_tree = self
 	var size = 5
-	var dist = GameState.skill_dist
-	var y_dist = sqrt(dist * dist * 4 / 5.0)
+	var dist: float = GameState.skill_dist
+	var y_dist = sin(PI / 3) * dist
 	for i in size * 2 + 1:
 		for j in (size * 2 + 1) - abs(i - size):
 			var notch = SKILLS_TREE_NOTCH.instantiate()
@@ -46,12 +46,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func get_nearest_notch(pos: Vector2):
+func get_nearest_notch(pos: Vector2) -> Notch:
 	var min_dist: float = notches[0].position.distance_to(pos)
 	var nearest_notch: Notch = notches[0]
 	for i in notches:
-		i.nearest = false
 		if i.position.distance_to(pos) < min_dist:
 			min_dist = i.position.distance_to(pos)
 			nearest_notch = i
 	return nearest_notch
+
+func clear_nearest_notch():
+	for i in notches:
+		i.nearest = false

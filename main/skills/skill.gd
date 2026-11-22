@@ -14,9 +14,8 @@ func _ready() -> void:
 	for i in skill.layout:
 		
 		var skill_part = SKILL_INSIDE.instantiate()
-		skill_part.position_offset = get_pos(i)
+		skill_part.position = get_pos(i)
 		skill_part.skill = skill
-		skill_part.size = size
 		parts.append(skill_part)
 		add_child(skill_part)
 
@@ -34,10 +33,10 @@ func get_pos(coords: Vector3) -> Vector2:
 
 func _process(delta: float) -> void:
 	mouse_over = false
+	mouse_down = false
 	for i in parts:
 		if i.mouse_over:
 			mouse_over = true
-	mouse_down = false
-	for i in parts:
 		if i.mouse_down:
 			mouse_down = true
+		i.zoom = zoom

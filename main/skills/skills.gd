@@ -25,12 +25,25 @@ func _process(delta: float) -> void:
 		$GraphEdit/Skill.modulate.a = 1 - skill_opacity
 		if $GraphEdit.mouse_over:
 			var pos: Vector2 = ($GraphEdit/Skill.position_offset + $GraphEdit/Skill.size / 2) - $GraphEdit/GraphElement.position_offset
+			$GraphEdit/GraphElement/SkillsTree.clear_nearest_notch()
 			$GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos).nearest = true
+			for i in $GraphEdit/Skill.parts:
+				var pos2: Vector2 = (($GraphEdit/Skill.position_offset + i.position) + $GraphEdit/Skill.size / 2) - $GraphEdit/GraphElement.position_offset
+				$GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos2).nearest = true
 	
 	if old_mouse_down and not $SkillNode.mouse_down:
 		var pos: Vector2 = ($GraphEdit/Skill.position_offset + $GraphEdit/Skill.size / 2) - $GraphEdit/GraphElement.position_offset
-		var nearest: Notch =  $GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos)
-		if nearest.enabled:
+		$GraphEdit/GraphElement/SkillsTree.clear_nearest_notch()
+		var nearest: Notch = $GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos)
+		var nearests: Array[Notch]
+		var all_enabled: bool = true
+		for i in $GraphEdit/Skill.parts:
+			var pos2: Vector2 = (($GraphEdit/Skill.position_offset + i.position) + $GraphEdit/Skill.size / 2) - $GraphEdit/GraphElement.position_offset
+			var nearest2: Notch = $GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos2)
+			nearests.append(nearest2)
+			if not nearest2.enabled:
+				all_enabled = false
+		if nearest.enabled and all_enabled:
 			$GraphEdit/Skill.position_offset = (nearest.position - $GraphEdit/Skill.size / 2) + $GraphEdit/GraphElement.position_offset
 		else:
 			$SkillNode.position = $SkillNode.orig_position
@@ -41,7 +54,7 @@ func _process(delta: float) -> void:
 			$GraphEdit/Skill.modulate.a = 1 - skill_opacity
 	
 	if old_mouse_over and not $SkillNode.mouse_over:
-		$GraphEdit/GraphElement/SkillsTree.get_nearest_notch(Vector2(0, 0))
+		$GraphEdit/GraphElement/SkillsTree.clear_nearest_notch()
 	
 	if $GraphEdit/Skill.mouse_down:
 		#$GraphEdit/Skill.position_offset = ($SkillNode.position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + ($SkillNode.size / 2 / $GraphEdit.zoom) - ($GraphEdit/Skill.size / 2)
@@ -52,8 +65,17 @@ func _process(delta: float) -> void:
 	if old_inside_mouse_down and not $GraphEdit/Skill.mouse_down:
 		if $GraphEdit.mouse_over:
 			var pos: Vector2 = ($GraphEdit/Skill.position_offset + $GraphEdit/Skill.size / 2) - $GraphEdit/GraphElement.position_offset
+			$GraphEdit/GraphElement/SkillsTree.clear_nearest_notch()
 			var nearest: Notch =  $GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos)
-			if nearest.enabled:
+			var nearests: Array[Notch]
+			var all_enabled: bool = true
+			for i in $GraphEdit/Skill.parts:
+				var pos2: Vector2 = (($GraphEdit/Skill.position_offset + i.position) + $GraphEdit/Skill.size / 2) - $GraphEdit/GraphElement.position_offset
+				var nearest2: Notch = $GraphEdit/GraphElement/SkillsTree.get_nearest_notch(pos2)
+				nearests.append(nearest2)
+				if not nearest2.enabled:
+					all_enabled = false
+			if nearest.enabled and all_enabled:
 				$GraphEdit/Skill.position_offset = (nearest.position - $GraphEdit/Skill.size / 2) + $GraphEdit/GraphElement.position_offset
 			else:
 				$SkillNode.position = $SkillNode.orig_position
