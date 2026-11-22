@@ -5,10 +5,8 @@
 
 [node name="SkillOutside" type="TextureButton" unique_id=2021322099]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 546.0
-offset_top = -181.0
-offset_right = 696.0
-offset_bottom = -31.0
+offset_right = 150.0
+offset_bottom = 150.0
 texture_normal = ExtResource("1_qfnp5")
 stretch_mode = 0
 script = ExtResource("2_c1mgx")

@@ -27,39 +27,10 @@ script = ExtResource("1_nfpqj")
 skills = Array[ExtResource("2_brkye")]([null])
 
 [node name="SkillNode" type="Node2D" parent="." unique_id=1845381565]
-position = Vector2(372, -233)
+position = Vector2(546, -181)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_tqmet")
 skill = ExtResource("4_pwtyx")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=846400871]
-visible = false
-modulate = Color(2.8165433, 0, 0, 1)
-position = Vector2(372, -233)
-texture = ExtResource("5_tqmet")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" unique_id=2092644611]
-modulate = Color(2.8165433, 0, 0, 1)
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("5_tqmet")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=100601030]
-modulate = Color(2.8165433, 0, 0, 1)
-position = Vector2(150, 0)
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("5_tqmet")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D" unique_id=127903560]
-modulate = Color(2.8165433, 0, 0, 1)
-position = Vector2(75, 129.904)
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("5_tqmet")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D" unique_id=1209876986]
-modulate = Color(2.8165433, 0, 0, 1)
-position = Vector2(-75, 129.904)
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("5_tqmet")
 
 [node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
 offset_right = 700.0
@@ -120,6 +91,38 @@ draggable = false
 selectable = false
 script = ExtResource("4_oxxbg")
 skill = SubResource("Resource_txcsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=846400871]
+modulate = Color(2.8165433, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(372, -233)
+texture = ExtResource("5_tqmet")
+
+[node name="Node2D" type="Node2D" parent="Sprite2D" unique_id=893320640]
+position = Vector2(65, 65)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D/Node2D" unique_id=2092644611]
+modulate = Color(2.8165433, 0, 0, 1)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_tqmet")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Node2D" unique_id=100601030]
+modulate = Color(2.8165433, 0, 0, 1)
+position = Vector2(150, 0)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_tqmet")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Node2D" unique_id=127903560]
+modulate = Color(2.8165433, 0, 0, 1)
+position = Vector2(75, 129.904)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_tqmet")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Node2D" unique_id=1209876986]
+modulate = Color(2.8165433, 0, 0, 1)
+position = Vector2(-75, 129.904)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_tqmet")
 
 [node name="MouseDetect" type="Area2D" parent="." unique_id=1822911739]
 visible = false

@@ -67,8 +67,14 @@ func _process(delta: float) -> void:
 		#$GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) = ($SkillNode.position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + ($SkillNode.size / 2 / $GraphEdit.zoom)
 		#($GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) - ($SkillNode.size / 2 / $GraphEdit.zoom)) * $GraphEdit.zoom - $GraphEdit.scroll_offset = $SkillNode.position
 		var rel_zoom = $GraphEdit.zoom / $SkillNode.scale.x
+		#var mouse_offset: Vector2 = ((get_global_mouse_position() - $GraphEdit/Skill.global_position) / rel_zoom - ((get_global_mouse_position() - $GraphEdit/Skill.global_position)))
 		var mouse_offset: Vector2 = ((get_global_mouse_position() - $GraphEdit/Skill.global_position) / rel_zoom - ((get_global_mouse_position() - $GraphEdit/Skill.global_position)))
-		$SkillNode.position = ($GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) - mouse_offset / $SkillNode.scale - ($SkillNode.size / 2)) * $GraphEdit.zoom - $GraphEdit.scroll_offset
+		#$SkillNode.position = ($GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) - mouse_offset / $SkillNode.scale - ($SkillNode.size / 2)) * $GraphEdit.zoom - $GraphEdit.scroll_offset
+		#$GraphEdit/Skill.position_offset = ($SkillNode.position + $GraphEdit.scroll_offset) / $GraphEdit.zoom + ($SkillNode.size / 2) + mouse_offset / $SkillNode.scale - ($GraphEdit/Skill.size / 2)
+		$Sprite2D.scale = $SkillNode.scale
+		print(mouse_offset)
+		$Sprite2D.position = ($GraphEdit/Skill.position_offset - ($SkillNode.size / 2) - mouse_offset / rel_zoom + ($GraphEdit/Skill.size / 2)) * $GraphEdit.zoom - $GraphEdit.scroll_offset
+		$SkillNode.position = ($GraphEdit/Skill.position_offset - ($SkillNode.size / 2) - mouse_offset / $SkillNode.scale + ($GraphEdit/Skill.size / 2)) * $GraphEdit.zoom - $GraphEdit.scroll_offset
 		
 		#$SkillNode.position = ($GraphEdit/Skill.position_offset + ($GraphEdit/Skill.size / 2) - ($SkillNode.size * $SkillNode.scale / 2 / $GraphEdit.zoom)) * $GraphEdit.zoom - $GraphEdit.scroll_offset - mouse_offset / $SkillNode.scale
 		#var zoom_relative = $GraphEdit.zoom / $SkillNode.scale.x
