@@ -7,7 +7,7 @@ var mouse_down: bool = false
 var mouse_over: bool = false
 var old_gobal_mouse_pos: Vector2 = Vector2(0, 0)
 var zoom: float = 1
-@export var skill: Skill = Skill.new()
+var skill: Skill = Skill.new()
 var parts: Array[SkillInsidePart]
 
 func _ready() -> void:
