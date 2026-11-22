@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cjvprxtbyyec4" path="res://main/skills/skill_node.gd" id="3_tqmet"]
 [ext_resource type="Script" uid="uid://580mq52nnuxy" path="res://main/skills/skill.gd" id="4_oxxbg"]
 [ext_resource type="Resource" uid="uid://eq07v4hn57j1" path="res://resources/skills/skill_test.tres" id="4_pwtyx"]
+[ext_resource type="Texture2D" uid="uid://cs15gi5rpyhj6" path="res://assets/costume2.svg" id="5_tqmet"]
 [ext_resource type="Script" uid="uid://b6uysxvn0akqb" path="res://main/skills/mouse_detect.gd" id="9_brkye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2s2w8"]
@@ -30,6 +31,35 @@ position = Vector2(372, -233)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_tqmet")
 skill = ExtResource("4_pwtyx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=846400871]
+visible = false
+modulate = Color(2.8165433, 0, 0, 1)
+position = Vector2(372, -233)
+texture = ExtResource("5_tqmet")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" unique_id=2092644611]
+modulate = Color(2.8165433, 0, 0, 1)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_tqmet")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=100601030]
+modulate = Color(2.8165433, 0, 0, 1)
+position = Vector2(150, 0)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_tqmet")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D" unique_id=127903560]
+modulate = Color(2.8165433, 0, 0, 1)
+position = Vector2(75, 129.904)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_tqmet")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D" unique_id=1209876986]
+modulate = Color(2.8165433, 0, 0, 1)
+position = Vector2(-75, 129.904)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("5_tqmet")
 
 [node name="GraphEdit" type="GraphEdit" parent="." unique_id=1614388791]
 offset_right = 700.0
