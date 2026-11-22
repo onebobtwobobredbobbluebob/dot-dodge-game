@@ -1,16 +1,9 @@
 [gd_scene format=3 uid="uid://bq61ka5k8c26d"]
 
 [ext_resource type="Script" uid="uid://580mq52nnuxy" path="res://main/skills/skill.gd" id="1_t3hwc"]
-[ext_resource type="Script" uid="uid://dynh1xbkgxp0l" path="res://main/skills/skill_peices.gd" id="2_4i23v"]
-
-[sub_resource type="Resource" id="Resource_txcsx"]
-script = ExtResource("2_4i23v")
-layout = Array[Vector3]([Vector3(0, 0, 0), Vector3(1, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 1)])
-metadata/_custom_type_script = "uid://dynh1xbkgxp0l"
 
 [node name="Skill" type="GraphElement" unique_id=217998604]
 visible = false
 draggable = false
 selectable = false
 script = ExtResource("1_t3hwc")
-skill = SubResource("Resource_txcsx")

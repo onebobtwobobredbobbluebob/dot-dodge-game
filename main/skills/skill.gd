@@ -34,9 +34,11 @@ func get_pos(coords: Vector3) -> Vector2:
 func _process(delta: float) -> void:
 	mouse_over = false
 	mouse_down = false
-	for i in parts:
-		if i.mouse_over:
-			mouse_over = true
-		if i.mouse_down:
-			mouse_down = true
-		i.zoom = zoom
+	if not modulate.a == 0:
+		for i in parts:
+			if i.mouse_over:
+				mouse_over = true
+			if i.mouse_down:
+				mouse_down = true
+			i.zoom = zoom
+	skill.ac

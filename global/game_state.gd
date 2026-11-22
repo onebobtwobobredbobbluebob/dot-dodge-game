@@ -15,7 +15,8 @@ var shop: bool = false
 var screen_flash: Sprite2D
 var rings_unlocked: int = 1
 var skills_tree: Node2D
-var skill_dist = 150
+var skill_dist: float = 150
+var skill_activations: Array[Skill]
 func _process(delta: float) -> void:
 	timer += delta
 

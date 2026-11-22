@@ -28,6 +28,7 @@ func _ready() -> void:
 		old_mouse_downs.append(false)
 		old_inside_mouse_downs.append(false)
 		old_mouse_overs.append(false)
+		GameState.skill_activations.append(false)
 
 func _process(delta: float) -> void:
 	for s in skills.size():
